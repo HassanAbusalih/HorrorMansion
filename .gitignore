@@ -2,13 +2,14 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+Horror Mansion/[Ll]ibrary/
+Horror Mansion/[Tt]emp/
+Horror Mansion/[Oo]bj/
+Horror Mansion/[Bb]uild/
+Horror Mansion/[Bb]uilds/
+Horror Mansion/[Ll]ogs/
+Horror Mansion/[Mm]emoryCaptures/
+Horror Mansion/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
