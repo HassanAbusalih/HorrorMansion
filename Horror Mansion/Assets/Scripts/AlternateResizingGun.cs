@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResizingGun : MonoBehaviour
+public class AlternateResizingGun : MonoBehaviour
 {
     [SerializeField] KeyCode enlargeButton = KeyCode.Mouse0;
     [SerializeField] KeyCode shrinkButton = KeyCode.Mouse1;
-    ResizableObject resizable;
+    [SerializeField] FloatList resizeSpeed;
+    AlternateResizable resizable;
     Transform rayDirection;
 
     private void Start()
@@ -16,20 +17,20 @@ public class ResizingGun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(enlargeButton))
+        if (Input.GetKey(enlargeButton))
         {
             CheckForResizable();
             if (resizable != null)
             {
-                resizable.Enlarge();
+                resizable.Enlarge(resizeSpeed.GetFloatVar("Resize Speed").value);
             }
         }
-        else if (Input.GetKeyDown(shrinkButton))
+        else if (Input.GetKey(shrinkButton))
         {
             CheckForResizable();
             if (resizable != null)
             {
-                resizable.Shrink();
+                resizable.Shrink(resizeSpeed.GetFloatVar("Resize Speed").value);
             }
         }
     }
@@ -39,9 +40,9 @@ public class ResizingGun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, rayDirection.forward, out hit, 5f))
         {
-            if (hit.transform.GetComponent<ResizableObject>() != null)
+            if (hit.transform.GetComponent<AlternateResizable>() != null)
             {
-                resizable = hit.transform.GetComponent<ResizableObject>();
+                resizable = hit.transform.GetComponent<AlternateResizable>();
             }
             else
             {
