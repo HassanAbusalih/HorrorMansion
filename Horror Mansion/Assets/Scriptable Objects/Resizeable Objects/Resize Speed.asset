@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d3c936f59c604980fbaaeb1e838b6, type: 3}
   m_Name: Resize Speed
   m_EditorClassIdentifier: 
-  floatVars: []
+  floatVars:
+  - value: 0.8
+    name: Resize Speed

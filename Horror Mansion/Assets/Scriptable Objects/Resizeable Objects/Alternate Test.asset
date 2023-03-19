@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d3c936f59c604980fbaaeb1e838b6, type: 3}
   m_Name: Alternate Test
   m_EditorClassIdentifier: 
-  floatVars: []
+  floatVars:
+  - value: 1
+    name: Default
+  - value: 0.5
+    name: Min
+  - value: 3
+    name: Max
+  - value: 1.5
+    name: Min Correct
+  - value: 2
+    name: Max Correct
