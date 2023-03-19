@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-//[CustomEditor(typeof(FloatList))]
+[CustomEditor(typeof(FloatList))]
 public class FloatListInspector : Editor
 {
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
         FloatList floatList = (FloatList)target;
+        Undo.RecordObject(floatList, "Float List change");
         EditorGUILayout.LabelField("Float Variables");
         for (int i = 0; i < floatList.floatVars.Count; i++)
         {
@@ -31,6 +32,7 @@ public class FloatListInspector : Editor
         }
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();
+        EditorUtility.SetDirty(target);
         serializedObject.ApplyModifiedProperties();
     }
 }
