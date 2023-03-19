@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(FloatList))]
+//[CustomEditor(typeof(FloatList))]
 public class FloatListInspector : Editor
 {
     public override void OnInspectorGUI()
