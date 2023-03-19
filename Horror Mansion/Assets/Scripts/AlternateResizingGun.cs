@@ -38,7 +38,7 @@ public class AlternateResizingGun : MonoBehaviour
     void CheckForResizable()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, rayDirection.forward, out hit, 5f))
+        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out hit, 5f))
         {
             if (hit.transform.GetComponent<AlternateResizable>() != null)
             {
