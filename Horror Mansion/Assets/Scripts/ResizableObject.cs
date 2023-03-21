@@ -1,20 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ResizableObject : MonoBehaviour
 {
     [SerializeField] FloatList floatList;
+    [SerializeField] bool allowPickUpWhenCorrect;
+    UnityEvent correctSize = new();
     Vector3 defaultScale;
     int currentSize;
-    int correctSize;
-    public bool correct;
+    int correctObjectSize;
+    bool correct;
 
     void Start()
     {
         currentSize = floatList.GetFloatVarPosition("Default");
-        correctSize = floatList.GetFloatVarPosition("Correct");
+        correctObjectSize = floatList.GetFloatVarPosition("Correct");
         defaultScale = transform.localScale;
+        if (allowPickUpWhenCorrect)
+        {
+            PickUpable pickUpable = GetComponent<PickUpable>();
+            if (pickUpable == null)
+            {
+                pickUpable = gameObject.AddComponent<PickUpable>();
+            }
+            pickUpable.SetEvent(correctSize, floatList);
+        }
     }
 
     public void Shrink()
@@ -24,14 +36,7 @@ public class ResizableObject : MonoBehaviour
             currentSize--;
             transform.localScale = defaultScale * floatList.floatVars[currentSize].value;
         }
-        if (currentSize == correctSize)
-        {
-            correct = true;
-        }
-        else
-        {
-            correct = false;
-        }
+        IsCorrect();
     }
 
     public void Enlarge()
@@ -41,13 +46,20 @@ public class ResizableObject : MonoBehaviour
             currentSize++;
             transform.localScale = defaultScale * floatList.floatVars[currentSize].value;
         }
-        if (currentSize == correctSize)
+        IsCorrect();
+    }
+
+    void IsCorrect()
+    {
+        if (currentSize == correctObjectSize && !correct)
         {
             correct = true;
+            correctSize.Invoke();
         }
-        else
+        else if (currentSize != correctObjectSize && correct)
         {
             correct = false;
+            correctSize.Invoke();
         }
     }
 }

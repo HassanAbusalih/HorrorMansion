@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AlternateResizable : MonoBehaviour
 {
     [SerializeField] FloatList floatList;
-    float currentSize;
+    [SerializeField] bool allowPickUpWhenCorrect;
+    UnityEvent correctSize = new();
     Vector3 defaultScale;
+    bool correct;
+    float currentSize;
     float maxSize;
     float minSize;
     float correctMinSize;
     float correctMaxSize;
-    public bool correct;
 
     void Start()
     {
@@ -21,6 +24,15 @@ public class AlternateResizable : MonoBehaviour
         correctMinSize = floatList.GetFloatVar("Min Correct").value;
         correctMaxSize = floatList.GetFloatVar("Max Correct").value;
         defaultScale = transform.localScale;
+        if (allowPickUpWhenCorrect)
+        {
+            PickUpable pickUpable = GetComponent<PickUpable>();
+            if (pickUpable == null)
+            {
+                pickUpable = gameObject.AddComponent<PickUpable>();
+            }
+            pickUpable.SetEvent(correctSize, floatList);
+        }
     }
 
     public void Shrink(float resizeSpeed)
@@ -30,14 +42,7 @@ public class AlternateResizable : MonoBehaviour
             currentSize -= resizeSpeed * Time.deltaTime;
             transform.localScale = defaultScale * currentSize;
         }
-        if (currentSize >= correctMinSize && currentSize <= correctMaxSize)
-        {
-            correct = true;
-        }
-        else
-        {
-            correct = false;
-        }
+        IsCorrect();
     }
 
     public void Enlarge(float resizeSpeed)
@@ -47,13 +52,20 @@ public class AlternateResizable : MonoBehaviour
             currentSize += resizeSpeed * Time.deltaTime;
             transform.localScale = defaultScale * currentSize;
         }
-        if (currentSize >= correctMinSize && currentSize <= correctMaxSize)
+        IsCorrect();
+    }
+
+    void IsCorrect()
+    {
+        if (currentSize >= correctMinSize && currentSize <= correctMaxSize && !correct)
         {
             correct = true;
+            correctSize.Invoke();
         }
-        else
+        else if (correct && (currentSize < correctMinSize || currentSize > correctMaxSize))
         {
             correct = false;
+            correctSize.Invoke();
         }
     }
 }
