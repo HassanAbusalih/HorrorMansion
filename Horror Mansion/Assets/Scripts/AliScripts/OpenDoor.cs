@@ -29,7 +29,7 @@ public class OpenDoor : MonoBehaviour
         {
             anim.SetTrigger("OpenDoor");
             CodePanel.SetActive(false);
-            Destroy(GameObject.FindWithTag("Invis"));
+           // Destroy(GameObject.FindWithTag("Invis"));
         }
 
         if(codeTextValue.Length >= 4)
