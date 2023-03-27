@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();    
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");

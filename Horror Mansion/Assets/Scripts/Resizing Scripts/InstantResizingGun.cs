@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResizingGun : MonoBehaviour
+public class InstantResizingGun : MonoBehaviour
 {
     [SerializeField] KeyCode enlargeButton = KeyCode.Mouse0;
     [SerializeField] KeyCode shrinkButton = KeyCode.Mouse1;
-    ResizableObject resizable;
-    Transform rayDirection;
+    InstantResizable resizable;
+    Vector3 screenCenter = new (0.5f, 0.5f);
+    Camera rayDirection;
 
     private void Start()
     {
-        rayDirection = FindObjectOfType<FirstPersonCam>().transform;
+        rayDirection = FindObjectOfType<Camera>();
     }
 
     void Update()
@@ -37,11 +38,11 @@ public class ResizingGun : MonoBehaviour
     void CheckForResizable()
     {
         RaycastHit hit;
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out hit, 5f))
+        if (Physics.Raycast(rayDirection.ViewportPointToRay(screenCenter), out hit, 5f))
         {
-            if (hit.transform.GetComponent<ResizableObject>() != null)
+            if (hit.transform.GetComponent<InstantResizable>() != null)
             {
-                resizable = hit.transform.GetComponent<ResizableObject>();
+                resizable = hit.transform.GetComponent<InstantResizable>();
             }
             else
             {
