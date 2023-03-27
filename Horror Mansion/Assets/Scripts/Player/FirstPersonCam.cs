@@ -8,13 +8,17 @@ public class FirstPersonCam : MonoBehaviour
     float yRotation;
     [SerializeField] FloatList floatList;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     void Update()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
         xRotation -= Input.GetAxis("Mouse Y") * floatList.GetFloatVar("Sensitivity").value;
         yRotation += Input.GetAxis("Mouse X") * floatList.GetFloatVar("Sensitivity").value;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+        xRotation = Mathf.Clamp(xRotation, -85, 85);
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         if (transform.parent != null)
         {
