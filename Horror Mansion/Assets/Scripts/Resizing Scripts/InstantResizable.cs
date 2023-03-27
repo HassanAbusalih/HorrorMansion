@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ResizableObject : MonoBehaviour
+public class InstantResizable : MonoBehaviour
 {
     [SerializeField] FloatList floatList;
     [SerializeField] bool allowPickUpWhenCorrect;
@@ -25,7 +25,7 @@ public class ResizableObject : MonoBehaviour
             {
                 pickUpable = gameObject.AddComponent<PickUpable>();
             }
-            pickUpable.SetEvent(correctSize, floatList);
+            pickUpable.SetEvent(correctSize, name);
         }
     }
 

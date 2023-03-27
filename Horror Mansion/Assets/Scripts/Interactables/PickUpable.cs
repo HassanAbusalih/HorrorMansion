@@ -6,10 +6,9 @@ using UnityEngine.Events;
 public class PickUpable : MonoBehaviour
 {
     [HideInInspector] public bool pickUpable = true;
-    [HideInInspector] public bool isResized;
-    [HideInInspector] public FloatList identifier;
+    [HideInInspector] public string identifier;
 
-    public void SetEvent(UnityEvent gameEvent, FloatList identity)
+    public void SetEvent(UnityEvent gameEvent, string identity)
     {
         identifier = identity;
         gameEvent.AddListener(ToggleState);
@@ -19,6 +18,5 @@ public class PickUpable : MonoBehaviour
     void ToggleState()
     {
         pickUpable = !pickUpable;
-        isResized = pickUpable;
     }
 }

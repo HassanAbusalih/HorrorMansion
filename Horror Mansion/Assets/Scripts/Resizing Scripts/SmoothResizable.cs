@@ -3,26 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AlternateResizable : MonoBehaviour
+public class SmoothResizable : MonoBehaviour
 {
-    [SerializeField] FloatList floatList;
     [SerializeField] bool allowPickUpWhenCorrect;
+    [SerializeField] float maxSize;
+    [SerializeField] float minSize;
+    [SerializeField] float correctMinSize;
+    [SerializeField] float correctMaxSize;
     UnityEvent correctSize = new();
     Vector3 defaultScale;
+    float currentSize = 1;
     bool correct;
-    float currentSize;
-    float maxSize;
-    float minSize;
-    float correctMinSize;
-    float correctMaxSize;
 
     void Start()
     {
-        maxSize = floatList.GetFloatVar("Max").value;
-        minSize = floatList.GetFloatVar("Min").value;
-        currentSize = floatList.GetFloatVar("Default").value;
-        correctMinSize = floatList.GetFloatVar("Min Correct").value;
-        correctMaxSize = floatList.GetFloatVar("Max Correct").value;
         defaultScale = transform.localScale;
         if (allowPickUpWhenCorrect)
         {
@@ -31,7 +25,7 @@ public class AlternateResizable : MonoBehaviour
             {
                 pickUpable = gameObject.AddComponent<PickUpable>();
             }
-            pickUpable.SetEvent(correctSize, floatList);
+            pickUpable.SetEvent(correctSize, name);
         }
     }
 

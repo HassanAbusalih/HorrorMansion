@@ -7,16 +7,16 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] KeyCode pickUpButton = KeyCode.E;
     [SerializeField] Transform pickUpTransform;
     PickUpable pickUpObject;
-    AlternateResizingGun alternateResizing;
-    ResizingGun resizingGun;
+    SmoothResizingGun alternateResizing;
+    InstantResizingGun resizingGun;
     Transform rayDirection;
     Rigidbody rb;
 
     void Start()
     {
         rayDirection = FindObjectOfType<FirstPersonCam>().transform;
-        alternateResizing = GetComponent<AlternateResizingGun>();
-        resizingGun = GetComponent<ResizingGun>();
+        alternateResizing = GetComponent<SmoothResizingGun>();
+        resizingGun = GetComponent<InstantResizingGun>();
     }
 
     void Update()
