@@ -7,7 +7,7 @@ public class ResizedObjectSet : MonoBehaviour
 {
     [SerializeField] List<GameEvent> objectRecievers;
     [SerializeField] GameEvent puzzleComplete;
-    bool[] addedObjects;
+    public bool[] addedObjects;
     int objectsToTrack;
     int currentNumber;
 
@@ -17,13 +17,14 @@ public class ResizedObjectSet : MonoBehaviour
         objectsToTrack = objectRecievers.Count;
         for(int i = 0; i < objectRecievers.Count; i++)
         {
-            objectRecievers[i].SubscribeInt(Increment, i);
+            objectRecievers[i].SubscribeStorageObj(Increment, i);
             Debug.Log("Subscribed with " + i);
         }
     }
 
-    void Increment(int number)
+    void Increment(object i)
     {
+        int number = (int)i;
         if (addedObjects[number])
         {
             currentNumber--;

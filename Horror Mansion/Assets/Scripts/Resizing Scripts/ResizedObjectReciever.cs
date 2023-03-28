@@ -6,14 +6,27 @@ public class ResizedObjectReciever : MonoBehaviour
 {
     [SerializeField] GameEvent gameEvent;
     [SerializeField] string desiredObjectName;
-    PickUpable resizedObject;
+    [SerializeField] bool isPartOfSet;
+    Component resizedObject;
 
     private void OnTriggerEnter(Collider other)
     {
-        resizedObject = other.GetComponent<PickUpable>();
-        if (resizedObject != null && resizedObject.pickUpable && desiredObjectName == resizedObject.identifier)
+        resizedObject = other.GetComponent<InstantResizable>();
+        if (resizedObject == null)
         {
-            gameEvent.NotifyInt();
+            resizedObject = other.GetComponent<SmoothResizable>();
+        }
+        if (resizedObject != null && resizedObject.name == desiredObjectName)
+        {
+
+            if (isPartOfSet)
+            {
+                gameEvent.NotifyStorageObj();
+            }
+            else
+            {
+                gameEvent.Notify();
+            }
         }
     }
 
@@ -21,7 +34,7 @@ public class ResizedObjectReciever : MonoBehaviour
     {
         if (resizedObject != null)
         {
-            gameEvent.NotifyInt();
+            gameEvent.NotifyStorageObj();
         }
     }
 }
