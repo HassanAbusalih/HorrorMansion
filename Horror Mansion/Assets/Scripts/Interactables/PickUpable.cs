@@ -6,11 +6,9 @@ using UnityEngine.Events;
 public class PickUpable : MonoBehaviour
 {
     [HideInInspector] public bool pickUpable = true;
-    [HideInInspector] public string identifier;
 
-    public void SetEvent(UnityEvent gameEvent, string identity)
+    public void SetEvent(UnityEvent gameEvent)
     {
-        identifier = identity;
         gameEvent.AddListener(ToggleState);
         pickUpable = false;
     }

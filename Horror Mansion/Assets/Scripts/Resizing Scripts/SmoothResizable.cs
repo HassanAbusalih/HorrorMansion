@@ -25,7 +25,7 @@ public class SmoothResizable : MonoBehaviour
             {
                 pickUpable = gameObject.AddComponent<PickUpable>();
             }
-            pickUpable.SetEvent(correctSize, name);
+            pickUpable.SetEvent(correctSize);
         }
     }
 
