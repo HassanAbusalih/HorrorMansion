@@ -7,7 +7,8 @@ using UnityEngine;
 public class GameEvent : ScriptableObject
 {
     public event Action voidEvent;
-    public TStorage<int> intEvent = new();
+    public event Action<object> objEvent;
+    public TStorage<object> storageObjEvent = new();
 
     public void Notify()
     {
@@ -19,15 +20,25 @@ public class GameEvent : ScriptableObject
         voidEvent += action;
     }
 
-    public void SubscribeInt(Action<int> action, int number)
+    public void SubscribeObj(Action<object> action)
     {
-        intEvent.Store(number);
-        intEvent.storageEvent += action;
+        objEvent += action;
     }
 
-    public void NotifyInt()
+    public void NotifyObj(object obj)
     {
-        intEvent.RaiseEvent();
+        objEvent.Invoke(obj);
+    }
+
+    public void SubscribeStorageObj(Action<object> action, object number)
+    {
+        storageObjEvent.Store(number);
+        storageObjEvent.storageEvent += action;
+    }
+
+    public void NotifyStorageObj()
+    {
+        storageObjEvent.RaiseEvent();
     }
 }
 
@@ -36,9 +47,9 @@ public class TStorage<T>
     T storage;
     public event Action<T> storageEvent;
 
-    public void Store(T number)
+    public void Store(T obj)
     {
-        storage = number;
+        storage = obj;
     }
 
     public void RaiseEvent()
