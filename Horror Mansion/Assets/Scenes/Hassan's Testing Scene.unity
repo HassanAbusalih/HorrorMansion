@@ -289,6 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
   desiredObjectName: Alternate Resizable Cube
+  isPartOfSet: 1
 --- !u!65 &568128926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -402,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
   desiredObjectName: Alternate Resizable Cube
+  isPartOfSet: 1
 --- !u!65 &579664684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -499,6 +501,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4d33ab4bc11ae947b3fb07ce22d93ac, type: 2}
   - {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
   puzzleComplete: {fileID: 0}
+  addedObjects: 
 --- !u!1 &657955355
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
   desiredObjectName: Alternate Resizable Cube
+  isPartOfSet: 1
 --- !u!65 &657955357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -645,6 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 67519140f0550a747bc68430e2aa503b, type: 2}
   desiredObjectName: Alternate Resizable Cube
+  isPartOfSet: 1
 --- !u!65 &665243432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1602,6 +1607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: f4d33ab4bc11ae947b3fb07ce22d93ac, type: 2}
   desiredObjectName: Alternate Resizable Cube
+  isPartOfSet: 1
 --- !u!65 &1239095553
 BoxCollider:
   m_ObjectHideFlags: 0
