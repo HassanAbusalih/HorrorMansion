@@ -11,20 +11,26 @@ public class GameEvent : ScriptableObject
     public event Action<object> ObjEvent;
     public TStorage<object> storageObjEvent = new();
 
-    public void Notify()
+    public void Subscribe(Action action) => VoidEvent += action;
+    public void Unsubscribe(Action action) => VoidEvent -= action;
+    public void Notify() => VoidEvent?.Invoke();
+
+    public void SubscribeObj(Action<object> action) => ObjEvent += action;
+    public void UnsubscribeObj(Action<object> action) => ObjEvent -= action;
+    public void NotifyObj(object obj) => ObjEvent?.Invoke(obj);
+
+    public void SubscribeStorageObj(Action<object> action, object obj)
     {
-        VoidEvent?.Invoke();
+        storageObjEvent.Store(obj);
+        storageObjEvent.StorageEvent += action;
     }
 
-    public void NotifyObj(object obj)
+    public void UnsubscribeStorageObj(Action<object> action)
     {
-        ObjEvent?.Invoke(obj);
+        storageObjEvent.obj = null;
+        storageObjEvent.StorageEvent -= action;
     }
-
-    public void NotifyStorageObj()
-    {
-        storageObjEvent.RaiseEvent();
-    }
+    public void NotifyStorageObj() => storageObjEvent.RaiseEvent();
 }
 
 public class TStorage<T>

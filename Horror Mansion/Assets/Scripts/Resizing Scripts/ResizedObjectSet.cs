@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ResizedObjectSet : MonoBehaviour
 {
-    [SerializeField] List<Subscriber> resizedObjects = new();
-    [SerializeField] Notifier puzzleComplete;
+    [SerializeField] List<GameEvent> resizedObjects = new();
+    [SerializeField] GameEvent puzzleComplete;
     bool[] addedObjects;
     int objectsToTrack;
     int currentNumber;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResizedObjectReciever : MonoBehaviour
 {
-    [SerializeField] Notifier gameEvent;
+    [SerializeField] GameEvent gameEvent;
     [SerializeField] string desiredObjectName;
     [SerializeField] bool isPartOfSet;
     Component resizedObject;

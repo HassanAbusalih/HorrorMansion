@@ -20,12 +20,12 @@ public class InstantResizable : MonoBehaviour
         defaultScale = transform.localScale;
         if (allowPickUpWhenCorrect)
         {
-            PickUpable pickUpable = GetComponent<PickUpable>();
-            if (pickUpable == null)
+            Interactable interactable = GetComponent<Interactable>();
+            if (interactable == null)
             {
-                pickUpable = gameObject.AddComponent<PickUpable>();
+                interactable = gameObject.AddComponent<Interactable>();
             }
-            pickUpable.SetEvent(correctSize);
+            interactable.SetEvent(correctSize);
         }
     }
 
