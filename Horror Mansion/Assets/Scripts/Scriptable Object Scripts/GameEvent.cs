@@ -4,36 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Game Event", menuName = "Custom/Game Event")]
+
 public class GameEvent : ScriptableObject
 {
-    public event Action voidEvent;
-    public event Action<object> objEvent;
+    public event Action VoidEvent;
+    public event Action<object> ObjEvent;
     public TStorage<object> storageObjEvent = new();
 
     public void Notify()
     {
-        voidEvent.Invoke();
-    }
-
-    public void Subscribe(Action action)
-    {
-        voidEvent += action;
-    }
-
-    public void SubscribeObj(Action<object> action)
-    {
-        objEvent += action;
+        VoidEvent?.Invoke();
     }
 
     public void NotifyObj(object obj)
     {
-        objEvent.Invoke(obj);
-    }
-
-    public void SubscribeStorageObj(Action<object> action, object number)
-    {
-        storageObjEvent.Store(number);
-        storageObjEvent.storageEvent += action;
+        ObjEvent?.Invoke(obj);
     }
 
     public void NotifyStorageObj()
@@ -44,16 +29,16 @@ public class GameEvent : ScriptableObject
 
 public class TStorage<T>
 {
-    T storage;
-    public event Action<T> storageEvent;
+    public T obj;
+    public event Action<T> StorageEvent;
 
     public void Store(T obj)
     {
-        storage = obj;
+        this.obj = obj;
     }
 
     public void RaiseEvent()
     {
-        storageEvent.Invoke(storage);
+        StorageEvent?.Invoke(obj);
     }
 }
