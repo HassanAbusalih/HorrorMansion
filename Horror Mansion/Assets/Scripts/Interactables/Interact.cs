@@ -43,7 +43,7 @@ public class Interact : MonoBehaviour
         if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 5f))
         {
             interactable = hit.transform.GetComponent<Interactable>();
-            if (interactable != null)
+            if (interactable != null && heldInteractable == null)
             {
                 interactText.gameObject.SetActive(interactable.canInteract);
                 return;

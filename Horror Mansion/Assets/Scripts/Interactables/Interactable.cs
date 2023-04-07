@@ -6,16 +6,43 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     [HideInInspector] public bool canInteract = true;
-    public InteractType interactType = InteractType.None;
     [TextArea(5, 10)] public string description;
+    public InteractType interactType = InteractType.None;
     public GameEvent gameEvent;
+    Transform playerPos;
+    Renderer myRenderer;
+    Material[] defaultMaterials;
+    Material[] shaderMaterials;
 
-    private void Awake()
+    private void Start()
     {
         if (interactType == InteractType.PickUp && GetComponent<Rigidbody>() == null)
         {
             gameObject.AddComponent<Rigidbody>();
         }
+        playerPos = FindFirstObjectByType<FirstPersonCam>().transform;
+        SetUpMaterialsAndShader();
+    }
+
+    private void Update()
+    {
+        if (canInteract)
+        {
+            float distance = (playerPos.position - transform.position).magnitude;
+            if (distance <= 8)
+            {
+                myRenderer.materials = shaderMaterials;
+                return;
+            }
+        }
+        myRenderer.materials = defaultMaterials;
+    }
+
+    private void SetUpMaterialsAndShader()
+    {
+        myRenderer = GetComponent<Renderer>();
+        defaultMaterials = myRenderer.materials;
+        shaderMaterials = new Material[] { defaultMaterials[0], new Material(Shader.Find("Shader Graphs/Outline")) };
     }
 
     public void SetEvent(UnityEvent gameEvent)
