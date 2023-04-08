@@ -17,7 +17,11 @@ public class InfoTrig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(forKeypad.enabled && Input.GetKey(KeyCode.Return))
+        {
+            forKeypad.enabled = false;
+            Destroy(this);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -26,6 +30,7 @@ public class InfoTrig : MonoBehaviour
         {
             forKeypad.enabled = true;
         }
+        
 
     }
 
