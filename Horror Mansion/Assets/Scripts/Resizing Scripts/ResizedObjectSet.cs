@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class ResizedObjectSet : MonoBehaviour
 {
-    [SerializeField] List<GameEvent> objectRecievers;
+    [SerializeField] List<GameEvent> resizedObjects = new();
     [SerializeField] GameEvent puzzleComplete;
-    public bool[] addedObjects;
+    bool[] addedObjects;
     int objectsToTrack;
     int currentNumber;
 
     void Start()
     {
-        addedObjects = new bool[objectRecievers.Count];
-        objectsToTrack = objectRecievers.Count;
-        for(int i = 0; i < objectRecievers.Count; i++)
+        addedObjects = new bool[resizedObjects.Count];
+        objectsToTrack = resizedObjects.Count;
+        for(int i = 0; i < resizedObjects.Count; i++)
         {
-            objectRecievers[i].SubscribeStorageObj(Increment, i);
+            resizedObjects[i].SubscribeStorageObj(Increment, i);
             Debug.Log("Subscribed with " + i);
         }
     }

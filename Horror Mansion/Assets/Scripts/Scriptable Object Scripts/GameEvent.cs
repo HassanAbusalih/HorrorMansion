@@ -4,56 +4,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Game Event", menuName = "Custom/Game Event")]
+
 public class GameEvent : ScriptableObject
 {
-    public event Action voidEvent;
-    public event Action<object> objEvent;
+    public event Action VoidEvent;
+    public event Action<object> ObjEvent;
     public TStorage<object> storageObjEvent = new();
 
-    public void Notify()
+    public void Subscribe(Action action) => VoidEvent += action;
+    public void Unsubscribe(Action action) => VoidEvent -= action;
+    public void Notify() => VoidEvent?.Invoke();
+
+    public void SubscribeObj(Action<object> action) => ObjEvent += action;
+    public void UnsubscribeObj(Action<object> action) => ObjEvent -= action;
+    public void NotifyObj(object obj) => ObjEvent?.Invoke(obj);
+
+    public void SubscribeStorageObj(Action<object> action, object obj)
     {
-        voidEvent.Invoke();
+        storageObjEvent.Store(obj);
+        storageObjEvent.StorageEvent += action;
     }
 
-    public void Subscribe(Action action)
+    public void UnsubscribeStorageObj(Action<object> action)
     {
-        voidEvent += action;
+        storageObjEvent.obj = null;
+        storageObjEvent.StorageEvent -= action;
     }
-
-    public void SubscribeObj(Action<object> action)
-    {
-        objEvent += action;
-    }
-
-    public void NotifyObj(object obj)
-    {
-        objEvent.Invoke(obj);
-    }
-
-    public void SubscribeStorageObj(Action<object> action, object number)
-    {
-        storageObjEvent.Store(number);
-        storageObjEvent.storageEvent += action;
-    }
-
-    public void NotifyStorageObj()
-    {
-        storageObjEvent.RaiseEvent();
-    }
+    public void NotifyStorageObj() => storageObjEvent.RaiseEvent();
 }
 
 public class TStorage<T>
 {
-    T storage;
-    public event Action<T> storageEvent;
+    public T obj;
+    public event Action<T> StorageEvent;
 
     public void Store(T obj)
     {
-        storage = obj;
+        this.obj = obj;
     }
 
     public void RaiseEvent()
     {
-        storageEvent.Invoke(storage);
+        StorageEvent?.Invoke(obj);
     }
 }

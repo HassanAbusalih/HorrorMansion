@@ -37,21 +37,14 @@ public class InstantResizingGun : MonoBehaviour
 
     void CheckForResizable()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(rayDirection.ViewportPointToRay(screenCenter), out hit, 5f))
+        if (Physics.Raycast(rayDirection.ViewportPointToRay(screenCenter), out RaycastHit hit, 5f))
         {
-            if (hit.transform.GetComponent<InstantResizable>() != null)
+            resizable = hit.transform.GetComponent<InstantResizable>();
+            if (resizable != null)
             {
-                resizable = hit.transform.GetComponent<InstantResizable>();
-            }
-            else
-            {
-                resizable = null;
+                return;
             }
         }
-        else
-        {
-            resizable = null;
-        }
+        resizable = null;
     }
 }
