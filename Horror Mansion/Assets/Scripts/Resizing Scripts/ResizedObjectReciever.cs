@@ -18,7 +18,6 @@ public class ResizedObjectReciever : MonoBehaviour
         }
         if (resizedObject != null && resizedObject.name == desiredObjectName)
         {
-
             if (isPartOfSet)
             {
                 gameEvent.NotifyStorageObj();
@@ -32,7 +31,7 @@ public class ResizedObjectReciever : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (resizedObject != null)
+        if (resizedObject != null && isPartOfSet)
         {
             gameEvent.NotifyStorageObj();
         }
