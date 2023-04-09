@@ -45,11 +45,11 @@ public class Interactable : MonoBehaviour
         shaderMaterials = new Material[] { defaultMaterials[0], new Material(Shader.Find("Shader Graphs/Outline")) };
     }
 
-    public void SetEvent(UnityEvent gameEvent)
+    public void SetEvent(UnityEvent gameEvent, bool correct)
     {
         gameEvent.AddListener(ToggleState);
         interactType = InteractType.PickUp;
-        canInteract = false;
+        canInteract = correct;
     }
 
     void ToggleState()
