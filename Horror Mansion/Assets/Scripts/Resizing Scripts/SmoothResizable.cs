@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SmoothResizable : MonoBehaviour
+public class SmoothResizable : Resizable
 {
     [SerializeField] bool allowPickUpWhenCorrect;
     [SerializeField] float maxSize;
     [SerializeField] float minSize;
-    [SerializeField] float correctMinSize;
-    [SerializeField] float correctMaxSize;
+    [SerializeField] float pickUpMinSize;
+    [SerializeField] float pickUpMaxSize;
     UnityEvent correctSize = new();
     Vector3 defaultScale;
-    float currentSize = 1;
     bool correct;
 
     void Start()
@@ -25,7 +24,11 @@ public class SmoothResizable : MonoBehaviour
             {
                 interactable = gameObject.AddComponent<Interactable>();
             }
-            interactable.SetEvent(correctSize);
+            if (currentSize >= pickUpMinSize && currentSize <= pickUpMaxSize && !correct)
+            {
+                correct = true;
+            }
+            interactable.SetEvent(correctSize, correct);
         }
     }
 
@@ -51,15 +54,15 @@ public class SmoothResizable : MonoBehaviour
 
     void IsCorrect()
     {
-        if (currentSize >= correctMinSize && currentSize <= correctMaxSize && !correct)
+        if (currentSize >= pickUpMinSize && currentSize <= pickUpMaxSize && !correct)
         {
             correct = true;
-            correctSize.Invoke();
+            correctSize?.Invoke();
         }
-        else if (correct && (currentSize < correctMinSize || currentSize > correctMaxSize))
+        else if (correct && (currentSize < pickUpMinSize || currentSize > pickUpMaxSize))
         {
             correct = false;
-            correctSize.Invoke();
+            correctSize?.Invoke();
         }
     }
 }

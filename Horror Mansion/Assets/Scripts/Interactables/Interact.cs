@@ -40,7 +40,7 @@ public class Interact : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 5f))
+        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
             if (interactable != null && heldInteractable == null)
@@ -73,6 +73,7 @@ public class Interact : MonoBehaviour
     private void PickUpObject()
     {
         heldInteractable = interactable;
+        heldInteractable.canInteract = false;
         heldInteractable.transform.position = pickUpPosition.position;
         heldInteractable.transform.SetParent(transform, true);
         rb = heldInteractable.GetComponent<Rigidbody>();
@@ -93,6 +94,7 @@ public class Interact : MonoBehaviour
     void DropObject()
     {
         heldInteractable.transform.SetParent(null, true);
+        heldInteractable.canInteract = true;
         if (rb != null)
         {
             rb.isKinematic = false;
