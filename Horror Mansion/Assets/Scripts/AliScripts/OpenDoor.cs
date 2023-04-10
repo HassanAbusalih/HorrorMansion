@@ -7,7 +7,8 @@ public class OpenDoor : MonoBehaviour
 {
     AudioSource doorAudioSource;
     public AudioClip doorOpen;
-    public AudioClip wrongcode;
+    public AudioClip wrongCode;
+    public AudioClip buttonClick;
     //public AudioSource WrongCode;
 
 
@@ -19,6 +20,8 @@ public class OpenDoor : MonoBehaviour
     string codeTextValue = "";
     public string safeCode;
     public GameObject CodePanel;
+    bool complete;
+    FirstPersonCam firstPersonCam;
     // public GameObject CameraRotation;
 
 
@@ -26,6 +29,7 @@ public class OpenDoor : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         doorAudioSource = GetComponent<AudioSource>();
+        firstPersonCam = FindObjectOfType<FirstPersonCam>();
     }
 
     public void play_sound()
@@ -40,9 +44,11 @@ public class OpenDoor : MonoBehaviour
     {
         CodeText.text = codeTextValue;
 
-        if(codeTextValue == safeCode)
+        if(codeTextValue == safeCode && !complete)
         {
+            complete = true;
             anim.SetTrigger("OpenDoor");
+            doorAudioSource.PlayOneShot(doorOpen);
             CodePanel.SetActive(false);
         }
 
@@ -50,13 +56,13 @@ public class OpenDoor : MonoBehaviour
         {
             codeTextValue = "";
             // set the audio clip to b wrong code
-            doorAudioSource.clip = wrongcode;
-            doorAudioSource.Play(); //not working
+            doorAudioSource.PlayOneShot(wrongCode);
         }
 
         if (Input.GetKey(KeyCode.E) && IsAtDoor == true)
         {
             CodePanel.SetActive(true);
+            firstPersonCam.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
@@ -75,6 +81,7 @@ public class OpenDoor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         IsAtDoor = false;
+        firstPersonCam.enabled = true;
         CodePanel.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -82,6 +89,7 @@ public class OpenDoor : MonoBehaviour
 
     public void AddDigit(string digit)
     {
+        doorAudioSource.PlayOneShot(buttonClick);
         codeTextValue += digit;
     }
 }
