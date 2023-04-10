@@ -5,6 +5,12 @@ using TMPro;
 
 public class OpenDoor : MonoBehaviour
 {
+    AudioSource doorAudioSource;
+    public AudioClip doorOpen;
+    public AudioClip wrongcode;
+    //public AudioSource WrongCode;
+
+
     private Animator anim;
 
     private bool IsAtDoor = false;
@@ -13,13 +19,22 @@ public class OpenDoor : MonoBehaviour
     string codeTextValue = "";
     public string safeCode;
     public GameObject CodePanel;
+    // public GameObject CameraRotation;
 
-   
+
     void Start()
     {
         anim = GetComponent<Animator>();
+        doorAudioSource = GetComponent<AudioSource>();
     }
 
+    public void play_sound()
+    {
+        //Using this function to play sound with animation
+        /// set the audio clip to be the open door clip
+        doorAudioSource.clip = doorOpen;
+        doorAudioSource.Play();
+    }
    
     void Update()
     {
@@ -29,17 +44,23 @@ public class OpenDoor : MonoBehaviour
         {
             anim.SetTrigger("OpenDoor");
             CodePanel.SetActive(false);
-           // Destroy(GameObject.FindWithTag("Invis"));
         }
 
         if(codeTextValue.Length >= 4)
         {
             codeTextValue = "";
+            // set the audio clip to b wrong code
+            doorAudioSource.clip = wrongcode;
+            doorAudioSource.Play(); //not working
         }
 
-        if(Input.GetKey(KeyCode.E) && IsAtDoor == true)
+        if (Input.GetKey(KeyCode.E) && IsAtDoor == true)
         {
             CodePanel.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
+            
         }
     }
 
@@ -55,6 +76,8 @@ public class OpenDoor : MonoBehaviour
     {
         IsAtDoor = false;
         CodePanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void AddDigit(string digit)
