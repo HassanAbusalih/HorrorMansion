@@ -5,6 +5,9 @@ using TMPro;
 
 public class OpenDoor : MonoBehaviour
 {
+    AudioSource DoorOpen;
+    public AudioSource WrongCode;
+
     private Animator anim;
 
     private bool IsAtDoor = false;
@@ -13,13 +16,21 @@ public class OpenDoor : MonoBehaviour
     string codeTextValue = "";
     public string safeCode;
     public GameObject CodePanel;
+    // public GameObject CameraRotation;
 
-   
+
     void Start()
     {
         anim = GetComponent<Animator>();
+        DoorOpen = GetComponent<AudioSource>();
+        WrongCode = GetComponent<AudioSource>();
     }
 
+    public void play_sound()
+    {
+        //Using this function to play sound with animation
+        DoorOpen.Play();
+    }
    
     void Update()
     {
@@ -29,15 +40,15 @@ public class OpenDoor : MonoBehaviour
         {
             anim.SetTrigger("OpenDoor");
             CodePanel.SetActive(false);
-           // Destroy(GameObject.FindWithTag("Invis"));
         }
 
         if(codeTextValue.Length >= 4)
         {
             codeTextValue = "";
+            WrongCode.Play(); //not working
         }
 
-        if(Input.GetKey(KeyCode.E) && IsAtDoor == true)
+        if (Input.GetKey(KeyCode.E) && IsAtDoor == true)
         {
             CodePanel.SetActive(true);
         }
