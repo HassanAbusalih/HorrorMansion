@@ -5,8 +5,11 @@ using TMPro;
 
 public class OpenDoor : MonoBehaviour
 {
-    AudioSource DoorOpen;
-    public AudioSource WrongCode;
+    AudioSource doorAudioSource;
+    public AudioClip doorOpen;
+    public AudioClip wrongcode;
+    //public AudioSource WrongCode;
+
 
     private Animator anim;
 
@@ -22,14 +25,15 @@ public class OpenDoor : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        DoorOpen = GetComponent<AudioSource>();
-        WrongCode = GetComponent<AudioSource>();
+        doorAudioSource = GetComponent<AudioSource>();
     }
 
     public void play_sound()
     {
         //Using this function to play sound with animation
-        DoorOpen.Play();
+        /// set the audio clip to be the open door clip
+        doorAudioSource.clip = doorOpen;
+        doorAudioSource.Play();
     }
    
     void Update()
@@ -45,12 +49,15 @@ public class OpenDoor : MonoBehaviour
         if(codeTextValue.Length >= 4)
         {
             codeTextValue = "";
-            WrongCode.Play(); //not working
+            // set the audio clip to b wrong code
+            doorAudioSource.clip = wrongcode;
+            doorAudioSource.Play(); //not working
         }
 
         if (Input.GetKey(KeyCode.E) && IsAtDoor == true)
         {
             CodePanel.SetActive(true);
+            Cursor.visible = true;
         }
     }
 
