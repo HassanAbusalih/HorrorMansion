@@ -58,6 +58,9 @@ public class OpenDoor : MonoBehaviour
         {
             CodePanel.SetActive(true);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
+            
         }
     }
 
@@ -73,6 +76,8 @@ public class OpenDoor : MonoBehaviour
     {
         IsAtDoor = false;
         CodePanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void AddDigit(string digit)

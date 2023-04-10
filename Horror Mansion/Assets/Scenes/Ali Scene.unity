@@ -3139,7 +3139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463fa70fc3551a340b77bd0f51c107db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WrongCode: {fileID: 179949708}
+  doorOpen: {fileID: 8300000, guid: 2bdc918381365be4889d9cb2d7f46b0f, type: 3}
+  wrongcode: {fileID: 8300000, guid: 1c7b6959f98f5b74aa5df0349110a5c3, type: 3}
   CodeText: {fileID: 104644702}
   safeCode: 123
   CodePanel: {fileID: 344891279}
