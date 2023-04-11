@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// - Allows an object to be smoothly resized
+/// - Min and max size need to be given, as well as min and max for when the object can be picked up
+/// </summary>
 public class SmoothResizable : Resizable
 {
     [SerializeField] bool allowPickUpWhenCorrect;

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This handles all possible interactions that an Interactable requires, when the player is at a certain range and 
+/// presses the designated key.
+/// This includes picking up objects, displaying descriptions, or triggering GameEvents for buttons.
+/// It also handles making text pop up when a player is looking at an interactable.
+/// </summary>
 public class Interact : MonoBehaviour
 {
     [SerializeField] KeyCode interactButton = KeyCode.E;
