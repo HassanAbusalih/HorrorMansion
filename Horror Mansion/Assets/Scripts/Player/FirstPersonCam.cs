@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Attached to the camera.
+/// This script allows the player to rotate the camera using mouse input.
+/// The player is rotated along with the camera along the Y axis.
+/// </summary>
 public class FirstPersonCam : MonoBehaviour
 {
     float xRotation;

@@ -30,12 +30,12 @@ public class ResizedObjectReciever : MonoBehaviour
             distance = direction.magnitude;
             if (distance > 0.1f && interactable.canInteract)
             {
-                resizedObject.transform.position += new Vector3(direction.normalized.x * Time.deltaTime, 0, direction.normalized.z * Time.deltaTime);
-
+                direction = direction.normalized * 5;
+                resizedObject.transform.position += new Vector3(direction.x * Time.deltaTime, 0, direction.z * Time.deltaTime);
             }
             if (transform.rotation != resizedObject.transform.rotation && interactable.canInteract)
             {
-                resizedObject.transform.rotation = Quaternion.RotateTowards(resizedObject.transform.rotation, transform.rotation, 0.1f);
+                resizedObject.transform.rotation = Quaternion.RotateTowards(resizedObject.transform.rotation, transform.rotation, 5f);
             }
             if (resizedObjectSize <= desiredObjectMaxSize && resizedObjectSize >= desiredObjectMinSize)
             {
@@ -80,7 +80,6 @@ public class ResizedObjectReciever : MonoBehaviour
         else if (!puzzleSolved)
         {
             gameEvent.Notify();
-            Debug.Log("it works");
             puzzleSolved = true;
         }
         resizedObject = null;

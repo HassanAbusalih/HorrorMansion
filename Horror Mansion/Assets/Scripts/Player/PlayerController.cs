@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script handles moving the player using Unity's character controller.
+/// A float list is used for the player's speed, sprint modifier and gravity.
+/// Since this uses a static value for the gravity, the player will always fall at the same speed.
+/// </summary>
 [RequireComponent(typeof(CharacterController))]
-
 public class PlayerController : MonoBehaviour
 {
     CharacterController controller;
