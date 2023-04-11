@@ -64,15 +64,18 @@ public class Interact : MonoBehaviour
         if (interactable.interactType == InteractType.PickUp)
         {
             PickUpObject();
+            return;
         }
         if (interactable.interactType == InteractType.Text)
         {
-            //add description functionality, make interactable null
-            //interactable.description
+            interactable.ShowDescription();
+            interactable = null;
+            return;
         }
         if (interactable.interactType == InteractType.Button)
         {
-            //add button functionality, make interactable null
+            interactable.PushButton();
+            interactable = null;
         }
     }
 
