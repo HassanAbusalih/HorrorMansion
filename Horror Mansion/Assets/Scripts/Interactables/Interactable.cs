@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,10 @@ public class Interactable : MonoBehaviour
 {
     [HideInInspector] public bool canInteract = true;
     [TextArea(5, 10)] public string description;
+    public GameObject textPrefab;
+    public bool animated;
+    public Animator animator;
+    public string animationName;
     public InteractType interactType = InteractType.None;
     public GameEvent gameEvent;
     Transform playerPos;
@@ -38,6 +43,22 @@ public class Interactable : MonoBehaviour
         myRenderer.materials = defaultMaterials;
     }
 
+    public void ShowDescription()
+    {
+        GameObject desc = Instantiate(textPrefab, new Vector3 (transform.position.x, transform.position.y + transform.localScale.y, transform.position.z), transform.rotation);
+        desc.GetComponent<TextMeshPro>().text = description;
+        desc.GetComponent<FacePlayer>().objectToFace = playerPos;
+        Destroy(desc, 5);
+    }
+
+    public void PushButton()
+    {
+        gameEvent.Notify();
+        if (animated)
+        {
+            animator.Play(animationName);
+        }
+    }
     private void SetUpMaterialsAndShader()
     {
         myRenderer = GetComponent<Renderer>();
