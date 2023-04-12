@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
     public Animator animator;
     public string animationName;
     public InteractType interactType = InteractType.None;
+    Color[] defaultColors = new Color[3] {new Color(1, 1, 0.4f), new Color(0.4f, 0.9f, 0.4f), new Color(0.25f, 0.7f, 1)};
     public GameEvent gameEvent;
     public Transform playerPos;
     Renderer myRenderer;
@@ -42,6 +43,10 @@ public class Interactable : MonoBehaviour
             if (distance <= 3.3)
             {
                 myRenderer.materials = shaderMaterials;
+                if (interactType != InteractType.None)
+                {
+                    shaderMaterials[shaderMaterials.Length - 1].color = defaultColors[(int)interactType - 1];
+                }
                 return;
             }
         }
