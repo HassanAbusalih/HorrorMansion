@@ -46,7 +46,7 @@ public class Interact : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 5f, LayerMask.GetMask("Default")))
+        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 4f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
             if (interactable != null && heldInteractable == null)

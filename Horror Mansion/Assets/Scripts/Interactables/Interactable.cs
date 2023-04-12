@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     [HideInInspector] public bool canInteract = true;
     [TextArea(5, 10)] public string description;
     public GameObject textPrefab;
+    public bool singleInteraction;
     public bool animated;
     public Animator animator;
     public string animationName;
@@ -34,7 +35,7 @@ public class Interactable : MonoBehaviour
         if (canInteract)
         {
             float distance = (playerPos.position - transform.position).magnitude;
-            if (distance <= 8)
+            if (distance <= 5)
             {
                 myRenderer.materials = shaderMaterials;
                 return;
@@ -57,6 +58,11 @@ public class Interactable : MonoBehaviour
         if (animated)
         {
             animator.Play(animationName);
+        }
+        if (singleInteraction)
+        {
+            canInteract = false;
+            Destroy(this, 0.1f);
         }
     }
     private void SetUpMaterialsAndShader()

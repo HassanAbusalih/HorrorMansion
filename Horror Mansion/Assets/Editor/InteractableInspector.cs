@@ -15,6 +15,7 @@ public class InteractableInspector : Editor
         {
             EditorGUILayout.Space();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("gameEvent"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("singleInteraction"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("animated"));
             if (interactable.animated)
             {
