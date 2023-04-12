@@ -15,6 +15,14 @@ public class InteractableInspector : Editor
         {
             EditorGUILayout.Space();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("gameEvent"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("singleInteraction"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("variableNeeded"));
+            if (interactable.variableNeeded)
+            {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("stringToPassIn"));
+                EditorGUI.indentLevel--;
+            }
             EditorGUILayout.PropertyField(serializedObject.FindProperty("animated"));
             if (interactable.animated)
             {
@@ -29,6 +37,11 @@ public class InteractableInspector : Editor
             EditorGUILayout.Space();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("textPrefab"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
+        }
+        else if (interactable.interactType == InteractType.PickUp)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("throwForce"));
         }
         serializedObject.ApplyModifiedProperties();
     }

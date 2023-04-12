@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 560009885}
   - component: {fileID: 560009884}
   - component: {fileID: 560009883}
-  - component: {fileID: 560009890}
   m_Layer: 0
   m_Name: Alternate Resizable Cube
   m_TagString: Untagged
@@ -325,21 +324,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &560009890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560009882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0baf942bc9a91884cb480be963ae133f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: a24072f2db7912f4baa5a514b161bce3, type: 2}
-  materialWhenOn: {fileID: 0}
-  materialWhenOff: {fileID: 0}
 --- !u!1 &579664682
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,8 +358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
   desiredObjectName: Alternate Resizable Cube
-  desiredObjectMinSize: 3
-  desiredObjectMaxSize: 4
+  desiredObjectMinSize: 1
+  desiredObjectMaxSize: 1
   isPartOfSet: 0
 --- !u!65 &579664684
 BoxCollider:
@@ -796,12 +780,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: Hello, am I working?
+  throwForce: 19.9
+  variableNeeded: 1
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 3
   gameEvent: {fileID: 11400000, guid: a24072f2db7912f4baa5a514b161bce3, type: 2}
+  playerPos: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882223873}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5.56, y: 1.5, z: 0}
+  m_LocalPosition: {x: -5.56, y: 1.3108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

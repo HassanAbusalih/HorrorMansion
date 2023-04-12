@@ -11,8 +11,6 @@ public class ResizedObjectReciever : MonoBehaviour
     [SerializeField] bool isPartOfSet;
     Resizable resizedObject;
     Interactable interactable;
-    Vector3 direction;
-    float distance;
     float resizedObjectSize = 0;
     bool puzzleSolved;
 
@@ -26,16 +24,9 @@ public class ResizedObjectReciever : MonoBehaviour
         if (resizedObject != null)
         {
             resizedObjectSize = resizedObject.currentSize;
-            direction = transform.position - resizedObject.transform.position;
-            distance = direction.magnitude;
-            if (distance > 0.1f && interactable.canInteract)
+            if (interactable.canInteract)
             {
-                direction = direction.normalized * 5;
-                resizedObject.transform.position += new Vector3(direction.x * Time.deltaTime, 0, direction.z * Time.deltaTime);
-            }
-            if (transform.rotation != resizedObject.transform.rotation && interactable.canInteract)
-            {
-                resizedObject.transform.rotation = Quaternion.RotateTowards(resizedObject.transform.rotation, transform.rotation, 5f);
+                SnapIntoPosition(resizedObject.transform);
             }
             if (resizedObjectSize <= desiredObjectMaxSize && resizedObjectSize >= desiredObjectMinSize)
             {
@@ -82,7 +73,22 @@ public class ResizedObjectReciever : MonoBehaviour
             gameEvent.Notify();
             puzzleSolved = true;
         }
-        resizedObject = null;
     }
 
+    void SnapIntoPosition(Transform objectToSnap)
+    {
+        if (transform.position.x != objectToSnap.transform.position.x && transform.position.y != objectToSnap.transform.position.y)
+        {
+            Vector3 direction = transform.position - objectToSnap.position;
+            if (direction.magnitude > 0.1f)
+            {
+                direction = direction.normalized * 5;
+                objectToSnap.position += new Vector3(direction.x * Time.deltaTime, 0, direction.z * Time.deltaTime);
+            }
+            if (transform.rotation != objectToSnap.rotation)
+            {
+                objectToSnap.rotation = Quaternion.RotateTowards(objectToSnap.rotation, transform.rotation, 5f);
+            }
+        }
+    }
 }
