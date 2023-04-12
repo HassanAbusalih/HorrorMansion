@@ -46,7 +46,7 @@ public class Interact : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 4f, LayerMask.GetMask("Default")))
+        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
             if (interactable != null && heldInteractable == null)
@@ -84,6 +84,7 @@ public class Interact : MonoBehaviour
         heldInteractable = interactable;
         heldInteractable.canInteract = false;
         heldInteractable.transform.position = pickUpPosition.position;
+        heldInteractable.transform.up = transform.up;
         heldInteractable.transform.SetParent(transform, true);
         rb = heldInteractable.GetComponent<Rigidbody>();
         if (rb != null)
@@ -108,6 +109,8 @@ public class Interact : MonoBehaviour
         {
             rb.isKinematic = false;
         }
+        Vector3 throwVector = Vector3.Lerp(heldInteractable.playerPos.forward, heldInteractable.playerPos.up, 0.3f);
+        rb.AddForce(0.5f * heldInteractable.throwForce * throwVector, ForceMode.Impulse);
         heldInteractable = null;
         rb = null;
         if (smoothResizingGun != null)
