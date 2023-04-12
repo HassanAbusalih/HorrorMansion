@@ -781,7 +781,7 @@ MonoBehaviour:
   canInteract: 1
   description: Hello, am I working?
   throwForce: 19.9
-  variableNeeded: 1
+  variableNeeded: 0
   stringToPassIn: 
   textPrefab: {fileID: 0}
   singleInteraction: 0

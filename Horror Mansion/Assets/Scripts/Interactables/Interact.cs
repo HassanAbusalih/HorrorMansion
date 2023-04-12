@@ -109,6 +109,10 @@ public class Interact : MonoBehaviour
         {
             rb.isKinematic = false;
         }
+        else
+        {
+            rb = heldInteractable.gameObject.AddComponent<Rigidbody>();
+        }
         Vector3 throwVector = Vector3.Lerp(heldInteractable.playerPos.forward, heldInteractable.playerPos.up, 0.3f);
         rb.AddForce(0.5f * heldInteractable.throwForce * throwVector, ForceMode.Impulse);
         heldInteractable = null;
