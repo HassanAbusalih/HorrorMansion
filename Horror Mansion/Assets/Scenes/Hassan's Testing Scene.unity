@@ -782,6 +782,8 @@ MonoBehaviour:
   description: Hello, am I working?
   throwForce: 19.9
   variableNeeded: 0
+  componentNeeded: 1
+  componentToPassIn: {fileID: 0}
   stringToPassIn: 
   textPrefab: {fileID: 0}
   singleInteraction: 0
