@@ -10,7 +10,9 @@ public class Interactable : MonoBehaviour
     [TextArea(5, 10)] public string description;
     [Range(0, 50)] public float throwForce;
     public bool variableNeeded;
+    public bool componentNeeded;
     [Tooltip("This will pass a string through the GameEvent.")]
+    public Component componentToPassIn;
     public string stringToPassIn;
     public GameObject textPrefab;
     public bool singleInteraction;
@@ -65,7 +67,14 @@ public class Interactable : MonoBehaviour
     {
         if (variableNeeded)
         {
-            gameEvent.NotifyObj(stringToPassIn);
+            if (componentNeeded)
+            {
+                gameEvent.NotifyObj(componentToPassIn);
+            }
+            else
+            {
+                gameEvent.NotifyObj(stringToPassIn);
+            }
         }
         else
         {

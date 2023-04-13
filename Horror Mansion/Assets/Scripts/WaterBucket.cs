@@ -5,39 +5,52 @@ using UnityEngine.UI;
 
 public class WaterBucket : MonoBehaviour
 {
-    [SerializeField] Bucket[] buckets;
+    [SerializeField] GameEvent gameEvent;
+    BucketData[] buckets;
+    BucketData addingBucket;
+    BucketData receivingBucket;
 
-    void Start()
+    private void Start()
     {
-        for (int i = 0; i < buckets.Length; i++)
+        buckets = FindObjectsOfType<BucketData>();
+    }
+
+    public void ChooseBucket(BucketData bucket)
+    {
+        if (addingBucket != null && bucket != addingBucket)
         {
-            buckets[i].image.fillAmount = (float)buckets[i].currentAmount / buckets[i].maxAmount;
-            buckets[i].index = i;
+            receivingBucket = bucket;
+            AddToBucket();
+        }
+        else
+        {
+            addingBucket = bucket;
         }
     }
 
-    public void AddToBucket(int addingIndex, int receivingIndex)
+    void AddToBucket()
     {
-        if (addingIndex >= buckets.Length || receivingIndex >= buckets.Length)
-        {
-            Debug.Log("Invalid bucket index!");
-            return;
-        }
-        Bucket addingBucket = buckets[addingIndex];
-        Bucket receivingBucket = buckets[receivingIndex];
         int spaceInBucket = receivingBucket.maxAmount - receivingBucket.currentAmount;
         int amountToAdd = Mathf.Min(spaceInBucket, addingBucket.currentAmount);
         receivingBucket.currentAmount += amountToAdd;
         addingBucket.currentAmount -= amountToAdd;
         addingBucket.image.fillAmount = (float)addingBucket.currentAmount / addingBucket.maxAmount;
         receivingBucket.image.fillAmount = (float)receivingBucket.currentAmount / receivingBucket.maxAmount;
+        CheckIfSolved();
     }
-}
 
-public class Bucket
-{
-    [HideInInspector] public int index;
-    public int currentAmount;
-    public int maxAmount;
-    public Image image;
+    void CheckIfSolved()
+    {
+        addingBucket = null;
+        receivingBucket = null;
+        foreach(BucketData bucket in buckets)
+        {
+            if (bucket.currentAmount != bucket.desiredAmount)
+            {
+                return;
+            }
+        }
+        gameEvent.Notify();
+    }
+
 }
