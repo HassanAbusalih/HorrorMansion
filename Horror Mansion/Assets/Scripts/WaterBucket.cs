@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class WaterBucket : MonoBehaviour
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent incoming;
+    [SerializeField] GameEvent outgoing;
     BucketData[] buckets;
     BucketData addingBucket;
     BucketData receivingBucket;
@@ -13,18 +14,19 @@ public class WaterBucket : MonoBehaviour
     private void Start()
     {
         buckets = FindObjectsOfType<BucketData>();
+        incoming.SubscribeObj(ChooseBucket);
     }
 
-    public void ChooseBucket(BucketData bucket)
+    public void ChooseBucket(object bucket)
     {
-        if (addingBucket != null && bucket != addingBucket)
+        if (addingBucket != null && (BucketData)bucket != addingBucket)
         {
-            receivingBucket = bucket;
+            receivingBucket = (BucketData)bucket;
             AddToBucket();
         }
         else
         {
-            addingBucket = bucket;
+            addingBucket = (BucketData)bucket;
         }
     }
 
@@ -50,7 +52,7 @@ public class WaterBucket : MonoBehaviour
                 return;
             }
         }
-        gameEvent.Notify();
+        outgoing.Notify();
     }
 
 }
