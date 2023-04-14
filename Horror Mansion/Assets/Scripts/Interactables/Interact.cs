@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This handles all possible interactions that an Interactable requires, when the player is at a certain range and 
+/// presses the designated key.
+/// This includes picking up objects, displaying descriptions, or triggering GameEvents for buttons.
+/// It also handles making text pop up when a player is looking at an interactable.
+/// </summary>
 public class Interact : MonoBehaviour
 {
     [SerializeField] KeyCode interactButton = KeyCode.E;
@@ -40,7 +46,7 @@ public class Interact : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 5f, LayerMask.GetMask("Default")))
+        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
             if (interactable != null && heldInteractable == null)
@@ -55,18 +61,21 @@ public class Interact : MonoBehaviour
 
     private void InteractWithObject()
     {
-        if (interactable.interactType == InteractType.PickUp)
+        switch (interactable.interactType)
         {
-            PickUpObject();
-        }
-        if (interactable.interactType == InteractType.Text)
-        {
-            //add description functionality, make interactable null
-            //interactable.description
-        }
-        if (interactable.interactType == InteractType.Button)
-        {
-            //add button functionality, make interactable null
+            case InteractType.PickUp:
+                PickUpObject();
+                break;
+            case InteractType.Text:
+                interactable.ShowDescription();
+                interactable = null;
+                break;
+            case InteractType.Button:
+                interactable.PushButton();
+                interactable = null;
+                break;
+            default:
+                break;
         }
     }
 
@@ -75,6 +84,7 @@ public class Interact : MonoBehaviour
         heldInteractable = interactable;
         heldInteractable.canInteract = false;
         heldInteractable.transform.position = pickUpPosition.position;
+        heldInteractable.transform.up = transform.up;
         heldInteractable.transform.SetParent(transform, true);
         rb = heldInteractable.GetComponent<Rigidbody>();
         if (rb != null)
@@ -99,6 +109,16 @@ public class Interact : MonoBehaviour
         {
             rb.isKinematic = false;
         }
+        else
+        {
+            rb = heldInteractable.gameObject.AddComponent<Rigidbody>();
+        }
+        Vector3 throwVector = Vector3.Lerp(heldInteractable.playerPos.forward, heldInteractable.playerPos.up, 0.3f);
+        if (heldInteractable.pickUp == null)
+        {
+            heldInteractable.pickUp = new();
+        }
+        rb.AddForce(0.5f * heldInteractable.pickUp.ThrowForce * throwVector, ForceMode.Impulse);
         heldInteractable = null;
         rb = null;
         if (smoothResizingGun != null)
