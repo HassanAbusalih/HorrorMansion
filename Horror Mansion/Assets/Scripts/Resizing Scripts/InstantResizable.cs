@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InstantResizable : MonoBehaviour
+public class InstantResizable : Resizable
 {
     [SerializeField] FloatList floatList;
     [SerializeField] bool allowPickUpWhenCorrect;
     UnityEvent correctSize = new();
     Vector3 defaultScale;
-    int currentSize;
     int correctObjectSize;
     bool correct;
 
@@ -25,7 +24,11 @@ public class InstantResizable : MonoBehaviour
             {
                 interactable = gameObject.AddComponent<Interactable>();
             }
-            interactable.SetEvent(correctSize);
+            if (currentSize == correctObjectSize)
+            {
+                correct = true;
+            }
+            interactable.SetEvent(correctSize, correct);
         }
     }
 
@@ -34,7 +37,7 @@ public class InstantResizable : MonoBehaviour
         if(currentSize > 0)
         {
             currentSize--;
-            transform.localScale = defaultScale * floatList.floatVars[currentSize].value;
+            transform.localScale = defaultScale * floatList.floatVars[(int)currentSize].value;
         }
         IsCorrect();
     }
@@ -44,7 +47,7 @@ public class InstantResizable : MonoBehaviour
         if (currentSize < floatList.floatVars.Count - 1)
         {
             currentSize++;
-            transform.localScale = defaultScale * floatList.floatVars[currentSize].value;
+            transform.localScale = defaultScale * floatList.floatVars[(int)currentSize].value;
         }
         IsCorrect();
     }
@@ -54,12 +57,17 @@ public class InstantResizable : MonoBehaviour
         if (currentSize == correctObjectSize && !correct)
         {
             correct = true;
-            correctSize.Invoke();
+            correctSize?.Invoke();
         }
         else if (currentSize != correctObjectSize && correct)
         {
             correct = false;
-            correctSize.Invoke();
+            correctSize?.Invoke();
         }
     }
+}
+
+public class Resizable : MonoBehaviour
+{
+    [HideInInspector] public float currentSize = 1;
 }

@@ -7,6 +7,7 @@ public class ResizedObjectSet : MonoBehaviour
 {
     [SerializeField] List<GameEvent> resizedObjects = new();
     [SerializeField] GameEvent puzzleComplete;
+    bool puzzleSolved;
     bool[] addedObjects;
     int objectsToTrack;
     int currentNumber;
@@ -36,9 +37,10 @@ public class ResizedObjectSet : MonoBehaviour
             addedObjects[number] = true;
         }
         Debug.Log(currentNumber);
-        if (objectsToTrack == currentNumber)
+        if (objectsToTrack == currentNumber && !puzzleSolved)
         {
             puzzleComplete.Notify();
+            puzzleSolved = true;
         }
     }
     

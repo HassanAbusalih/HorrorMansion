@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ResizePuzzle : MonoBehaviour
 {
-    public GameObject miniDoor;
+
+    public GameEvent gameEvent;
     // Start is called before the first frame update
     void Start()
     {
-        miniDoor.SetActive(true);
+        gameEvent.Subscribe(Solve);
     }
 
     // Update is called once per frame
@@ -17,11 +18,8 @@ public class ResizePuzzle : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision collision)
+    void Solve()
     {
-        if(collision.gameObject.tag == "Shape")
-        {
-            miniDoor.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
 }
