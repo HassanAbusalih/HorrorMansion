@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class WaterBucket : MonoBehaviour
+public class BucketManager : MonoBehaviour, ISubscriber, INotifier
 {
-    [SerializeField] GameEvent incoming;
-    [SerializeField] GameEvent outgoing;
+    GameEvent incoming;
+    GameEvent outgoing;
+    public GameEvent Subscriber { get => incoming; }
+    public GameEvent Notifier { get => outgoing; }
+
     BucketData[] buckets;
     BucketData addingBucket;
     BucketData receivingBucket;

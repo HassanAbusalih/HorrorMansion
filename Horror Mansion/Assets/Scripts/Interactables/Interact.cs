@@ -61,21 +61,21 @@ public class Interact : MonoBehaviour
 
     private void InteractWithObject()
     {
-        if (interactable.interactType == InteractType.PickUp)
+        switch (interactable.interactType)
         {
-            PickUpObject();
-            return;
-        }
-        if (interactable.interactType == InteractType.Text)
-        {
-            interactable.ShowDescription();
-            interactable = null;
-            return;
-        }
-        if (interactable.interactType == InteractType.Button)
-        {
-            interactable.PushButton();
-            interactable = null;
+            case InteractType.PickUp:
+                PickUpObject();
+                break;
+            case InteractType.Text:
+                interactable.ShowDescription();
+                interactable = null;
+                break;
+            case InteractType.Button:
+                interactable.PushButton();
+                interactable = null;
+                break;
+            default:
+                break;
         }
     }
 
@@ -114,7 +114,11 @@ public class Interact : MonoBehaviour
             rb = heldInteractable.gameObject.AddComponent<Rigidbody>();
         }
         Vector3 throwVector = Vector3.Lerp(heldInteractable.playerPos.forward, heldInteractable.playerPos.up, 0.3f);
-        rb.AddForce(0.5f * heldInteractable.throwForce * throwVector, ForceMode.Impulse);
+        if (heldInteractable.pickUp == null)
+        {
+            heldInteractable.pickUp = new();
+        }
+        rb.AddForce(0.5f * heldInteractable.pickUp.ThrowForce * throwVector, ForceMode.Impulse);
         heldInteractable = null;
         rb = null;
         if (smoothResizingGun != null)
