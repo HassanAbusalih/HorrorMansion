@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Movement
   m_EditorClassIdentifier: 
   floatVars:
-  - value: 8
+  - value: 4
     name: Speed
   - value: 1.5
     name: Sprint Modifier
