@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class WaterBucket : MonoBehaviour
+public class BucketManager : MonoBehaviour
 {
     [SerializeField] GameEvent incoming;
     [SerializeField] GameEvent outgoing;
@@ -19,14 +18,15 @@ public class WaterBucket : MonoBehaviour
 
     public void ChooseBucket(object bucket)
     {
-        if (addingBucket != null && (BucketData)bucket != addingBucket)
+        BucketData newBucket = (BucketData)bucket;
+        if (addingBucket != null && newBucket != addingBucket)
         {
-            receivingBucket = (BucketData)bucket;
+            receivingBucket = newBucket;
             AddToBucket();
         }
         else
         {
-            addingBucket = (BucketData)bucket;
+            addingBucket = newBucket;
         }
     }
 
