@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BucketManager : MonoBehaviour, ISubscriber, INotifier
+public class BucketManager : MonoBehaviour
 {
-    GameEvent incoming;
-    GameEvent outgoing;
-    public GameEvent Subscriber { get => incoming; }
-    public GameEvent Notifier { get => outgoing; }
-
+    [SerializeField] GameEvent incoming;
+    [SerializeField] GameEvent outgoing;
     BucketData[] buckets;
     BucketData addingBucket;
     BucketData receivingBucket;
@@ -21,14 +18,15 @@ public class BucketManager : MonoBehaviour, ISubscriber, INotifier
 
     public void ChooseBucket(object bucket)
     {
-        if (addingBucket != null && (BucketData)bucket != addingBucket)
+        BucketData newBucket = (BucketData)bucket;
+        if (addingBucket != null && newBucket != addingBucket)
         {
-            receivingBucket = (BucketData)bucket;
+            receivingBucket = newBucket;
             AddToBucket();
         }
         else
         {
-            addingBucket = (BucketData)bucket;
+            addingBucket = newBucket;
         }
     }
 

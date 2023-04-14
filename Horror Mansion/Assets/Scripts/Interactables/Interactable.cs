@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, INotifier
 {
     public bool canInteract = true;
     public InteractType interactType = InteractType.None;
@@ -16,6 +16,8 @@ public class Interactable : MonoBehaviour
     [SerializeField] public TextInteractable text;
     [SerializeField] public ButtonInteractable button;
     [SerializeField] public PickUpInteractable pickUp;
+
+    public GameEvent Notifier { get => button.GameEvent; }
 
     private void Start()
     {

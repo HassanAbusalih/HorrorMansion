@@ -6,10 +6,29 @@ using UnityEditor;
 [CustomEditor(typeof(IGameEvent))]
 public class GameEventVisualizer : Editor
 {
-    List<SerializedProperty> subscribers = new();
-    List<SerializedProperty> notifiers = new();
+    List<SerializedObject> subscribers = new();
+    List<SerializedObject> notifiers = new();
     SerializedProperty subscriber;
     SerializedProperty notifier;
+
+    private void OnSceneGUI()
+    {
+        if (subscriber == null && notifier == null)
+        {
+            SearchForGameEvents();
+        }
+        else if (subscribers == null && notifiers == null)
+        {
+            Debug.Log("Didn't work!");
+            return;
+        }
+        foreach(var subscriber in subscribers)
+        {
+            GameObject myObject = (GameObject)serializedObject.targetObject;
+            GameObject targetObject = (GameObject)subscriber.targetObject;
+            Handles.DrawLine(myObject.transform.position, targetObject.transform.position);
+        }
+    }
 
     void SearchForGameEvents()
     {
@@ -22,28 +41,28 @@ public class GameEventVisualizer : Editor
             {
                 if (component is IGameEvent)
                 {
-                    AddToList(component);
+                    AddToListByType(component);
                 }
             }
         }
     }
 
-    private void AddToList(Component component)
+    private void AddToListByType(Component component)
     {
         if (component is ISubscriber && notifier != null)
         {
-            SerializedProperty property = new SerializedObject(component).FindProperty("Subscriber");
-            if (property == subscriber)
+            SerializedObject serializedObject = new SerializedObject(component);
+            if (serializedObject.FindProperty("Subscriber") == subscriber)
             {
-                subscribers.Add(property);
+                subscribers.Add(serializedObject);
             }
         }
         if (component is INotifier && subscriber != null)
         {
-            SerializedProperty property = new SerializedObject(component).FindProperty("Notifier");
-            if (property == notifier)
+            SerializedObject serializedObject = new SerializedObject(component);
+            if (serializedObject.FindProperty("Notifier") == notifier)
             {
-                notifiers.Add(property);
+                notifiers.Add(serializedObject);
             }
         }
     }
