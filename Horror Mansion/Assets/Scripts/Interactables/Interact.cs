@@ -20,7 +20,7 @@ public class Interact : MonoBehaviour
     InstantResizingGun instantResizingGun;
     Transform rayDirection;
     Rigidbody rb;
-    bool activated;
+    bool deactivated;
 
     void Start()
     {
@@ -50,6 +50,10 @@ public class Interact : MonoBehaviour
         if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
+            if (!interactable.enabled)
+            {
+                return;
+            }
             if (interactable != null && heldInteractable == null)
             {
                 interactText.gameObject.SetActive(interactable.canInteract);
@@ -96,11 +100,12 @@ public class Interact : MonoBehaviour
         {
             if (smoothResizingGun.enabled)
             {
+                deactivated = false;
                 smoothResizingGun.enabled = false;
             }
             else
             {
-                activated = true;
+                deactivated = true;
             }
         }
         if (instantResizingGun != null)
@@ -131,7 +136,7 @@ public class Interact : MonoBehaviour
         rb = null;
         if (smoothResizingGun != null)
         {
-            if (activated)
+            if (deactivated)
             {
                 return;
             }
