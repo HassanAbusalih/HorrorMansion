@@ -1546,7 +1546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457006, guid: f6f5203ed5ea2204d95508a9c981db2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.4
+      value: -10.1
       objectReference: {fileID: 0}
     - target: {fileID: 457006, guid: f6f5203ed5ea2204d95508a9c981db2f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1554,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457006, guid: f6f5203ed5ea2204d95508a9c981db2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -96.9
+      value: -96.5
       objectReference: {fileID: 0}
     - target: {fileID: 457006, guid: f6f5203ed5ea2204d95508a9c981db2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2021,6 +2021,7 @@ GameObject:
   - component: {fileID: 274488826}
   - component: {fileID: 274488825}
   - component: {fileID: 274488827}
+  - component: {fileID: 274488828}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -2057,8 +2058,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   desiredObjectName: Battery
-  desiredObjectMinSize: 1.3
-  desiredObjectMaxSize: 1.7
+  desiredObjectMinSize: 1.4
+  desiredObjectMaxSize: 1.6
   isPartOfSet: 0
 --- !u!65 &274488826
 BoxCollider:
@@ -2087,6 +2088,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   objectToToggle: {fileID: 329791625}
+  singleInteraction: 1
+--- !u!114 &274488828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274488823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 965436252}
+  clip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  incoming: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   singleInteraction: 1
 --- !u!1 &311759689 stripped
 GameObject:
@@ -3084,6 +3101,7 @@ GameObject:
   - component: {fileID: 438272664}
   - component: {fileID: 438272666}
   - component: {fileID: 438272665}
+  - component: {fileID: 438272667}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -3147,6 +3165,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
   componentToToggle: {fileID: 438272665}
+  singleInteraction: 1
+--- !u!114 &438272667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438272662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 965436252}
+  clip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  incoming: {fileID: 11400000, guid: a5e7b2db2a4bb4323b1eb54a7a075467, type: 2}
   singleInteraction: 1
 --- !u!1 &451853084
 GameObject:
@@ -5896,6 +5930,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2394640, guid: 48f0889733d556d4a927a13a99a7f434, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf1464b84bb76b44abb088d5a41acfee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48f0889733d556d4a927a13a99a7f434, type: 3}
 --- !u!4 &845264632 stripped
@@ -7018,6 +7056,134 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 487622, guid: 964e3fd2e5ff9014ea2a3ce4b682e2c1, type: 3}
   m_PrefabInstance: {fileID: 962889918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &965436251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965436253}
+  - component: {fileID: 965436252}
+  m_Layer: 0
+  m_Name: Battery audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &965436252
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965436251}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &965436253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965436251}
+  m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.604, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596987842}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &984044057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7637,15 +7803,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040531441}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  clip: {fileID: 0}
-  incoming: {fileID: 0}
-  singleInteraction: 0
+  source: {fileID: 965436252}
+  clip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  incoming: {fileID: 11400000, guid: 3e362292575cf465f810d3efc467c188, type: 2}
+  singleInteraction: 1
 --- !u!1 &1087497720
 GameObject:
   m_ObjectHideFlags: 0
@@ -8242,6 +8408,7 @@ GameObject:
   - component: {fileID: 1190230482}
   - component: {fileID: 1190230483}
   - component: {fileID: 1190230484}
+  - component: {fileID: 1190230485}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -8306,6 +8473,22 @@ MonoBehaviour:
   gameEvent: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
   componentToToggle: {fileID: 793411432}
   singleInteraction: 1
+--- !u!114 &1190230485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190230480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 965436252}
+  clip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  incoming: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
+  singleInteraction: 0
 --- !u!1001 &1223520803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12902,7 +13085,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c682f809f4974381aa961e199a163d0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
