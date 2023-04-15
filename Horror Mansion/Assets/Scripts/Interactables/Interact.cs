@@ -20,6 +20,7 @@ public class Interact : MonoBehaviour
     InstantResizingGun instantResizingGun;
     Transform rayDirection;
     Rigidbody rb;
+    bool activated;
 
     void Start()
     {
@@ -93,7 +94,14 @@ public class Interact : MonoBehaviour
         }
         if (smoothResizingGun != null)
         {
-            smoothResizingGun.enabled = false;
+            if (smoothResizingGun.enabled)
+            {
+                smoothResizingGun.enabled = false;
+            }
+            else
+            {
+                activated = true;
+            }
         }
         if (instantResizingGun != null)
         {
@@ -123,6 +131,11 @@ public class Interact : MonoBehaviour
         rb = null;
         if (smoothResizingGun != null)
         {
+            if (activated)
+            {
+                return;
+            }
+
             smoothResizingGun.enabled = true;
         }
         if (instantResizingGun != null)
