@@ -5,13 +5,13 @@ using UnityEngine;
 public class ObjectReceiver : MonoBehaviour
 {
     [SerializeField] GameEvent gameEvent;
-    [SerializeField] GameObject objectToReceive;
+    [SerializeField] Interactable objectToReceive;
     bool objectReceived;
     bool notified;
 
     void Update()
     {
-        if (objectReceived)
+        if (objectReceived && objectToReceive.canInteract)
         {
             SnapIntoPosition(objectToReceive.transform);
         }
@@ -36,7 +36,7 @@ public class ObjectReceiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == objectToReceive)
+        if (other.gameObject == objectToReceive.gameObject)
         {
             if (!notified)
             {
@@ -49,7 +49,7 @@ public class ObjectReceiver : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == objectToReceive)
+        if (other.gameObject == objectToReceive.gameObject)
         {
             objectReceived = false;
         }

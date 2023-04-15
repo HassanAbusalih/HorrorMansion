@@ -11,46 +11,66 @@ public class InteractableInspector : Editor
         serializedObject.Update();
         Interactable interactable = (Interactable)target;
         EditorGUILayout.PropertyField(serializedObject.FindProperty("interactType"));
+        EditorGUILayout.Separator();
         if (interactable.interactType == InteractType.Button)
         {
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("gameEvent"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("variableNeeded"));
-            if (interactable.variableNeeded)
-            {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("componentNeeded"));
-                if (interactable.componentNeeded)
-                {
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("componentToPassIn"));
-                }
-                else
-                {
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("stringToPassIn"));
-                }
-                EditorGUI.indentLevel--;
-            }
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("animated"));
-            if (interactable.animated)
-            {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("animator"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("animationName"));
-                EditorGUI.indentLevel--;
-            }
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("singleInteraction"));
+            ShowButtonProperties(interactable);
         }
         else if (interactable.interactType == InteractType.Text)
         {
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("textPrefab"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
+            ShowTextProperties();
         }
         else if (interactable.interactType == InteractType.PickUp)
         {
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("throwForce"));
+            ShowPickUpProperties();
         }
         serializedObject.ApplyModifiedProperties();
+    }
+
+    private void ShowPickUpProperties()
+    {
+        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("pickUp").FindPropertyRelative("throwForce"));
+    }
+
+    private void ShowTextProperties()
+    {
+        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("text").FindPropertyRelative("textPrefab"));
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("text").FindPropertyRelative("description"));
+    }
+
+    private void ShowButtonProperties(Interactable interactable)
+    {
+        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("gameEvent"));
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("variableNeeded"));
+        if (interactable.button.VariableNeeded)
+        {
+            EditorGUI.indentLevel++;
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("componentNeeded"));
+            if (interactable.button.ComponentNeeded)
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("componentToPassIn"));
+            }
+            else
+            {
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("stringToPassIn"));
+            }
+            EditorGUI.indentLevel--;
+        }
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("animated"));
+        if (interactable.button.Animated)
+        {
+            EditorGUI.indentLevel++;
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("animator"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("animationName"));
+            EditorGUI.indentLevel--;
+        }
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("singleInteraction"));
     }
 }

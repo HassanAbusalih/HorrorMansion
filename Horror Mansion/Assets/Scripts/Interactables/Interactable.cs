@@ -4,28 +4,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, INotifier
 {
-    [HideInInspector] public bool canInteract = true;
-    [TextArea(5, 10)] public string description;
-    [Range(0, 50)] public float throwForce;
-    public bool variableNeeded;
-    public bool componentNeeded;
-    [Tooltip("This will pass a string through the GameEvent.")]
-    public Component componentToPassIn;
-    public string stringToPassIn;
-    public GameObject textPrefab;
-    public bool singleInteraction;
-    public bool animated;
-    public Animator animator;
-    public string animationName;
+    public bool canInteract = true;
     public InteractType interactType = InteractType.None;
-    Color[] defaultColors = new Color[3] {new Color(1, 1, 0.4f), new Color(0.4f, 0.9f, 0.4f), new Color(0.25f, 0.7f, 1)};
-    public GameEvent gameEvent;
     public Transform playerPos;
     Renderer myRenderer;
     Material[] defaultMaterials;
     Material[] shaderMaterials;
+    Color[] defaultColors = new Color[3] {new Color(1, 1, 0.4f), new Color(0.4f, 0.9f, 0.4f), new Color(0.25f, 0.7f, 1)};
+    [SerializeField] public TextInteractable text;
+    [SerializeField] public ButtonInteractable button;
+    [SerializeField] public PickUpInteractable pickUp;
+
+    public GameEvent Notifier { get => button.GameEvent; }
 
     private void Start()
     {
@@ -38,6 +30,11 @@ public class Interactable : MonoBehaviour
     }
 
     private void Update()
+    {
+        ToggleOutline();
+    }
+
+    private void ToggleOutline()
     {
         if (canInteract)
         {
@@ -54,42 +51,6 @@ public class Interactable : MonoBehaviour
         }
         myRenderer.materials = defaultMaterials;
     }
-
-    public void ShowDescription()
-    {
-        GameObject desc = Instantiate(textPrefab, new Vector3 (transform.position.x, transform.position.y + transform.localScale.y, transform.position.z), transform.rotation);
-        desc.GetComponent<TextMeshPro>().text = description;
-        desc.GetComponent<FacePlayer>().objectToFace = playerPos;
-        Destroy(desc, 5);
-    }
-
-    public void PushButton()
-    {
-        if (variableNeeded)
-        {
-            if (componentNeeded)
-            {
-                gameEvent.NotifyObj(componentToPassIn);
-            }
-            else
-            {
-                gameEvent.NotifyObj(stringToPassIn);
-            }
-        }
-        else
-        {
-            gameEvent.Notify();
-        }
-        if (animated)
-        {
-            animator.Play(animationName);
-        }
-        if (singleInteraction)
-        {
-            canInteract = false;
-            Destroy(this, 0.1f);
-        }
-    }
     private void SetUpMaterialsAndShader()
     {
         myRenderer = GetComponent<Renderer>();
@@ -100,6 +61,42 @@ public class Interactable : MonoBehaviour
             shaderMaterials[i] = defaultMaterials[i];
         }
         shaderMaterials[shaderMaterials.Length - 1] = new Material(Shader.Find("Shader Graphs/Outline"));
+    }
+
+    public void ShowDescription()
+    {
+        GameObject desc = Instantiate(text.TextPrefab, new Vector3 (transform.position.x, transform.position.y + transform.localScale.y, transform.position.z), transform.rotation);
+        desc.GetComponent<TextMeshPro>().text = text.Description;
+        desc.GetComponent<FacePlayer>().objectToFace = playerPos;
+        Destroy(desc, 5);
+    }
+
+    public void PushButton()
+    {
+        if (button.VariableNeeded)
+        {
+            if (button.ComponentNeeded)
+            {
+                button.GameEvent.NotifyObj(button.ComponentToPassIn);
+            }
+            else
+            {
+                button.GameEvent.NotifyObj(button.StringToPassIn);
+            }
+        }
+        else
+        {
+            button.GameEvent.Notify();
+        }
+        if (button.Animated)
+        {
+            button.Animator.Play(button.AnimationName);
+        }
+        if (button.SingleInteraction)
+        {
+            canInteract = false;
+            Destroy(this, 0.1f);
+        }
     }
 
     public void SetEvent(UnityEvent gameEvent, bool correct)
