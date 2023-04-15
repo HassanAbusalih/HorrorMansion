@@ -1996,8 +1996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
   desiredObjectName: Battery
-  desiredObjectMinSize: 1.1
-  desiredObjectMaxSize: 0.9
+  desiredObjectMinSize: 1
+  desiredObjectMaxSize: 1
   isPartOfSet: 0
 --- !u!65 &274488826
 BoxCollider:
@@ -2031,12 +2031,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: 
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 1
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!114 &311759699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4581,7 +4588,6 @@ GameObject:
   - component: {fileID: 623881249}
   - component: {fileID: 623881248}
   - component: {fileID: 623881253}
-  - component: {fileID: 623881252}
   - component: {fileID: 623881254}
   m_Layer: 0
   m_Name: KeyCard
@@ -4669,24 +4675,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 50.909, z: 0}
---- !u!114 &623881252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623881247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6cdee0344203541a2eefca9d00dd3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSize: 1
-  allowPickUpWhenCorrect: 1
-  maxSize: 1
-  minSize: 1
-  pickUpMinSize: 1
-  pickUpMaxSize: 1
 --- !u!114 &623881253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4701,12 +4689,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: 
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 1
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!54 &623881254
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8010,12 +8005,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: 
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 1
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!1 &1190230480
 GameObject:
   m_ObjectHideFlags: 0
@@ -8025,8 +8027,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1190230481}
-  - component: {fileID: 1190230483}
   - component: {fileID: 1190230482}
+  - component: {fileID: 1190230483}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -8071,14 +8073,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1190230480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fead6fd2fa7ba5c4b8ac1551b5fadd68, type: 3}
+  m_Script: {fileID: 11500000, guid: 46dfbaa074e2117478c47be690e1fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: f4d33ab4bc11ae947b3fb07ce22d93ac, type: 2}
-  desiredObjectName: KeyCard
-  desiredObjectMinSize: 1.1
-  desiredObjectMaxSize: 0.9
-  isPartOfSet: 0
+  gameEvent: {fileID: 11400000, guid: 67519140f0550a747bc68430e2aa503b, type: 2}
+  objectToReceive: {fileID: 623881247}
 --- !u!1001 &1223520803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10614,12 +10613,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: Hey you!
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 521212437}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 2
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!1 &1597066313
 GameObject:
   m_ObjectHideFlags: 0
@@ -10774,12 +10780,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: 
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 1
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!114 &1621538951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11489,12 +11502,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: 
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 1
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!114 &1797890637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12118,12 +12138,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   description: 
+  throwForce: 0
+  variableNeeded: 0
+  componentNeeded: 0
+  componentToPassIn: {fileID: 0}
+  stringToPassIn: 
   textPrefab: {fileID: 0}
+  singleInteraction: 0
   animated: 0
   animator: {fileID: 0}
   animationName: 
   interactType: 1
   gameEvent: {fileID: 0}
+  playerPos: {fileID: 0}
 --- !u!65 &1905361404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12615,7 +12642,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c682f809f4974381aa961e199a163d0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
