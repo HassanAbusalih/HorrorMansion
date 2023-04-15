@@ -515,6 +515,36 @@ MonoBehaviour:
   minSize: 0.5
   pickUpMinSize: 0.4
   pickUpMaxSize: 2.1
+--- !u!114 &37001667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37001655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef25e8927be2bb143a7fba84b2641fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  interactType: 1
+  playerPos: {fileID: 0}
+  text:
+    textPrefab: {fileID: 0}
+    description: 
+  button:
+    gameEvent: {fileID: 0}
+    variableNeeded: 0
+    componentNeeded: 0
+    componentToPassIn: {fileID: 0}
+    stringToPassIn: 
+    singleInteraction: 0
+    animated: 0
+    animator: {fileID: 0}
+    animationName: 
+  pickUp:
+    throwForce: 8
 --- !u!1001 &47288630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,6 +858,36 @@ MonoBehaviour:
   minSize: 0.5
   pickUpMinSize: 0.4
   pickUpMaxSize: 2.1
+--- !u!114 &118825315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118825303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef25e8927be2bb143a7fba84b2641fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  interactType: 1
+  playerPos: {fileID: 0}
+  text:
+    textPrefab: {fileID: 0}
+    description: 
+  button:
+    gameEvent: {fileID: 0}
+    variableNeeded: 0
+    componentNeeded: 0
+    componentToPassIn: {fileID: 0}
+    stringToPassIn: 
+    singleInteraction: 0
+    animated: 0
+    animator: {fileID: 0}
+    animationName: 
+  pickUp:
+    throwForce: 8
 --- !u!1 &140091054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,7 +2122,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     animationName: 
   pickUp:
-    throwForce: 0
+    throwForce: 3
 --- !u!114 &311759699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2448,7 +2508,6 @@ Transform:
   m_Children:
   - {fileID: 189036702}
   - {fileID: 524523375}
-  - {fileID: 542173207}
   m_Father: {fileID: 0}
   m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -4046,103 +4105,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524523374}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &542173206
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 542173207}
-  - component: {fileID: 542173210}
-  - component: {fileID: 542173209}
-  - component: {fileID: 542173208}
-  m_Layer: 0
-  m_Name: Red wire 3 (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &542173207
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542173206}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 16.67, z: -0.454}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 376017829}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &542173208
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542173206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &542173209
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542173206}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 18344d1c786bc48379ae152470e1d00d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &542173210
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542173206}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &550630700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,7 +4176,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550630700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
   m_Name: 
@@ -4846,7 +4808,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     animationName: 
   pickUp:
-    throwForce: 0
+    throwForce: 3
 --- !u!54 &623881254
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6772,6 +6734,36 @@ MonoBehaviour:
   minSize: 0.5
   pickUpMinSize: 0.4
   pickUpMaxSize: 2.1
+--- !u!114 &950807010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950806998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef25e8927be2bb143a7fba84b2641fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  interactType: 1
+  playerPos: {fileID: 0}
+  text:
+    textPrefab: {fileID: 0}
+    description: 
+  button:
+    gameEvent: {fileID: 0}
+    variableNeeded: 0
+    componentNeeded: 0
+    componentToPassIn: {fileID: 0}
+    stringToPassIn: 
+    singleInteraction: 0
+    animated: 0
+    animator: {fileID: 0}
+    animationName: 
+  pickUp:
+    throwForce: 8
 --- !u!1 &957103950
 GameObject:
   m_ObjectHideFlags: 0
@@ -7645,7 +7637,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040531441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
   m_Name: 
@@ -8237,7 +8229,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     animationName: 
   pickUp:
-    throwForce: 0
+    throwForce: 8
 --- !u!1 &1190230480
 GameObject:
   m_ObjectHideFlags: 0
@@ -8451,6 +8443,36 @@ MonoBehaviour:
   minSize: 0.5
   pickUpMinSize: 0.4
   pickUpMaxSize: 2.1
+--- !u!114 &1232297625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232297619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef25e8927be2bb143a7fba84b2641fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  interactType: 1
+  playerPos: {fileID: 0}
+  text:
+    textPrefab: {fileID: 0}
+    description: 
+  button:
+    gameEvent: {fileID: 0}
+    variableNeeded: 0
+    componentNeeded: 0
+    componentToPassIn: {fileID: 0}
+    stringToPassIn: 
+    singleInteraction: 0
+    animated: 0
+    animator: {fileID: 0}
+    animationName: 
+  pickUp:
+    throwForce: 8
 --- !u!1001 &1276143027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9861,7 +9883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487282930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: 0.23, z: 1.01}
+  m_LocalPosition: {x: -0.41, y: 0.1, z: 1.01}
   m_LocalScale: {x: 0.54038, y: 0.54038, z: 0.54038}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11004,7 +11026,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     animationName: 
   pickUp:
-    throwForce: 0
+    throwForce: 3
 --- !u!114 &1621538951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11473,7 +11495,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11729,7 +11751,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     animationName: 
   pickUp:
-    throwForce: 0
+    throwForce: 8
 --- !u!114 &1797890637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12388,7 +12410,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     animationName: 
   pickUp:
-    throwForce: 0
+    throwForce: 3
 --- !u!65 &1905361404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12880,7 +12902,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c682f809f4974381aa961e199a163d0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
