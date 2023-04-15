@@ -6,6 +6,7 @@ public class PickUpGun : MonoBehaviour
 {
     public GameObject ResizeGun;
     public GameObject PickUpText;
+    [SerializeField] GameEvent gameEvent;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class PickUpGun : MonoBehaviour
             {
                 this.gameObject.SetActive(false);
                 ResizeGun.SetActive(true);
-
+                gameEvent.Notify();
                 PickUpText.SetActive(false);
             }
         }

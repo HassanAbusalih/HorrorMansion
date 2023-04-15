@@ -164,7 +164,7 @@ MonoBehaviour:
   button:
     gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
     variableNeeded: 1
-    componentNeeded: 1
+    componentNeeded: 0
     componentToPassIn: {fileID: 0}
     stringToPassIn: 3
     singleInteraction: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   button:
     gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
     variableNeeded: 1
-    componentNeeded: 1
+    componentNeeded: 0
     componentToPassIn: {fileID: 0}
     stringToPassIn: 2
     singleInteraction: 0
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d73a9e5bf55ec448b908015ead7f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incoming: {fileID: 0}
+  incoming: {fileID: 11400000, guid: f4d33ab4bc11ae947b3fb07ce22d93ac, type: 2}
   outgoing: {fileID: 11400000, guid: a24072f2db7912f4baa5a514b161bce3, type: 2}
 --- !u!4 &904528385
 Transform:
@@ -1910,7 +1910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694385168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.01, y: 1.1, z: -5.081}
+  m_LocalPosition: {x: 3.75, y: 1.1, z: -5.081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882223873}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae7f65817630a246a56dc051e902824, type: 3}
   m_Name: 

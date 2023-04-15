@@ -20,9 +20,10 @@ public class SequenceManager : MonoBehaviour
 
     void DoSequence(object number)
     {
-        int num = int.Parse((string)number);
-        if (num == counter + 1)
+        int num;
+        if (int.TryParse(number.ToString(), out num) && num == counter + 1)
         {
+            Debug.Log(num);
             counter++;
         }
         else
