@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Rendering;
 
 [CustomEditor(typeof(Interactable))]
-public class InteractableInspector : Editor
+public class InteractableInspector : GameEventVisualizer
 {
+    private void OnSceneGUI()
+    {
+        TryDrawingLines();
+    }
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -15,6 +20,7 @@ public class InteractableInspector : Editor
         if (interactable.interactType == InteractType.Button)
         {
             ShowButtonProperties(interactable);
+            turnOn = GUILayout.Toggle(turnOn, "Show Game Events");
         }
         else if (interactable.interactType == InteractType.Text)
         {
@@ -24,6 +30,8 @@ public class InteractableInspector : Editor
         {
             ShowPickUpProperties();
         }
+        Debug.Log(subscribers.Count);
+        Debug.Log(notifiers.Count);
         serializedObject.ApplyModifiedProperties();
     }
 
@@ -45,7 +53,7 @@ public class InteractableInspector : Editor
     private void ShowButtonProperties(Interactable interactable)
     {
         EditorGUILayout.Space();
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("gameEvent"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("gameEvent"));
         EditorGUILayout.Separator();
         EditorGUILayout.PropertyField(serializedObject.FindProperty("button").FindPropertyRelative("variableNeeded"));
         if (interactable.button.VariableNeeded)

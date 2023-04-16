@@ -12,12 +12,13 @@ public class Interactable : MonoBehaviour, INotifier
     Renderer myRenderer;
     Material[] defaultMaterials;
     Material[] shaderMaterials;
+    [SerializeField] GameEvent gameEvent;
     Color[] defaultColors = new Color[3] {new Color(1, 1, 0.4f), new Color(0.4f, 0.9f, 0.4f), new Color(0.25f, 0.7f, 1)};
     [SerializeField] public TextInteractable text;
     [SerializeField] public ButtonInteractable button;
     [SerializeField] public PickUpInteractable pickUp;
     GameObject descriptionText;
-    public GameEvent Notifier { get => button.GameEvent; }
+    public GameEvent Notifier { get => gameEvent; }
 
     private void Start()
     {
@@ -81,16 +82,16 @@ public class Interactable : MonoBehaviour, INotifier
         {
             if (button.ComponentNeeded)
             {
-                button.GameEvent.NotifyObj(button.ComponentToPassIn);
+                gameEvent.NotifyObj(button.ComponentToPassIn);
             }
             else
             {
-                button.GameEvent.NotifyObj(button.StringToPassIn);
+                gameEvent.NotifyObj(button.StringToPassIn);
             }
         }
         else
         {
-            button.GameEvent.Notify();
+            gameEvent.Notify();
         }
         if (button.Animated)
         {
@@ -113,6 +114,11 @@ public class Interactable : MonoBehaviour, INotifier
     void ToggleState()
     {
         canInteract = !canInteract;
+    }
+
+    public string GetName()
+    {
+        return nameof(gameEvent);
     }
 }
 

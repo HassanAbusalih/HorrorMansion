@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -7,8 +6,8 @@ using UnityEditor;
 public class GameEventVisualizer : Editor
 {
     public static GameEventVisualizer Instance;
-    public  static readonly List<SerializedObject> subscribers = new();
-    public static readonly List<SerializedObject> notifiers = new();
+    public List<SerializedObject> subscribers = new();
+    public List<SerializedObject> notifiers = new();
     SerializedProperty subscriber;
     SerializedProperty notifier;
     bool searchComplete;
@@ -16,23 +15,37 @@ public class GameEventVisualizer : Editor
     Vector3 startTangent;
     Vector3 endTangent;
 
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        if (target is IGameEvent)
+        {
+            turnOn = GUILayout.Toggle(turnOn, "Show Game Events");
+        }
+    }
+
     private void OnSceneGUI()
     {
-        if (Instance != this) { Instance = this; }
-        //if (!turnOn) { return; }
+        TryDrawingLines();
+    }
+
+    public void TryDrawingLines()
+    {
+        if (!turnOn) { return; }
         if (target is not IGameEvent)
         {
+            searchComplete = false;
             return;
         }
         GetMyGameEvents();
         if (subscriber == null && notifier == null)
         {
+            Debug.Log("double null");
             return;
         }
         if (subscribers.Count == 0 && notifiers.Count == 0 && !searchComplete)
         {
             SearchForGameEvents();
-            //GUILayout.BeginArea(new Rect(10, 10, 10, 10));
         }
         if (subscribers.Count > 0)
         {
@@ -43,19 +56,19 @@ public class GameEventVisualizer : Editor
             DrawNotifierCurves();
         }
     }
-    private void GetMyGameEvents()
+
+    public void GetMyGameEvents()
     {
         if (serializedObject.targetObject is ISubscriber)
         {
-            //string eventName = serializedObject.FindProperty("GetName").stringValue;
-            subscriber = serializedObject.FindProperty("incoming");
+            subscriber = serializedObject.FindProperty(((ISubscriber)serializedObject.targetObject).GetName());
         }
         if (serializedObject.targetObject is INotifier)
         {
-            notifier = serializedObject.FindProperty("outgoing");
+            notifier = serializedObject.FindProperty(((INotifier)serializedObject.targetObject).GetName());
         }
     }
-    void SearchForGameEvents()
+    public void SearchForGameEvents()
     {
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(true);
         foreach (GameObject sceneObject in sceneObjects)
@@ -74,12 +87,12 @@ public class GameEventVisualizer : Editor
             }
         }
     }
-    private void AddToListByType(Component component)
+    public void AddToListByType(Component component)
     {
         if (component is ISubscriber && notifier != null)
         {
             SerializedObject serializedObject = new SerializedObject(component);
-            SerializedProperty property = serializedObject.FindProperty("incoming");
+            SerializedProperty property = serializedObject.FindProperty(((ISubscriber)component).GetName());
             if (property != null && property.objectReferenceValue == notifier.objectReferenceValue)
             {
                 subscribers.Add(serializedObject);
@@ -88,7 +101,7 @@ public class GameEventVisualizer : Editor
         if (component is INotifier && subscriber != null)
         {
             SerializedObject serializedObject = new SerializedObject(component);
-            SerializedProperty property = serializedObject.FindProperty("outgoing");
+            SerializedProperty property = serializedObject.FindProperty(((INotifier)component).GetName());
             if (property != null && property.objectReferenceValue == subscriber.objectReferenceValue)
             {
                 notifiers.Add(serializedObject);
@@ -96,7 +109,7 @@ public class GameEventVisualizer : Editor
         }
         searchComplete = true;
     }
-    private void DrawSubscriberCurves()
+    public void DrawSubscriberCurves()
     {
         foreach (var subscriber in subscribers)
         {
@@ -107,7 +120,7 @@ public class GameEventVisualizer : Editor
             Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, endTangent, startTangent, Color.green, null, 5);
         }
     }
-    private void DrawNotifierCurves()
+    public void DrawNotifierCurves()
     {
         foreach (var notifier in notifiers)
         {

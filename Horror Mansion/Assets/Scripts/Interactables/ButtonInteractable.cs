@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class ButtonInteractable
 {
-    [SerializeField] GameEvent gameEvent;
     [SerializeField] bool variableNeeded;
     [SerializeField] bool componentNeeded;
     [SerializeField] Component componentToPassIn;
@@ -14,7 +13,6 @@ public class ButtonInteractable
     [SerializeField] bool animated;
     [SerializeField] Animator animator;
     [SerializeField] string animationName;
-    public GameEvent GameEvent { get => gameEvent; }
     public bool VariableNeeded { get => variableNeeded; }
     public bool ComponentNeeded { get => componentNeeded; }
     public Component ComponentToPassIn { get => componentToPassIn; }
