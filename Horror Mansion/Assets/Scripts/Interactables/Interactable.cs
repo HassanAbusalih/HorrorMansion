@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour, INotifier
     [SerializeField] public TextInteractable text;
     [SerializeField] public ButtonInteractable button;
     [SerializeField] public PickUpInteractable pickUp;
-
+    GameObject descriptionText;
     public GameEvent Notifier { get => button.GameEvent; }
 
     private void Start()
@@ -65,10 +65,14 @@ public class Interactable : MonoBehaviour, INotifier
 
     public void ShowDescription()
     {
-        GameObject desc = Instantiate(text.TextPrefab, new Vector3 (transform.position.x, transform.position.y + transform.localScale.y, transform.position.z), transform.rotation);
-        desc.GetComponent<TextMeshPro>().text = text.Description;
-        desc.GetComponent<FacePlayer>().objectToFace = playerPos;
-        Destroy(desc, 5);
+        if (descriptionText == null)
+        {
+            descriptionText = Instantiate(text.TextPrefab, new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z), transform.rotation);
+            FacePlayer facePlayer = descriptionText.GetComponent<FacePlayer>();
+            facePlayer.ObjectToFace = playerPos;
+            facePlayer.Description = text.Description;
+            facePlayer.DestroyTime = text.DestroyTime;
+        }
     }
 
     public void PushButton()
