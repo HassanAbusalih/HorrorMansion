@@ -3,6 +3,7 @@ using System;
 
 public interface ISubscriber : IGameEvent
 {
+    [SerializeField] public GameEvent Subscriber { get; }
     //string GetName { get; }
 }
 

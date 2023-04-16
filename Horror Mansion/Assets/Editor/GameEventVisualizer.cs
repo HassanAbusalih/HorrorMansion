@@ -6,18 +6,20 @@ using UnityEditor;
 [CustomEditor(typeof(MonoBehaviour), true)]
 public class GameEventVisualizer : Editor
 {
-    List<SerializedObject> subscribers = new();
-    List<SerializedObject> notifiers = new();
+    public static GameEventVisualizer Instance;
+    public  static readonly List<SerializedObject> subscribers = new();
+    public static readonly List<SerializedObject> notifiers = new();
     SerializedProperty subscriber;
     SerializedProperty notifier;
     bool searchComplete;
-    bool turnOn;
+    public static bool turnOn;
     Vector3 startTangent;
     Vector3 endTangent;
 
     private void OnSceneGUI()
     {
-        //turnOn = EditorGUILayout.Toggle(turnOn);
+        if (Instance != this) { Instance = this; }
+        //if (!turnOn) { return; }
         if (target is not IGameEvent)
         {
             return;
