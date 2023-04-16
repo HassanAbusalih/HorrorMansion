@@ -67,7 +67,15 @@ public class Interactable : MonoBehaviour, INotifier
     {
         if (descriptionText == null)
         {
-            descriptionText = Instantiate(text.TextPrefab, new Vector3(transform.position.x, transform.position.y + transform.localScale.y, transform.position.z), transform.rotation);
+            BoxCollider collider = GetComponent<BoxCollider>();
+            if (collider != null)
+            {
+                descriptionText = Instantiate(text.TextPrefab, new Vector3(transform.position.x, transform.position.y + collider.size.y, transform.position.z), transform.rotation);
+            }
+            else
+            {
+                Debug.Log($"Make {gameObject.name} a box collider!");
+            }
             FacePlayer facePlayer = descriptionText.GetComponent<FacePlayer>();
             facePlayer.ObjectToFace = playerPos;
             facePlayer.Description = text.Description;
