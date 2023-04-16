@@ -37,6 +37,7 @@ public class InteractableInspector : Editor
     {
         EditorGUILayout.Space();
         EditorGUILayout.PropertyField(serializedObject.FindProperty("text").FindPropertyRelative("textPrefab"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("text").FindPropertyRelative("destroyTime"));
         EditorGUILayout.Separator();
         EditorGUILayout.PropertyField(serializedObject.FindProperty("text").FindPropertyRelative("description"));
     }
