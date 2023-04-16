@@ -22,10 +22,9 @@ public class ColorPuzzleButtonTemp : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            {
-                PressText.SetActive(true);
+            PressText.SetActive(true);
 
-                if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
                 {
                     this.gameObject.SetActive(false);
                     PressText.SetActive(false);
@@ -34,7 +33,6 @@ public class ColorPuzzleButtonTemp : MonoBehaviour
                     FakeDoor.SetActive(false);
                     Cable.SetActive(true);
                 }
-            }
         }
     }
     private void OnTriggerExit(Collider other)
