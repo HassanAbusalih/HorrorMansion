@@ -50,14 +50,17 @@ public class Interact : MonoBehaviour
         if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
-            if (!interactable.enabled)
+            if (interactable != null)
             {
-                return;
-            }
-            if (interactable != null && heldInteractable == null)
-            {
-                interactText.gameObject.SetActive(interactable.canInteract);
-                return;
+                if (!interactable.enabled)
+                {
+                    return;
+                }
+                if (heldInteractable == null)
+                {
+                    interactText.gameObject.SetActive(interactable.canInteract);
+                    return;
+                }
             }
         }
         interactText.gameObject.SetActive(false);
