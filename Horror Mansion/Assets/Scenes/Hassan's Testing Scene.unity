@@ -158,12 +158,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 0
   button:
-    gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
     variableNeeded: 1
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -287,15 +287,15 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 0
   button:
-    gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
     variableNeeded: 1
-    componentNeeded: 0
-    componentToPassIn: {fileID: 0}
+    componentNeeded: 1
+    componentToPassIn: {fileID: 980939156}
     stringToPassIn: 2
     singleInteraction: 0
     animated: 0
@@ -420,7 +420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196678990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.34, y: 1.21, z: -4.61}
+  m_LocalPosition: {x: -4.34, y: 1.21, z: -5.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -806,12 +806,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579664682}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fead6fd2fa7ba5c4b8ac1551b5fadd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
+  outgoing: {fileID: 0}
   desiredObjectName: Alternate Resizable Cube
   desiredObjectMinSize: 1
   desiredObjectMaxSize: 1
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dfbaa074e2117478c47be690e1fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
+  outgoing: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
   objectToReceive: {fileID: 907144481}
 --- !u!1 &669961860
 GameObject:
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   incoming: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
-  outgoing: {fileID: 0}
+  outgoing: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
   numberOfButtons: 4
   animator: {fileID: 0}
   animationName: 
@@ -1039,12 +1039,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 2
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -1395,17 +1395,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 1
-  interactType: 2
+  interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
   text:
     textPrefab: {fileID: 5236031858132232471, guid: 919234a375b02bc4fb81211e8784320f, type: 3}
     description: How is it?
     destroyTime: 0
   button:
-    gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
     variableNeeded: 1
-    componentNeeded: 0
-    componentToPassIn: {fileID: 0}
+    componentNeeded: 1
+    componentToPassIn: {fileID: 1847580170}
     stringToPassIn: 1
     singleInteraction: 0
     animated: 0
@@ -1868,7 +1868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694385168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.01, y: 1.1, z: -5.081}
+  m_LocalPosition: {x: 4.01, y: 1.1, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0da77798bc71564e91e8af3973f9d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incoming: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
+  incoming: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
   outgoing: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
 --- !u!4 &1848133842
 Transform:
@@ -2450,12 +2450,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 0
   button:
-    gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
     variableNeeded: 1
     componentNeeded: 0
     componentToPassIn: {fileID: 1064577599}

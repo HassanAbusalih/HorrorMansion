@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ToolTestScript : MonoBehaviour, ISubscriber, INotifier
 {
-    [SerializeField] private GameEvent incoming;
-    [SerializeField] private GameEvent outgoing;
-    [SerializeField] public GameEvent Notifier { get { return outgoing; } }
-    [SerializeField] string getName => incoming.ToString();
+    [SerializeField] GameEvent incoming;
+    [SerializeField] GameEvent outgoing;
+    string ISubscriber.GetName() => nameof(incoming);
+    string INotifier.GetName() => nameof(outgoing);
 }
 
 // Ignore this
@@ -32,9 +32,9 @@ class LinkedListStack<T>
 
     public void Push(T newData)
     {
-        Node newNode = new Node();
+        Node newNode = new();
         newNode.data = newData;
-        node.previous = node;
+        newNode.previous = node;
         node = newNode;
     }
 

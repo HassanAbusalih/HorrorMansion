@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public class ObjectReceiver : MonoBehaviour
+public class ObjectReceiver : MonoBehaviour, INotifier
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent outgoing;
+    string INotifier.GetName() => nameof(outgoing);
     [SerializeField] Interactable objectToReceive;
     bool objectReceived;
     bool notified;
@@ -41,7 +43,7 @@ public class ObjectReceiver : MonoBehaviour
         {
             if (!notified)
             {
-                gameEvent.Notify();
+                outgoing.Notify();
                 notified = true;
             }
             objectReceived = true;

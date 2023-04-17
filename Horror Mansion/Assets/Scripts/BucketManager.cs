@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BucketManager : MonoBehaviour
+public class BucketManager : MonoBehaviour, INotifier, ISubscriber
 {
     [SerializeField] GameEvent incoming;
     [SerializeField] GameEvent outgoing;
+    string ISubscriber.GetName() => nameof(incoming);
+    string INotifier.GetName() => nameof(outgoing);
     BucketData[] buckets;
     BucketData addingBucket;
     BucketData receivingBucket;
@@ -54,5 +56,4 @@ public class BucketManager : MonoBehaviour
         }
         outgoing.Notify();
     }
-
 }

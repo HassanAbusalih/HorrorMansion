@@ -3,11 +3,11 @@ using System;
 
 public interface ISubscriber : IGameEvent
 {
-    //string GetName { get; }
+    public string GetName();
 }
 
 public interface IGameEvent 
 {
-
+    
 }
 

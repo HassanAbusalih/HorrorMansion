@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToggleObject : MonoBehaviour
+public class ToggleObject : MonoBehaviour, ISubscriber
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent incoming;
+    string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] GameObject objectToToggle;
     [SerializeField] bool singleInteraction;
 
     private void Start()
     {
-        gameEvent.Subscribe(Toggle);
+        incoming.Subscribe(Toggle);
     }
 
     void Toggle()
@@ -18,7 +19,7 @@ public class ToggleObject : MonoBehaviour
         objectToToggle.SetActive(!objectToToggle.activeSelf);
         if (singleInteraction)
         {
-            gameEvent.Unsubscribe(Toggle);
+            incoming.Unsubscribe(Toggle);
         }
     }
 
