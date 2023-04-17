@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequenceManager : MonoBehaviour
+public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 {
     [SerializeField] GameEvent incoming;
     [SerializeField] GameEvent outgoing;
+    string ISubscriber.GetName() => nameof(incoming);
+    string INotifier.GetName() => nameof(outgoing);
     [SerializeField] int numberOfButtons;
     [SerializeField] Animator animator;
     [SerializeField] string animationName;
@@ -20,9 +22,10 @@ public class SequenceManager : MonoBehaviour
 
     void DoSequence(object number)
     {
-        int num = int.Parse((string)number);
-        if (num == counter + 1)
+        int num;
+        if (int.TryParse(number.ToString(), out num) && num == counter + 1)
         {
+            Debug.Log(num);
             counter++;
         }
         else

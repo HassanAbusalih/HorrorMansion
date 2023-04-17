@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public class ToggleComponent : MonoBehaviour
+public class ToggleComponent : MonoBehaviour, ISubscriber
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent incoming;
+    string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] MonoBehaviour componentToToggle;
     [SerializeField] bool singleInteraction;
 
     void Start()
     {
-        gameEvent.Subscribe(Toggle);
+        incoming.Subscribe(Toggle);
     }
 
     private void Toggle()
@@ -19,7 +21,7 @@ public class ToggleComponent : MonoBehaviour
         componentToToggle.enabled = !componentToToggle.enabled;
         if (singleInteraction)
         {
-            gameEvent.Unsubscribe(Toggle);
+            incoming.Unsubscribe(Toggle);
         }
     }
 

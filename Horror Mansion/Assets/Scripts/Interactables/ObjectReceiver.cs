@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public class ObjectReceiver : MonoBehaviour
+public class ObjectReceiver : MonoBehaviour, INotifier
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent outgoing;
+    string INotifier.GetName() => nameof(outgoing);
     [SerializeField] Interactable objectToReceive;
     bool objectReceived;
     bool notified;
@@ -36,11 +38,12 @@ public class ObjectReceiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!enabled) return;
         if (other.gameObject == objectToReceive.gameObject)
         {
             if (!notified)
             {
-                gameEvent.Notify();
+                outgoing.Notify();
                 notified = true;
             }
             objectReceived = true;
@@ -49,6 +52,7 @@ public class ObjectReceiver : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!enabled) return;
         if (other.gameObject == objectToReceive.gameObject)
         {
             objectReceived = false;

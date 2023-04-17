@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -6,18 +5,31 @@ using UnityEditor;
 [CustomEditor(typeof(MonoBehaviour), true)]
 public class GameEventVisualizer : Editor
 {
-    List<SerializedObject> subscribers = new();
-    List<SerializedObject> notifiers = new();
+    public static GameEventVisualizer Instance;
+    public List<SerializedObject> subscribers = new();
+    public List<SerializedObject> notifiers = new();
     SerializedProperty subscriber;
     SerializedProperty notifier;
     bool searchComplete;
-    bool turnOn;
+    public static bool activate;
     Vector3 startTangent;
     Vector3 endTangent;
 
     private void OnSceneGUI()
     {
-        //turnOn = EditorGUILayout.Toggle(turnOn);
+        if (activate)
+        {
+            TryDrawingLines();
+        }
+        else
+        {
+            GameEventWindow.subscribers.Clear();
+            GameEventWindow.notifiers.Clear();
+        }
+    }
+
+    public void TryDrawingLines()
+    {
         if (target is not IGameEvent)
         {
             return;
@@ -30,63 +42,64 @@ public class GameEventVisualizer : Editor
         if (subscribers.Count == 0 && notifiers.Count == 0 && !searchComplete)
         {
             SearchForGameEvents();
-            //GUILayout.BeginArea(new Rect(10, 10, 10, 10));
         }
         if (subscribers.Count > 0)
         {
-            DrawSubscriberCurves();
+            GameEventWindow.subscribers = subscribers;
+            DrawGameEventCurves(subscribers, Color.green);
         }
         if (notifiers.Count > 0)
         {
-            DrawNotifierCurves();
+            GameEventWindow.notifiers = notifiers;
+            DrawGameEventCurves(notifiers, Color.red);
         }
     }
-    private void GetMyGameEvents()
+
+    public void GetMyGameEvents()
     {
         if (serializedObject.targetObject is ISubscriber)
         {
-            //string eventName = serializedObject.FindProperty("GetName").stringValue;
-            subscriber = serializedObject.FindProperty("incoming");
+            subscriber = serializedObject.FindProperty(((ISubscriber)serializedObject.targetObject).GetName());
         }
         if (serializedObject.targetObject is INotifier)
         {
-            notifier = serializedObject.FindProperty("outgoing");
+            notifier = serializedObject.FindProperty(((INotifier)serializedObject.targetObject).GetName());
         }
     }
-    void SearchForGameEvents()
+    public void SearchForGameEvents()
     {
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(true);
         foreach (GameObject sceneObject in sceneObjects)
         {
-            Component[] components = sceneObject.GetComponentsInChildren<Component>(true);
-            foreach (Component component in components)
+            MonoBehaviour[] monoBehaviours = sceneObject.GetComponentsInChildren<MonoBehaviour>(true);
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {
-                if (component == serializedObject.targetObject)
+                if (monoBehaviour == serializedObject.targetObject)
                 {
                     break;
                 }
-                if (component is IGameEvent)
+                if (monoBehaviour is IGameEvent)
                 {
-                    AddToListByType(component);
+                    AddToListByType(monoBehaviour);
                 }
             }
         }
     }
-    private void AddToListByType(Component component)
+    public void AddToListByType(MonoBehaviour monoBehaviour)
     {
-        if (component is ISubscriber && notifier != null)
+        if (monoBehaviour is ISubscriber && notifier != null)
         {
-            SerializedObject serializedObject = new SerializedObject(component);
-            SerializedProperty property = serializedObject.FindProperty("incoming");
+            SerializedObject serializedObject = new SerializedObject(monoBehaviour);
+            SerializedProperty property = serializedObject.FindProperty(((ISubscriber)monoBehaviour).GetName());
             if (property != null && property.objectReferenceValue == notifier.objectReferenceValue)
             {
                 subscribers.Add(serializedObject);
             }
         }
-        if (component is INotifier && subscriber != null)
+        if (monoBehaviour is INotifier && subscriber != null)
         {
-            SerializedObject serializedObject = new SerializedObject(component);
-            SerializedProperty property = serializedObject.FindProperty("outgoing");
+            SerializedObject serializedObject = new SerializedObject(monoBehaviour);
+            SerializedProperty property = serializedObject.FindProperty(((INotifier)monoBehaviour).GetName());
             if (property != null && property.objectReferenceValue == subscriber.objectReferenceValue)
             {
                 notifiers.Add(serializedObject);
@@ -94,26 +107,15 @@ public class GameEventVisualizer : Editor
         }
         searchComplete = true;
     }
-    private void DrawSubscriberCurves()
+    public void DrawGameEventCurves(List<SerializedObject> gameEvents, Color color)
     {
-        foreach (var subscriber in subscribers)
+        foreach (var gameEvent in gameEvents)
         {
             Transform myObject = ((MonoBehaviour)serializedObject.targetObject).gameObject.transform;
-            Transform targetObject = ((MonoBehaviour)subscriber.targetObject).gameObject.transform;
-            startTangent = Vector3.Cross(myObject.position.normalized, targetObject.position.normalized) * 0.1f;
-            endTangent = Vector3.Lerp(myObject.position, targetObject.position, 0.25f);
-            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, endTangent, startTangent, Color.green, null, 5);
-        }
-    }
-    private void DrawNotifierCurves()
-    {
-        foreach (var notifier in notifiers)
-        {
-            Transform myObject = ((MonoBehaviour)serializedObject.targetObject).gameObject.transform;
-            Transform targetObject = ((MonoBehaviour)notifier.targetObject).gameObject.transform;
-            startTangent = Vector3.Cross(myObject.position, targetObject.position) * 0.1f;
-            endTangent = Vector3.Lerp(myObject.position, targetObject.position, 0.25f);
-            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, 0.5f * startTangent, endTangent, Color.red, null, 5);
+            Transform targetObject = ((MonoBehaviour)gameEvent.targetObject).gameObject.transform;
+            startTangent = Vector3.Slerp(myObject.position, targetObject.position, 0.5f);
+            endTangent = Vector3.Min(targetObject.position, myObject.position);
+            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, startTangent, endTangent, color, null, 4);
         }
     }
 }
