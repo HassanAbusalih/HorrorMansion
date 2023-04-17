@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour
+public class LightSwitch : MonoBehaviour, ISubscriber
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent incoming;
+    string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] Material materialWhenOn;
     [SerializeField] Material materialWhenOff;
     Material currentMaterial;
@@ -12,7 +13,7 @@ public class LightSwitch : MonoBehaviour
 
     private void Start()
     {
-        gameEvent.Subscribe(SwitchState);
+        incoming.Subscribe(SwitchState);
         lightsouce = GetComponent<Light>();
         currentMaterial = GetComponent<Renderer>().material;
     }

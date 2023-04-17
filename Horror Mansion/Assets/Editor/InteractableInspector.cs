@@ -9,7 +9,10 @@ public class InteractableInspector : GameEventVisualizer
 {
     private void OnSceneGUI()
     {
-        TryDrawingLines();
+        if (activate) 
+        {
+            TryDrawingLines();
+        }
     }
     public override void OnInspectorGUI()
     {
@@ -20,7 +23,12 @@ public class InteractableInspector : GameEventVisualizer
         if (interactable.interactType == InteractType.Button)
         {
             ShowButtonProperties(interactable);
-            turnOn = GUILayout.Toggle(turnOn, "Show Game Events");
+            activate = GUILayout.Toggle(activate, "Show Game Events");
+            if (activate)
+            {
+                GameEventWindow.notifiers = notifiers;
+                GameEventWindow.subscribers = subscribers;
+            }
         }
         else if (interactable.interactType == InteractType.Text)
         {
@@ -30,8 +38,6 @@ public class InteractableInspector : GameEventVisualizer
         {
             ShowPickUpProperties();
         }
-        Debug.Log(subscribers.Count);
-        Debug.Log(notifiers.Count);
         serializedObject.ApplyModifiedProperties();
     }
 

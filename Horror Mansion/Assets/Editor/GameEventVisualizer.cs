@@ -11,36 +11,32 @@ public class GameEventVisualizer : Editor
     SerializedProperty subscriber;
     SerializedProperty notifier;
     bool searchComplete;
-    public static bool turnOn;
+    public static bool activate;
     Vector3 startTangent;
     Vector3 endTangent;
 
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        if (target is IGameEvent)
-        {
-            turnOn = GUILayout.Toggle(turnOn, "Show Game Events");
-        }
-    }
-
     private void OnSceneGUI()
     {
-        TryDrawingLines();
+        if (activate)
+        {
+            TryDrawingLines();
+        }
+        else
+        {
+            GameEventWindow.subscribers.Clear();
+            GameEventWindow.notifiers.Clear();
+        }
     }
 
     public void TryDrawingLines()
     {
-        if (!turnOn) { return; }
         if (target is not IGameEvent)
         {
-            searchComplete = false;
             return;
         }
         GetMyGameEvents();
         if (subscriber == null && notifier == null)
         {
-            Debug.Log("double null");
             return;
         }
         if (subscribers.Count == 0 && notifiers.Count == 0 && !searchComplete)
@@ -49,11 +45,13 @@ public class GameEventVisualizer : Editor
         }
         if (subscribers.Count > 0)
         {
-            DrawSubscriberCurves();
+            GameEventWindow.subscribers = subscribers;
+            DrawGameEventCurves(subscribers, Color.green);
         }
         if (notifiers.Count > 0)
         {
-            DrawNotifierCurves();
+            GameEventWindow.notifiers = notifiers;
+            DrawGameEventCurves(notifiers, Color.red);
         }
     }
 
@@ -73,35 +71,35 @@ public class GameEventVisualizer : Editor
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(true);
         foreach (GameObject sceneObject in sceneObjects)
         {
-            Component[] components = sceneObject.GetComponentsInChildren<Component>(true);
-            foreach (Component component in components)
+            MonoBehaviour[] monoBehaviours = sceneObject.GetComponentsInChildren<MonoBehaviour>(true);
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {
-                if (component == serializedObject.targetObject)
+                if (monoBehaviour == serializedObject.targetObject)
                 {
                     break;
                 }
-                if (component is IGameEvent)
+                if (monoBehaviour is IGameEvent)
                 {
-                    AddToListByType(component);
+                    AddToListByType(monoBehaviour);
                 }
             }
         }
     }
-    public void AddToListByType(Component component)
+    public void AddToListByType(MonoBehaviour monoBehaviour)
     {
-        if (component is ISubscriber && notifier != null)
+        if (monoBehaviour is ISubscriber && notifier != null)
         {
-            SerializedObject serializedObject = new SerializedObject(component);
-            SerializedProperty property = serializedObject.FindProperty(((ISubscriber)component).GetName());
+            SerializedObject serializedObject = new SerializedObject(monoBehaviour);
+            SerializedProperty property = serializedObject.FindProperty(((ISubscriber)monoBehaviour).GetName());
             if (property != null && property.objectReferenceValue == notifier.objectReferenceValue)
             {
                 subscribers.Add(serializedObject);
             }
         }
-        if (component is INotifier && subscriber != null)
+        if (monoBehaviour is INotifier && subscriber != null)
         {
-            SerializedObject serializedObject = new SerializedObject(component);
-            SerializedProperty property = serializedObject.FindProperty(((INotifier)component).GetName());
+            SerializedObject serializedObject = new SerializedObject(monoBehaviour);
+            SerializedProperty property = serializedObject.FindProperty(((INotifier)monoBehaviour).GetName());
             if (property != null && property.objectReferenceValue == subscriber.objectReferenceValue)
             {
                 notifiers.Add(serializedObject);
@@ -109,26 +107,15 @@ public class GameEventVisualizer : Editor
         }
         searchComplete = true;
     }
-    public void DrawSubscriberCurves()
+    public void DrawGameEventCurves(List<SerializedObject> gameEvents, Color color)
     {
-        foreach (var subscriber in subscribers)
+        foreach (var gameEvent in gameEvents)
         {
             Transform myObject = ((MonoBehaviour)serializedObject.targetObject).gameObject.transform;
-            Transform targetObject = ((MonoBehaviour)subscriber.targetObject).gameObject.transform;
-            startTangent = Vector3.Cross(myObject.position.normalized, targetObject.position.normalized) * 0.1f;
-            endTangent = Vector3.Lerp(myObject.position, targetObject.position, 0.25f);
-            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, endTangent, startTangent, Color.green, null, 5);
-        }
-    }
-    public void DrawNotifierCurves()
-    {
-        foreach (var notifier in notifiers)
-        {
-            Transform myObject = ((MonoBehaviour)serializedObject.targetObject).gameObject.transform;
-            Transform targetObject = ((MonoBehaviour)notifier.targetObject).gameObject.transform;
-            startTangent = Vector3.Cross(myObject.position, targetObject.position) * 0.1f;
-            endTangent = Vector3.Lerp(myObject.position, targetObject.position, 0.25f);
-            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, 0.5f * startTangent, endTangent, Color.red, null, 5);
+            Transform targetObject = ((MonoBehaviour)gameEvent.targetObject).gameObject.transform;
+            startTangent = Vector3.Slerp(myObject.position, targetObject.position, 0.5f);
+            endTangent = Vector3.Min(targetObject.position, myObject.position);
+            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, startTangent, endTangent, color, null, 4);
         }
     }
 }
