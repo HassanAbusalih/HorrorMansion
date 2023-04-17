@@ -2121,7 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
-  componentToToggle: {fileID: 1968245503}
+  componentToToggle: {fileID: 1968245498}
   singleInteraction: 1
 --- !u!1 &311759689 stripped
 GameObject:
@@ -13919,38 +13919,6 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
---- !u!114 &1968245503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968245493}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef25e8927be2bb143a7fba84b2641fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canInteract: 1
-  interactType: 2
-  playerPos: {fileID: 0}
-  text:
-    textPrefab: {fileID: 5236031858132232471, guid: 919234a375b02bc4fb81211e8784320f, type: 3}
-    description: The Anti-Robot puzzle? What the hell is that?! I'm not a robot you
-      old piece of...
-    destroyTime: 7
-  button:
-    gameEvent: {fileID: 0}
-    variableNeeded: 0
-    componentNeeded: 0
-    componentToPassIn: {fileID: 0}
-    stringToPassIn: 
-    singleInteraction: 0
-    animated: 0
-    animator: {fileID: 0}
-    animationName: 
-  pickUp:
-    throwForce: 0
 --- !u!1 &2001319919
 GameObject:
   m_ObjectHideFlags: 0
@@ -14160,7 +14128,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c682f809f4974381aa961e199a163d0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0

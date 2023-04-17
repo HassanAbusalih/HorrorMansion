@@ -36,6 +36,7 @@ public class Interactable : MonoBehaviour, INotifier
 
     private void ToggleOutline()
     {
+        if (myRenderer == null) { return; }
         if (canInteract)
         {
             float distance = (playerPos.position - transform.position).magnitude;
@@ -53,7 +54,8 @@ public class Interactable : MonoBehaviour, INotifier
     }
     private void SetUpMaterialsAndShader()
     {
-        myRenderer = GetComponent<Renderer>();
+        TryGetComponent(out myRenderer);
+        if (myRenderer == null) { return; }
         defaultMaterials = myRenderer.materials;
         shaderMaterials = new Material[defaultMaterials.Length + 1];
         for(int i = 0; i < shaderMaterials.Length - 1; i++)

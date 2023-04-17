@@ -41,6 +41,7 @@ public class Interact : MonoBehaviour
             }
             else if (interactable != null && interactable.canInteract)
             {
+                if (!interactable.enabled) { return; }
                 InteractWithObject();
             }
         }
