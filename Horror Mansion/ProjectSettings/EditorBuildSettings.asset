@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ilya Scene.unity
+    guid: 1aa8b7c0e7fed4fdb9af9011d4b8dece
   m_configObjects: {}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// This handles all possible interactions that an Interactable requires, when the player is at a certain range and 
@@ -13,7 +14,7 @@ public class Interact : MonoBehaviour
 {
     [SerializeField] KeyCode interactButton = KeyCode.E;
     [SerializeField] Transform pickUpPosition;
-    [SerializeField] TextMeshProUGUI interactText;
+    [SerializeField] Image interactText;
     Interactable interactable;
     Interactable heldInteractable;
     SmoothResizingGun smoothResizingGun;
@@ -40,6 +41,7 @@ public class Interact : MonoBehaviour
             }
             else if (interactable != null && interactable.canInteract)
             {
+                if (!interactable.enabled) { return; }
                 InteractWithObject();
             }
         }
