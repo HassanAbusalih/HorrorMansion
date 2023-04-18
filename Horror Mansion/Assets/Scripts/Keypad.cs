@@ -11,7 +11,7 @@ public class Keypad : MonoBehaviour
 
     public AudioClip clickSound;
     public AudioClip openSound;
-    public AudioClip noSound;
+    public AudioClip wrongSound;
     AudioSource audioSource;
 
     public UnityEvent OnEntryAllowed;
@@ -43,7 +43,7 @@ public class Keypad : MonoBehaviour
                 //TODO play a sound
                 Debug.Log("Not this time");
                 userInput = "";
-                audioSource.PlayOneShot(noSound);
+                audioSource.PlayOneShot(wrongSound);
             }
         }
     }
