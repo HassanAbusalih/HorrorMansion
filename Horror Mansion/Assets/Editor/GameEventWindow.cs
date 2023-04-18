@@ -137,7 +137,7 @@ public class GameEventWindow : EditorWindow
         {
             return;
         }
-        foreach (MonoBehaviour monoBehaviour in Selection.activeGameObject.GetComponentsInChildren<MonoBehaviour>())
+        foreach (MonoBehaviour monoBehaviour in Selection.activeGameObject.GetComponents<MonoBehaviour>())
         {
             if (monoBehaviour is IGameEvent)
             {
@@ -173,7 +173,7 @@ public class GameEventWindow : EditorWindow
             {
                 continue;
             }
-            MonoBehaviour[] monoBehaviours = sceneObject.GetComponentsInChildren<MonoBehaviour>(true);
+            MonoBehaviour[] monoBehaviours = sceneObject.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {
                 if (monoBehaviour is IGameEvent)
