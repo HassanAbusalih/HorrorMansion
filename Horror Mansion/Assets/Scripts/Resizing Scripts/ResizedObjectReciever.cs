@@ -15,7 +15,7 @@ public class ResizedObjectReciever : MonoBehaviour, INotifier
     Interactable interactable;
     float resizedObjectSize = 0;
     bool puzzleSolved;
-
+    public GameEvent Notifier => outgoing;
     private void Start()
     {
         gameObject.layer = 1;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ToggleObject : MonoBehaviour, ISubscriber
 {
     [SerializeField] GameEvent incoming;
+    public GameEvent Subscriber => incoming;
     string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] GameObject objectToToggle;
     [SerializeField] bool singleInteraction;
