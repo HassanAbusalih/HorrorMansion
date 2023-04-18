@@ -6,6 +6,8 @@ public class ToolTestScript : MonoBehaviour, ISubscriber, INotifier
 {
     [SerializeField] GameEvent incoming;
     [SerializeField] GameEvent outgoing;
+    public GameEvent Subscriber => incoming;
+    public GameEvent Notifier => outgoing;
     string ISubscriber.GetName() => nameof(incoming);
     string INotifier.GetName() => nameof(outgoing);
 }

@@ -9,11 +9,19 @@ public class InteractableInspector : GameEventVisualizer
 {
     private void OnSceneGUI()
     {
-        if (activate) 
+        if (GameEventWindow.activate)
         {
-            TryDrawingLines();
+            if (GameEventWindow.subscribers.Count > 0)
+            {
+                DrawGameEventCurves(GameEventWindow.subscribers, Color.green);
+            }
+            if (GameEventWindow.notifiers.Count > 0)
+            {
+                DrawGameEventCurves(GameEventWindow.notifiers, Color.red);
+            }
         }
     }
+
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -23,12 +31,6 @@ public class InteractableInspector : GameEventVisualizer
         if (interactable.interactType == InteractType.Button)
         {
             ShowButtonProperties(interactable);
-            activate = GUILayout.Toggle(activate, "Show Game Events");
-            if (activate)
-            {
-                GameEventWindow.notifiers = notifiers;
-                GameEventWindow.subscribers = subscribers;
-            }
         }
         else if (interactable.interactType == InteractType.Text)
         {

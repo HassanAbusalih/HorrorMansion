@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightSwitch : MonoBehaviour, ISubscriber
 {
     [SerializeField] GameEvent incoming;
+    public GameEvent Subscriber => incoming;
     string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] Material materialWhenOn;
     [SerializeField] Material materialWhenOff;

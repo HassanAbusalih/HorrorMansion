@@ -8,6 +8,7 @@ public class AudioPlayer : MonoBehaviour, ISubscriber
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip clip;
     [SerializeField] GameEvent incoming;
+    public GameEvent Subscriber => incoming;
     string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] bool singleInteraction;
 
