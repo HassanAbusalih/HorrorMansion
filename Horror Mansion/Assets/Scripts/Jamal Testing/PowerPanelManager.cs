@@ -10,6 +10,7 @@ public class PowerPanelManager : MonoBehaviour
     public GameObject SwitchOffKey;
     public GameObject KeyHoleKey;
     public GameObject Cable;
+    public GameObject KeyInHand;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class PowerPanelManager : MonoBehaviour
                 SwitchOffKey.SetActive(true);
                 KeyHoleKey.SetActive(true);
                 InsertKeyText.SetActive(false);
+                KeyInHand.SetActive(false);
             }
         }
     }

@@ -6,12 +6,14 @@ public class EastWingUSB1 : MonoBehaviour
 {
     public GameObject EastUSB1;
     public GameObject PickUpText;
+    public GameObject Keyhole;
 
     // Start is called before the first frame update
     void Start()
     {
         EastUSB1.SetActive(false);
         PickUpText.SetActive(false);
+        Keyhole.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -26,6 +28,7 @@ public class EastWingUSB1 : MonoBehaviour
                 EastUSB1.SetActive(true);
 
                 PickUpText.SetActive(false);
+                Keyhole.SetActive(true);
             }
         }
     }
