@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
-public class ResizedObjectReciever : MonoBehaviour
+public class ResizedObjectReciever : MonoBehaviour, INotifier
 {
-    [SerializeField] GameEvent gameEvent;
+    [SerializeField] GameEvent outgoing;
+    string INotifier.GetName() => nameof(outgoing);
     [SerializeField] string desiredObjectName;
     [Min(0.01f)][SerializeField] float desiredObjectMinSize;
     [SerializeField] float desiredObjectMaxSize;
@@ -13,7 +15,7 @@ public class ResizedObjectReciever : MonoBehaviour
     Interactable interactable;
     float resizedObjectSize = 0;
     bool puzzleSolved;
-
+    public GameEvent Notifier => outgoing;
     private void Start()
     {
         gameObject.layer = 1;
@@ -57,7 +59,7 @@ public class ResizedObjectReciever : MonoBehaviour
     {
         if (resizedObject != null && isPartOfSet)
         {
-            gameEvent.NotifyStorageObj();
+            outgoing.NotifyStorageObj();
         }
         resizedObject = null;
     }
@@ -66,11 +68,11 @@ public class ResizedObjectReciever : MonoBehaviour
     {
         if (isPartOfSet)
         {
-            gameEvent.NotifyStorageObj();
+            outgoing.NotifyStorageObj();
         }
         else if (!puzzleSolved)
         {
-            gameEvent.Notify();
+            outgoing.Notify();
             puzzleSolved = true;
         }
     }
