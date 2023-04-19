@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObjectReceiver : MonoBehaviour, INotifier
 {
     [SerializeField] GameEvent outgoing;
+    public GameEvent Notifier => outgoing;
     string INotifier.GetName() => nameof(outgoing);
     [SerializeField] Interactable objectToReceive;
     bool objectReceived;

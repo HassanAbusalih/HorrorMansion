@@ -811,7 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fead6fd2fa7ba5c4b8ac1551b5fadd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outgoing: {fileID: 0}
+  outgoing: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
   desiredObjectName: Alternate Resizable Cube
   desiredObjectMinSize: 1
   desiredObjectMaxSize: 1
@@ -946,6 +946,10 @@ MonoBehaviour:
   numberOfButtons: 4
   animator: {fileID: 0}
   animationName: 
+  audioSource: {fileID: 0}
+  correctSequence: {fileID: 0}
+  wrongSequence: {fileID: 0}
+  buttonPress: {fileID: 0}
 --- !u!65 &669961863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2271,7 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactButton: 101
   pickUpPosition: {fileID: 1030169475}
-  interactText: {fileID: 815870392}
+  interactText: {fileID: 0}
 --- !u!1 &2011878312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,8 +2402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0da77798bc71564e91e8af3973f9d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incoming: {fileID: 11400000, guid: 5fe927cedb64b8b4c9b120bec381c96a, type: 2}
-  outgoing: {fileID: 11400000, guid: fea9c503d3f90a047bb15407abb6751d, type: 2}
+  incoming: {fileID: 0}
+  outgoing: {fileID: 0}
 --- !u!4 &2050064955
 Transform:
   m_ObjectHideFlags: 0

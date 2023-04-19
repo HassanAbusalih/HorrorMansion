@@ -7,6 +7,8 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 {
     [SerializeField] GameEvent incoming;
     [SerializeField] GameEvent outgoing;
+    public GameEvent Subscriber => incoming;
+    public GameEvent Notifier => outgoing;
     string ISubscriber.GetName() => nameof(incoming);
     string INotifier.GetName() => nameof(outgoing);
     [SerializeField] int numberOfButtons;
