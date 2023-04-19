@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.TerrainTools;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameEventWindow : EditorWindow
 {
@@ -27,7 +28,16 @@ public class GameEventWindow : EditorWindow
         scrollBar = EditorGUILayout.BeginScrollView(scrollBar);
         GUILayout.BeginHorizontal(EditorStyles.toolbar);
         GUILayout.FlexibleSpace();
-        activate = GUILayout.Toggle(activate, "Activate", EditorStyles.toolbarButton);
+        var activateTemp = GUILayout.Toggle(activate, "Activate", EditorStyles.toolbarButton);
+        if( activate != activateTemp)
+        {
+            Selection.selectionChanged();
+            var obj = Selection.activeGameObject;
+            Selection.activeGameObject = null;
+            Selection.activeGameObject = obj;
+            SceneView.RepaintAll();
+        }
+        activate = activateTemp;
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
         if (activate)
