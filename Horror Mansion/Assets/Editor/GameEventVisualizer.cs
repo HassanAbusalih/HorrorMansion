@@ -2,10 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 [CustomEditor(typeof(MonoBehaviour), true)]
 public class GameEventVisualizer : Editor
 {
+    private void OnEnable()
+    {
+        EditorSceneManager.sceneDirtied += OnSceneDirty;
+
+    }
+    public void OnSceneDirty(Scene scene) => OnSceneGUI();
+    private void OnDisable()
+    {
+        EditorSceneManager.sceneDirtied -= OnSceneDirty;
+
+    }
     private void OnSceneGUI()
     {
         if (GameEventWindow.activate)
