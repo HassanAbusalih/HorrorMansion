@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000043681564, g: 0.000095573596, b: 0.000043681564, a: 1}
+  m_IndirectSpecularColor: {r: 0.00004327564, g: 0.000095573596, b: 0.00004327564, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -628,12 +628,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -839,12 +839,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 5ed2832d230a14a369d02a3c79310ca8, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 11400000, guid: 5ed2832d230a14a369d02a3c79310ca8, type: 2}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -1246,12 +1246,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -2433,7 +2433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fead6fd2fa7ba5c4b8ac1551b5fadd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
+  outgoing: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   desiredObjectName: Battery
   desiredObjectMinSize: 1.4
   desiredObjectMaxSize: 1.6
@@ -2463,7 +2463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10d5ac43a0f6b640b60d8002d23d8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
+  incoming: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   objectToToggle: {fileID: 329791625}
   singleInteraction: 1
 --- !u!114 &274488828
@@ -2494,7 +2494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
+  incoming: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   componentToToggle: {fileID: 61817943}
   singleInteraction: 1
 --- !u!114 &274488830
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
+  incoming: {fileID: 11400000, guid: 5db743ec4b1354c2b9e40b097436124c, type: 2}
   componentToToggle: {fileID: 2088157992}
   singleInteraction: 1
 --- !u!1 &311759689 stripped
@@ -2548,12 +2548,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -3796,7 +3796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dfbaa074e2117478c47be690e1fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: a5e7b2db2a4bb4323b1eb54a7a075467, type: 2}
+  outgoing: {fileID: 11400000, guid: a5e7b2db2a4bb4323b1eb54a7a075467, type: 2}
   objectToReceive: {fileID: 623881253}
 --- !u!114 &438272666
 MonoBehaviour:
@@ -3810,7 +3810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
+  incoming: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
   componentToToggle: {fileID: 438272665}
   singleInteraction: 1
 --- !u!114 &438272667
@@ -5181,7 +5181,6 @@ GameObject:
   - component: {fileID: 550630701}
   - component: {fileID: 550630703}
   - component: {fileID: 550630702}
-  - component: {fileID: 550630704}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -5216,7 +5215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fead6fd2fa7ba5c4b8ac1551b5fadd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
+  outgoing: {fileID: 11400000, guid: 0c5c19dd5daf15745a7c27bb92a25a75, type: 2}
   desiredObjectName: Battery
   desiredObjectMinSize: 1.1
   desiredObjectMaxSize: 0.9
@@ -5234,22 +5233,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.081826, z: 0.94462204}
   m_Center: {x: 0, y: 0.03378448, z: 1.1488096e-17}
---- !u!114 &550630704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550630700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  clip: {fileID: 0}
-  incoming: {fileID: 0}
-  singleInteraction: 0
 --- !u!1001 &560700371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5859,12 +5842,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -6644,7 +6627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 1d936cb4f27ed426e9bb23b7b1123178, type: 2}
+  incoming: {fileID: 0}
   componentToToggle: {fileID: 869810301}
   singleInteraction: 1
 --- !u!1001 &722770726
@@ -7103,12 +7086,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -7131,7 +7114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10d5ac43a0f6b640b60d8002d23d8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
+  incoming: {fileID: 11400000, guid: 7ff7a2775970c469f8d5607f196e40aa, type: 2}
   objectToToggle: {fileID: 3738791}
   singleInteraction: 1
 --- !u!1001 &800483188
@@ -7578,7 +7561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10d5ac43a0f6b640b60d8002d23d8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 1d936cb4f27ed426e9bb23b7b1123178, type: 2}
+  incoming: {fileID: 11400000, guid: 1d936cb4f27ed426e9bb23b7b1123178, type: 2}
   objectToToggle: {fileID: 1800191726}
   singleInteraction: 1
 --- !u!114 &869810285
@@ -7627,12 +7610,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: cc9e4de0e108b4ea8a98ebeceef73083, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 11400000, guid: cc9e4de0e108b4ea8a98ebeceef73083, type: 2}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -8283,12 +8266,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -9275,7 +9258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fead6fd2fa7ba5c4b8ac1551b5fadd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 3e362292575cf465f810d3efc467c188, type: 2}
+  outgoing: {fileID: 11400000, guid: 3e362292575cf465f810d3efc467c188, type: 2}
   desiredObjectName: Battery
   desiredObjectMinSize: 1
   desiredObjectMaxSize: 1
@@ -10008,12 +9991,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -10088,7 +10071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46dfbaa074e2117478c47be690e1fd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
+  outgoing: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
   objectToReceive: {fileID: 623881253}
 --- !u!114 &1190230485
 MonoBehaviour:
@@ -10160,7 +10143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
+  incoming: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
   componentToToggle: {fileID: 793411455}
   singleInteraction: 1
 --- !u!114 &1190230489
@@ -10175,7 +10158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
+  incoming: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
   componentToToggle: {fileID: 1840016345}
   singleInteraction: 1
 --- !u!114 &1190230490
@@ -10206,7 +10189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10d5ac43a0f6b640b60d8002d23d8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
+  incoming: {fileID: 11400000, guid: 7c6d6579634e74a5091d3c74373f515f, type: 2}
   objectToToggle: {fileID: 3738791}
   singleInteraction: 1
 --- !u!1001 &1223520803
@@ -10489,12 +10472,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -13401,12 +13384,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -14295,12 +14278,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -14447,7 +14430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841b5dc6c901ec04ca95d1cdaac3125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: cc1a0d4b9203943889ae60f6e42d1a00, type: 2}
+  incoming: {fileID: 11400000, guid: cc1a0d4b9203943889ae60f6e42d1a00, type: 2}
   componentToToggle: {fileID: 717398756}
   singleInteraction: 1
 --- !u!1 &1828550858
@@ -14637,12 +14620,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: 8b8a1db617d35459d96a2313a2e4d965, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 11400000, guid: 8b8a1db617d35459d96a2313a2e4d965, type: 2}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -15267,12 +15250,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 1
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 0}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 0}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
@@ -16866,12 +16849,12 @@ MonoBehaviour:
   canInteract: 1
   interactType: 3
   playerPos: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: cbdf2e4a2ecf5436aa9c72c44fcbfadb, type: 2}
   text:
     textPrefab: {fileID: 0}
     description: 
     destroyTime: 5
   button:
-    gameEvent: {fileID: 11400000, guid: cbdf2e4a2ecf5436aa9c72c44fcbfadb, type: 2}
     variableNeeded: 0
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
