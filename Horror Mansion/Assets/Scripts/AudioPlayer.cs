@@ -19,14 +19,15 @@ public class AudioPlayer : MonoBehaviour, ISubscriber
 
     private void PlayAudio()
     {
+        source.clip = clip;
         if (singleInteraction)
         {
-            source.PlayOneShot(clip);
+            source.Play();
             incoming.Unsubscribe(PlayAudio);
         }
-        else
+        else if (!source.isPlaying)
         {
-            source.PlayOneShot(clip);
+            source.Play();
         }
     }
 }
