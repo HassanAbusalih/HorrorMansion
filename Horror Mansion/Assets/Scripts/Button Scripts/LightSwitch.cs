@@ -9,28 +9,28 @@ public class LightSwitch : MonoBehaviour, ISubscriber
     string ISubscriber.GetName() => nameof(incoming);
     [SerializeField] Material materialWhenOn;
     [SerializeField] Material materialWhenOff;
-    Material currentMaterial;
-    Light lightsouce;
-
+    Renderer myRenderer;
+    Light lightSource;
+    public bool Active => lightSource.enabled;
     private void Start()
     {
         incoming.Subscribe(SwitchState);
-        lightsouce = GetComponent<Light>();
-        currentMaterial = GetComponent<Renderer>().material;
+        lightSource = GetComponent<Light>();
+        myRenderer = GetComponent<Renderer>();
     }
 
     void SwitchState()
     {
-        if (lightsouce != null)
+        if (lightSource != null)
         {
-            lightsouce.enabled = !lightsouce.enabled;
-            if (lightsouce.enabled)
+            lightSource.enabled = !lightSource.enabled;
+            if (lightSource.enabled)
             {
-                currentMaterial = materialWhenOn;
+                myRenderer.material = materialWhenOn;
             }
             else
             {
-                currentMaterial = materialWhenOff;
+                myRenderer.material = materialWhenOff;
             }
         }
         else
