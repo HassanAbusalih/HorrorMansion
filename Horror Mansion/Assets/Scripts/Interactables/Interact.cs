@@ -51,11 +51,17 @@ public class Interact : MonoBehaviour
             interactable = hit.transform.GetComponent<Interactable>();
             if (interactable != null && heldInteractable == null)
             {
-                interactText.gameObject.SetActive(interactable.canInteract);
+                if (interactText != null)
+                {
+                    interactText.gameObject.SetActive(interactable.canInteract);
+                }
                 return;
             }
         }
-        interactText.gameObject.SetActive(false);
+        if (interactText != null)
+        {
+            interactText.gameObject.SetActive(false);
+        }
         interactable = null;
     }
 

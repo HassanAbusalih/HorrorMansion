@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class GameEventWindow : EditorWindow
@@ -27,7 +26,12 @@ public class GameEventWindow : EditorWindow
         scrollBar = EditorGUILayout.BeginScrollView(scrollBar);
         GUILayout.BeginHorizontal(EditorStyles.toolbar);
         GUILayout.FlexibleSpace();
-        activate = GUILayout.Toggle(activate, "Activate", EditorStyles.toolbarButton);
+        var activateTemp = GUILayout.Toggle(activate, "Activate", EditorStyles.toolbarButton);
+        if (activate != activateTemp)
+        {
+            Selection.selectionChanged();
+        }
+        activate = activateTemp;
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
         if (activate)
@@ -57,7 +61,7 @@ public class GameEventWindow : EditorWindow
                 GUILayout.Space(5);
                 if (showNotifiers)
                 {
-                    DrawGameEvents("Notifying from", notifiers); 
+                    DrawGameEvents("Notifying to    ", notifiers); 
                 }
             }
         }
@@ -114,6 +118,7 @@ public class GameEventWindow : EditorWindow
         myNotifiers.Clear();
         mySubscribers.Clear();
         Repaint();
+        SceneView.RepaintAll();
     }
 
     public void TryDrawingLines()
@@ -137,7 +142,7 @@ public class GameEventWindow : EditorWindow
         {
             return;
         }
-        foreach (MonoBehaviour monoBehaviour in Selection.activeGameObject.GetComponentsInChildren<MonoBehaviour>())
+        foreach (MonoBehaviour monoBehaviour in Selection.activeGameObject.GetComponents<MonoBehaviour>())
         {
             if (monoBehaviour is IGameEvent)
             {
@@ -173,7 +178,7 @@ public class GameEventWindow : EditorWindow
             {
                 continue;
             }
-            MonoBehaviour[] monoBehaviours = sceneObject.GetComponentsInChildren<MonoBehaviour>(true);
+            MonoBehaviour[] monoBehaviours = sceneObject.GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {
                 if (monoBehaviour is IGameEvent)
