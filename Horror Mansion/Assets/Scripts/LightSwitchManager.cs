@@ -39,9 +39,11 @@ public class LightSwitchManager : MonoBehaviour, INotifier
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent( out FirstPersonCam placeholder))
+        PlayerController Hassan = other.gameObject.GetComponent<PlayerController>();
+        if(Hassan != null)
         {
             active = true;
+            Debug.Log(true);
         }
     }
 }
