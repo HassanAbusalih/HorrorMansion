@@ -65,7 +65,10 @@ public class Interact : MonoBehaviour
                 }
             }
         }
-        interactText.gameObject.SetActive(false);
+        if (interactText != null)
+        {
+            interactText.gameObject.SetActive(false);
+        }
         interactable = null;
     }
 

@@ -4,8 +4,8 @@ using UnityEngine;
 
 /// <summary>
 /// This script handles moving the player using Unity's character controller.
-/// A float list is used for the player's speed, sprint modifier and gravity.
-/// Since this uses a static value for the gravity, the player will always fall at the same speed.
+/// A float list is used to get the player's speed, sprint modifier and gravity.
+/// Since this uses an unchanging value for the gravity, the player will always fall at the same speed.
 /// </summary>
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -13,10 +13,16 @@ public class PlayerController : MonoBehaviour
     CharacterController controller;
     Vector3 direction = Vector3.zero;
     [SerializeField] FloatList floatList;
+    float speed;
+    float sprintModifier;
+    float gravity;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();    
+        controller = GetComponent<CharacterController>();
+        speed = floatList.GetFloatVar("Speed").value;
+        sprintModifier = floatList.GetFloatVar("Sprint Modifier").value;
+        gravity = floatList.GetFloatVar("Gravity").value;
     }
 
     void FixedUpdate()
@@ -26,15 +32,15 @@ public class PlayerController : MonoBehaviour
         direction = new Vector3(horizontal, 0, vertical);
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            direction = transform.TransformDirection(direction.normalized) * floatList.GetFloatVar("Speed").value * floatList.GetFloatVar("Sprint Modifier").value;
+            direction = transform.TransformDirection(direction.normalized) * speed * sprintModifier;
         }
         else
         {
-            direction = transform.TransformDirection(direction.normalized) * floatList.GetFloatVar("Speed").value;
+            direction = transform.TransformDirection(direction.normalized) * speed;
         }
         if (!controller.isGrounded)
         {
-            direction.y -= floatList.GetFloatVar("Gravity").value;
+            direction.y -= gravity;
         }
         controller.Move(direction * Time.deltaTime);
     }
