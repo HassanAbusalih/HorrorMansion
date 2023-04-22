@@ -195,7 +195,7 @@ public class GameEventWindow : EditorWindow
     {
         foreach (var monoBehaviour in events)
         {
-            if (monoBehaviour is ISubscriber && myNotifiers.Count > 0)
+            if ((monoBehaviour is ISubscriber || monoBehaviour is ISubscribers) && myNotifiers.Count > 0)
             {
                 if ((monoBehaviour as ISubscriber).Subscriber != null)
                 {
@@ -205,6 +205,21 @@ public class GameEventWindow : EditorWindow
                         {
                             GameEventInfo gameEventInfo = new();
                             gameEventInfo.gameEvent = (monoBehaviour as ISubscriber).Subscriber;
+                            gameEventInfo.gameObject = monoBehaviour.gameObject;
+                            gameEventInfo.monoBehaviour = monoBehaviour;
+                            gameEventInfo.connectedTo = notifier.monoBehaviour;
+                            subscribers.Add(gameEventInfo);
+                        }
+                    }
+                }
+                else if ((monoBehaviour as ISubscribers).Subscribers.Length > 0)
+                {
+                    foreach(var notifier in myNotifiers)
+                    {
+                        foreach(var subscriber in (monoBehaviour as ISubscribers).Subscribers)
+                        {
+                            GameEventInfo gameEventInfo = new();
+                            gameEventInfo.gameEvent = subscriber;
                             gameEventInfo.gameObject = monoBehaviour.gameObject;
                             gameEventInfo.monoBehaviour = monoBehaviour;
                             gameEventInfo.connectedTo = notifier.monoBehaviour;
