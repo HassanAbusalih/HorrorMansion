@@ -7,6 +7,11 @@ public interface ISubscriber : IGameEvent
     public string GetName();
 }
 
+public interface ISubscribers : IGameEvent
+{
+    public GameEvent[] Subscribers { get; }
+}
+
 public interface IGameEvent 
 {
     
