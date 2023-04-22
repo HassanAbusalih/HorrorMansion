@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// This handles all possible interactions that an Interactable requires, when the player is at a certain range and 
@@ -13,7 +14,7 @@ public class Interact : MonoBehaviour
 {
     [SerializeField] KeyCode interactButton = KeyCode.E;
     [SerializeField] Transform pickUpPosition;
-    [SerializeField] TextMeshProUGUI interactText;
+    [SerializeField] Image interactText;
     Interactable interactable;
     Interactable heldInteractable;
     SmoothResizingGun smoothResizingGun;
@@ -21,6 +22,7 @@ public class Interact : MonoBehaviour
     Camera rayDirection;
     Vector3 screenCenter = new(0.5f, 0.5f);
     Rigidbody rb;
+    bool deactivated;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class Interact : MonoBehaviour
             }
             else if (interactable != null && interactable.canInteract)
             {
+                if (!interactable.enabled) { return; }
                 InteractWithObject();
             }
         }
@@ -50,13 +53,17 @@ public class Interact : MonoBehaviour
         if (Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
-            if (interactable != null && heldInteractable == null)
+            if (interactable != null)
             {
-                if (interactText != null)
+                if (!interactable.enabled)
+                {
+                    return;
+                }
+                if (heldInteractable == null)
                 {
                     interactText.gameObject.SetActive(interactable.canInteract);
+                    return;
                 }
-                return;
             }
         }
         if (interactText != null)
@@ -100,7 +107,15 @@ public class Interact : MonoBehaviour
         }
         if (smoothResizingGun != null)
         {
-            smoothResizingGun.enabled = false;
+            if (smoothResizingGun.enabled)
+            {
+                deactivated = false;
+                smoothResizingGun.enabled = false;
+            }
+            else
+            {
+                deactivated = true;
+            }
         }
         if (instantResizingGun != null)
         {
@@ -130,6 +145,11 @@ public class Interact : MonoBehaviour
         rb = null;
         if (smoothResizingGun != null)
         {
+            if (deactivated)
+            {
+                return;
+            }
+
             smoothResizingGun.enabled = true;
         }
         if (instantResizingGun != null)

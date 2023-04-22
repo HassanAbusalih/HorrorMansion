@@ -946,6 +946,10 @@ MonoBehaviour:
   numberOfButtons: 4
   animator: {fileID: 0}
   animationName: 
+  audioSource: {fileID: 0}
+  correctSequence: {fileID: 0}
+  wrongSequence: {fileID: 0}
+  buttonPress: {fileID: 0}
 --- !u!65 &669961863
 BoxCollider:
   m_ObjectHideFlags: 0

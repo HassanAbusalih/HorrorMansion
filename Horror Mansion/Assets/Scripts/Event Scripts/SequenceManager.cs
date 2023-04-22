@@ -14,6 +14,10 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
     [SerializeField] int numberOfButtons;
     [SerializeField] Animator animator;
     [SerializeField] string animationName;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip correctSequence;
+    [SerializeField] AudioClip wrongSequence;
+    [SerializeField] AudioClip buttonPress;
     int counter;
     bool puzzleSolved;
 
@@ -24,14 +28,17 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 
     void DoSequence(object number)
     {
-        int num = int.Parse((string)number);
-        if (num == counter + 1)
+        int num;
+        if (int.TryParse(number.ToString(), out num) && num == counter + 1)
         {
+            Debug.Log(num);
             counter++;
+            audioSource.PlayOneShot(buttonPress);
         }
         else
         {
             counter = 0;
+            audioSource.PlayOneShot(wrongSequence);
         }
         if (counter == numberOfButtons && !puzzleSolved)
         {
@@ -41,6 +48,7 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
                 animator.Play(animationName);
             }
             outgoing.Notify();
+            audioSource.PlayOneShot(correctSequence);
             incoming.UnsubscribeObj(DoSequence);
         }
     }

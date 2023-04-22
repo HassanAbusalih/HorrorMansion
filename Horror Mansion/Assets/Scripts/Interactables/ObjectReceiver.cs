@@ -39,6 +39,7 @@ public class ObjectReceiver : MonoBehaviour, INotifier
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!enabled) return;
         if (other.gameObject == objectToReceive.gameObject)
         {
             if (!notified)
@@ -52,6 +53,7 @@ public class ObjectReceiver : MonoBehaviour, INotifier
 
     private void OnTriggerExit(Collider other)
     {
+        if (!enabled) return;
         if (other.gameObject == objectToReceive.gameObject)
         {
             objectReceived = false;
