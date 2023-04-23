@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,13 +28,9 @@ public class GameEventWindow : EditorWindow
         GUILayout.BeginHorizontal(EditorStyles.toolbar);
         GUILayout.FlexibleSpace();
         var activateTemp = GUILayout.Toggle(activate, "Activate", EditorStyles.toolbarButton);
-        if( activate != activateTemp)
+        if (activate != activateTemp)
         {
             Selection.selectionChanged();
-            var obj = Selection.activeGameObject;
-            Selection.activeGameObject = null;
-            Selection.activeGameObject = obj;
-            SceneView.RepaintAll();
         }
         activate = activateTemp;
         GUILayout.FlexibleSpace();
@@ -67,7 +62,7 @@ public class GameEventWindow : EditorWindow
                 GUILayout.Space(5);
                 if (showNotifiers)
                 {
-                    DrawGameEvents("Notifying from", notifiers); 
+                    DrawGameEvents("Notifying to    ", notifiers); 
                 }
             }
         }
@@ -124,6 +119,7 @@ public class GameEventWindow : EditorWindow
         myNotifiers.Clear();
         mySubscribers.Clear();
         Repaint();
+        SceneView.RepaintAll();
     }
 
     public void TryDrawingLines()
@@ -199,7 +195,7 @@ public class GameEventWindow : EditorWindow
     {
         foreach (var monoBehaviour in events)
         {
-            if (monoBehaviour is ISubscriber && myNotifiers.Count > 0)
+            if ((monoBehaviour is ISubscriber || monoBehaviour is ISubscribers) && myNotifiers.Count > 0)
             {
                 if ((monoBehaviour as ISubscriber).Subscriber != null)
                 {
@@ -209,6 +205,21 @@ public class GameEventWindow : EditorWindow
                         {
                             GameEventInfo gameEventInfo = new();
                             gameEventInfo.gameEvent = (monoBehaviour as ISubscriber).Subscriber;
+                            gameEventInfo.gameObject = monoBehaviour.gameObject;
+                            gameEventInfo.monoBehaviour = monoBehaviour;
+                            gameEventInfo.connectedTo = notifier.monoBehaviour;
+                            subscribers.Add(gameEventInfo);
+                        }
+                    }
+                }
+                else if ((monoBehaviour as ISubscribers).Subscribers.Length > 0)
+                {
+                    foreach(var notifier in myNotifiers)
+                    {
+                        foreach(var subscriber in (monoBehaviour as ISubscribers).Subscribers)
+                        {
+                            GameEventInfo gameEventInfo = new();
+                            gameEventInfo.gameEvent = subscriber;
                             gameEventInfo.gameObject = monoBehaviour.gameObject;
                             gameEventInfo.monoBehaviour = monoBehaviour;
                             gameEventInfo.connectedTo = notifier.monoBehaviour;

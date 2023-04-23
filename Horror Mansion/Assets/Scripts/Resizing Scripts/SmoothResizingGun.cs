@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +15,12 @@ public class SmoothResizingGun : MonoBehaviour
     [SerializeField] KeyCode enlargeButton = KeyCode.Mouse0;
     [SerializeField] KeyCode shrinkButton = KeyCode.Mouse1;
     [SerializeField] FloatList resizeSpeed;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip resizeSound;
+    [SerializeField] AudioClip limitSound;
+    [SerializeField] float minPitch;
+    [SerializeField] float maxPitch;
+    float resizingSpeed;
     SmoothResizable resizable;
     Vector3 screenCenter = new (0.5f, 0.5f);
     Camera rayDirection;
@@ -20,6 +28,7 @@ public class SmoothResizingGun : MonoBehaviour
     private void Start()
     {
         rayDirection = FindObjectOfType<Camera>();
+        resizingSpeed = resizeSpeed.GetFloatVar("Resize Speed").value;
     }
 
     void Update()
@@ -29,7 +38,11 @@ public class SmoothResizingGun : MonoBehaviour
             CheckForResizable();
             if (resizable != null)
             {
-                resizable.Enlarge(resizeSpeed.GetFloatVar("Resize Speed").value);
+                float sizePercentage = resizable.Enlarge(resizingSpeed);
+                if (source != null)
+                {
+                    PlayAudio(sizePercentage);
+                }
             }
         }
         else if (Input.GetKey(shrinkButton))
@@ -37,14 +50,53 @@ public class SmoothResizingGun : MonoBehaviour
             CheckForResizable();
             if (resizable != null)
             {
-                resizable.Shrink(resizeSpeed.GetFloatVar("Resize Speed").value);
+                float sizePercentage = resizable.Shrink(resizingSpeed);
+                if (source != null)
+                {
+                    PlayAudio(sizePercentage);
+                }
+            }
+        }
+        if (source.isPlaying && (!(Input.GetKey(enlargeButton) || Input.GetKey(shrinkButton)) || resizable == null) && source.clip != limitSound)
+        {
+            source.volume -= 10 * Time.deltaTime;
+            if (source.volume <= 0)
+            {
+                source.Stop();
+            }
+        }
+    }
+
+    private void PlayAudio(float sizePercentage)
+    {
+        if ((Input.GetKey(enlargeButton) || Input.GetKey(shrinkButton)) && !source.isPlaying)
+        {
+            source.clip = resizeSound;
+            source.volume = 0;
+            source.Play();
+        }
+        if (source.volume < 1)
+        {
+            source.volume += 10 * Time.deltaTime;
+        }
+        if (source.clip == resizeSound)
+        {
+            source.pitch = Mathf.Lerp(minPitch, maxPitch, sizePercentage);
+        }
+        if (sizePercentage <= 0 || sizePercentage >= 1)
+        {
+            source.clip = limitSound;
+            source.pitch = 1;
+            if (!source.isPlaying)
+            {
+                source.Play();
             }
         }
     }
 
     void CheckForResizable()
     {
-        if (Physics.Raycast(rayDirection.ViewportPointToRay(screenCenter), out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
+        if (Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             resizable = hit.transform.GetComponent<SmoothResizable>();
             if (resizable != null)

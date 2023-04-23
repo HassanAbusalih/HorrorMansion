@@ -29,7 +29,7 @@ public class FloatList : ScriptableObject
             }
         }
         Debug.Log("You wrote a wrong string name for a FloatVar!");
-        return 0;
+        return -1;
     }
 }
 

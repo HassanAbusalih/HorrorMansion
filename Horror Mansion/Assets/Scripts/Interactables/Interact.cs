@@ -19,13 +19,14 @@ public class Interact : MonoBehaviour
     Interactable heldInteractable;
     SmoothResizingGun smoothResizingGun;
     InstantResizingGun instantResizingGun;
-    Transform rayDirection;
+    Camera rayDirection;
+    Vector3 screenCenter = new(0.5f, 0.5f);
     Rigidbody rb;
     bool deactivated;
 
     void Start()
     {
-        rayDirection = FindFirstObjectByType<FirstPersonCam>().transform;
+        rayDirection = FindFirstObjectByType<Camera>();
         smoothResizingGun = GetComponent<SmoothResizingGun>();
         instantResizingGun = GetComponent<InstantResizingGun>();
     }
@@ -49,7 +50,7 @@ public class Interact : MonoBehaviour
 
     private void CheckForInteractable()
     {
-        if (Physics.Raycast(rayDirection.position, rayDirection.forward, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
+        if (Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
         {
             interactable = hit.transform.GetComponent<Interactable>();
             if (interactable != null)
@@ -65,7 +66,10 @@ public class Interact : MonoBehaviour
                 }
             }
         }
-        interactText.gameObject.SetActive(false);
+        if (interactText != null)
+        {
+            interactText.gameObject.SetActive(false);
+        }
         interactable = null;
     }
 
