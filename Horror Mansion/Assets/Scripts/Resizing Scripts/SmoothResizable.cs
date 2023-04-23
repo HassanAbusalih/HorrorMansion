@@ -17,6 +17,7 @@ public class SmoothResizable : Resizable
     UnityEvent correctSize = new();
     Vector3 defaultScale;
     bool correct;
+    float sizePercentage;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class SmoothResizable : Resizable
         }
     }
 
-    public void Shrink(float resizeSpeed)
+    public float Shrink(float resizeSpeed)
     {
         if (currentSize > minSize)
         {
@@ -44,9 +45,11 @@ public class SmoothResizable : Resizable
             transform.localScale = defaultScale * currentSize;
         }
         IsCorrect();
+        sizePercentage = (currentSize - minSize) / (maxSize - minSize);
+        return sizePercentage;
     }
 
-    public void Enlarge(float resizeSpeed)
+    public float Enlarge(float resizeSpeed)
     {
         if (currentSize < maxSize)
         {
@@ -54,6 +57,8 @@ public class SmoothResizable : Resizable
             transform.localScale = defaultScale * currentSize;
         }
         IsCorrect();
+        sizePercentage = (currentSize - minSize) / (maxSize - minSize);
+        return sizePercentage;
     }
 
     void IsCorrect()
