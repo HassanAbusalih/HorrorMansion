@@ -3,31 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Keypad : MonoBehaviour
+public class Keypad : MonoBehaviour, INotifier
 {
-    
-    
+    [SerializeField] GameEvent outgoing;
+    public GameEvent Notifier => outgoing;
+    public string GetName() => nameof(outgoing);
     public string password = "1234";
-
     private string userInput = "";
-
     public AudioClip clickSound;
     public AudioClip openSound;
     public AudioClip wrongSound;
     AudioSource audioSource;
     private int num;
 
-    public UnityEvent OnEntryAllowed;
-
-
     private void Start()
     {
-
-        
         userInput = "";
         audioSource = GetComponent<AudioSource>();
         num = password.Length;
-        
     }
 
 
@@ -43,8 +36,8 @@ public class Keypad : MonoBehaviour
                 // TODO Invoke event and play sound
                 Debug.Log("Entry Allowed");
                 audioSource.PlayOneShot(openSound);
-                OnEntryAllowed.Invoke();
-
+                userInput = "";
+                outgoing.Notify();
             }
             else
             {
@@ -55,4 +48,5 @@ public class Keypad : MonoBehaviour
             }
         }
     }
+
 }
