@@ -6307,6 +6307,7 @@ GameObject:
   - component: {fileID: 1614116714}
   - component: {fileID: 1614116713}
   - component: {fileID: 1614116712}
+  - component: {fileID: 1614116717}
   m_Layer: 0
   m_Name: DoorParent
   m_TagString: Untagged
@@ -6573,6 +6574,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614116717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614116710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc6d707bdb18994ba4be1fc3a32875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  password: 1234
+  clickSound: {fileID: 8300000, guid: dc0ad859c04ee8e4daa2680ddd919dd2, type: 3}
+  openSound: {fileID: 8300000, guid: 2bdc918381365be4889d9cb2d7f46b0f, type: 3}
+  wrongSound: {fileID: 8300000, guid: 1c7b6959f98f5b74aa5df0349110a5c3, type: 3}
+  OnEntryAllowed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AnimationClip, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1684477689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6992,6 +7024,7 @@ GameObject:
   - component: {fileID: 1870711999}
   - component: {fileID: 1870712000}
   - component: {fileID: 1870712001}
+  - component: {fileID: 1870712002}
   m_Layer: 0
   m_Name: KeyPad2
   m_TagString: Untagged
@@ -7039,7 +7072,7 @@ MonoBehaviour:
   password: 1234
   clickSound: {fileID: 8300000, guid: dc0ad859c04ee8e4daa2680ddd919dd2, type: 3}
   openSound: {fileID: 8300000, guid: 2bdc918381365be4889d9cb2d7f46b0f, type: 3}
-  noSound: {fileID: 8300000, guid: 1c7b6959f98f5b74aa5df0349110a5c3, type: 3}
+  wrongSound: {fileID: 8300000, guid: 1c7b6959f98f5b74aa5df0349110a5c3, type: 3}
   OnEntryAllowed:
     m_PersistentCalls:
       m_Calls:
@@ -7151,6 +7184,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1870712002
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870711998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52da87d9357c5bf41a233a2f549049cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1882705372
 GameObject:
   m_ObjectHideFlags: 0

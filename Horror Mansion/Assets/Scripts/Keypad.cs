@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Keypad : MonoBehaviour
 {
+    
+    
     public string password = "1234";
 
     private string userInput = "";
@@ -13,14 +15,19 @@ public class Keypad : MonoBehaviour
     public AudioClip openSound;
     public AudioClip wrongSound;
     AudioSource audioSource;
+    private int num;
 
     public UnityEvent OnEntryAllowed;
 
 
     private void Start()
     {
+
+        
         userInput = "";
         audioSource = GetComponent<AudioSource>();
+        num = password.Length;
+        
     }
 
 
@@ -28,7 +35,7 @@ public class Keypad : MonoBehaviour
     {
         audioSource.PlayOneShot(clickSound);
         userInput += number;
-        if (userInput.Length >= 4)
+        if (userInput.Length >= num)
         {
             //check password
             if (userInput == password)
@@ -37,6 +44,7 @@ public class Keypad : MonoBehaviour
                 Debug.Log("Entry Allowed");
                 audioSource.PlayOneShot(openSound);
                 OnEntryAllowed.Invoke();
+
             }
             else
             {
