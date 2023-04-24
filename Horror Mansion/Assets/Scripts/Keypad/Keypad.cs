@@ -18,6 +18,7 @@ public class Keypad : MonoBehaviour, INotifier
     public AudioClip openSound;
     public AudioClip wrongSound;
     AudioSource audioSource;
+    bool solved;
 
     private void Start()
     {
@@ -37,15 +38,19 @@ public class Keypad : MonoBehaviour, INotifier
             if (userInput == password)
             {
                 // TODO Invoke event and play sound
-                Debug.Log("Entry Allowed");
-                audioSource.PlayOneShot(openSound);
+                //Debug.Log("Entry Allowed");
                 ResetUserInput();
-                outgoing.Notify();
+                if (!solved)
+                {
+                    audioSource.PlayOneShot(openSound);
+                    outgoing.Notify();
+                    solved = true;
+                }
             }
             else
             {
                 //TODO play a sound
-                Debug.Log("Not this time");
+                //Debug.Log("Not this time");
                 ResetUserInput();
                 audioSource.PlayOneShot(wrongSound);
             }
