@@ -11,6 +11,7 @@ public class Lockdown : MonoBehaviour, ISubscriber
     [SerializeField] GameObject[] normalLight;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip alarm;
+    bool turnOn;
     bool active;
     float currentTime;
     [SerializeField] float flashInterval;
@@ -39,8 +40,9 @@ public class Lockdown : MonoBehaviour, ISubscriber
     private void OnTriggerEnter(Collider other)
     {
         if (!enabled) { return; }
-        if (other.gameObject.TryGetComponent<PlayerController>(out var controller))
+        if (other.gameObject.TryGetComponent<PlayerController>(out var controller) && !turnOn)
         {
+            turnOn = true;
             for (int i = 0; i < normalLight.Length; i++)
             {
                 normalLight[i].SetActive(false);
