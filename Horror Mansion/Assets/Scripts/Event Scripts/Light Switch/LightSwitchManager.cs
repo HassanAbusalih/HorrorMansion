@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// Has an array of LightSwitches which it continually loops over to check if they are all active. If they are, a GameEvent is notified and the script is disabled.
+/// The looping does not start until the player walks into the trigger.
+/// </summary>
+
 public class LightSwitchManager : MonoBehaviour, INotifier
 {
     [SerializeField] LightSwitch[] lights;
@@ -39,8 +44,7 @@ public class LightSwitchManager : MonoBehaviour, INotifier
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController Hassan = other.gameObject.GetComponent<PlayerController>();
-        if(Hassan != null)
+        if (other.TryGetComponent<PlayerController>(out PlayerController placeholder))
         {
             active = true;
         }

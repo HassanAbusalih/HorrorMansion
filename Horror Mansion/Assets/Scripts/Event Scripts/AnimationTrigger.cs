@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Subscribes to a GameEvent, and triggers an animation when that GameEvent is notified.
+/// </summary>
 public class AnimationTrigger : MonoBehaviour, ISubscriber
 {
     [SerializeField] GameEvent incoming;
@@ -9,18 +10,13 @@ public class AnimationTrigger : MonoBehaviour, ISubscriber
     [SerializeField] string animationName;
     public GameEvent Subscriber => incoming;
 
-    public string GetName()
-    {
-        throw new System.NotImplementedException();
-    }
+    public string GetName() => nameof(incoming);
 
-    // Start is called before the first frame update
     void Start()
     {
         incoming.Subscribe(PlayAnimation);
     }
 
-    // Update is called once per frame
    void PlayAnimation()
     {
         animator.Play(animationName);

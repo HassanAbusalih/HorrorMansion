@@ -1,7 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// A scriptable object that allows communication between scripts using the events contained within it.
+/// </summary>
 
 [CreateAssetMenu(fileName = "New Game Event", menuName = "Custom/Game Event")]
 
@@ -33,6 +35,10 @@ public class GameEvent : ScriptableObject
     public void NotifyStorageObj() => storageObjEvent.RaiseEvent();
 }
 
+/// <summary>
+/// A generic class that stores a variable and later triggers an event that takes that variable as a parameter.
+/// </summary>
+/// <typeparam name="T"> The type of the object to be stored. </typeparam>
 public class TStorage<T>
 {
     public T obj;

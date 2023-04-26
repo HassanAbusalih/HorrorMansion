@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
@@ -31,7 +28,6 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
         int num;
         if (int.TryParse(number.ToString(), out num) && num == counter + 1)
         {
-            Debug.Log(num);
             counter++;
             audioSource.PlayOneShot(buttonPress);
         }

@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+
+/// <summary>
+/// 
+/// </summary>
 
 public class Keypad : MonoBehaviour, INotifier
 {
@@ -11,12 +11,12 @@ public class Keypad : MonoBehaviour, INotifier
     public GameEvent Notifier => outgoing;
     public string GetName() => nameof(outgoing);
     [SerializeField] TextMeshPro codeText;
-    public string password = "1234";
+    [SerializeField] string password = "1234";
     private string userInput;
     private bool check;
-    public AudioClip clickSound;
-    public AudioClip openSound;
-    public AudioClip wrongSound;
+    [SerializeField] AudioClip clickSound;
+    [SerializeField] AudioClip openSound;
+    [SerializeField] AudioClip wrongSound;
     AudioSource audioSource;
     bool solved;
 
@@ -26,7 +26,10 @@ public class Keypad : MonoBehaviour, INotifier
         audioSource = GetComponent<AudioSource>();
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="number"></param>
     public void ButtonClicked(string number)
     {
         audioSource.PlayOneShot(clickSound);
@@ -34,11 +37,8 @@ public class Keypad : MonoBehaviour, INotifier
         if (check)
         {
             check = false;
-            //check password
             if (userInput == password)
             {
-                // TODO Invoke event and play sound
-                //Debug.Log("Entry Allowed");
                 ResetUserInput();
                 if (!solved)
                 {
@@ -49,8 +49,6 @@ public class Keypad : MonoBehaviour, INotifier
             }
             else
             {
-                //TODO play a sound
-                //Debug.Log("Not this time");
                 ResetUserInput();
                 audioSource.PlayOneShot(wrongSound);
             }
