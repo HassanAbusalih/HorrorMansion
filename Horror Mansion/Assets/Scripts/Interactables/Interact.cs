@@ -33,6 +33,7 @@ public class Interact : MonoBehaviour
 
     void Update()
     {
+        
         CheckForInteractable();
         if (Input.GetKeyDown(interactButton))
         {
@@ -48,12 +49,32 @@ public class Interact : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (heldInteractable != null)
+        {
+            Vector3 direction = pickUpPosition.position - heldInteractable.transform.position;
+            if (direction.magnitude > 0.1f)
+            {
+                direction = direction.normalized * 5;
+                Vector3 moveDirection = new();
+                moveDirection += new Vector3(direction.x, 0, direction.z);
+                rb.velocity = moveDirection;
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+            }
+        }
+    }
+
     private void CheckForInteractable()
     {
-        if (Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
+        RaycastHit hit;
+        if (Physics.Raycast(rayDirection.ViewportPointToRay(screenCenter), out hit, 2.5f, LayerMask.GetMask("Default"))
+            || Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out hit, 2.5f, LayerMask.GetMask("Default")))
         {
-            interactable = hit.transform.GetComponent<Interactable>();
-            if (interactable != null)
+            if (hit.transform.TryGetComponent<Interactable>(out interactable))
             {
                 if (!interactable.enabled)
                 {
@@ -103,7 +124,7 @@ public class Interact : MonoBehaviour
         rb = heldInteractable.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
         }
         if (smoothResizingGun != null)
         {
@@ -129,7 +150,7 @@ public class Interact : MonoBehaviour
         heldInteractable.canInteract = true;
         if (rb != null)
         {
-            rb.isKinematic = false;
+            rb.constraints = RigidbodyConstraints.None;
         }
         else
         {
