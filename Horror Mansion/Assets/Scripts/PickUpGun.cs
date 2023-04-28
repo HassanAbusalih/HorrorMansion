@@ -1,38 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// When the player enters this object's trigger, it activates the PickUpText gameobject. If the player then presses E, it notifies a GameEvent and disables the ResizeGun,
+/// PickUpText and its gameobject. If the player leaves the trigger without pressing E, the PickUpText is deactivated.
+/// </summary>
 
 public class PickUpGun : MonoBehaviour
 {
     public GameObject ResizeGun;
     public GameObject PickUpText;
     [SerializeField] GameEvent gameEvent;
-    
-    // Start is called before the first frame update
+    private bool inTrigger;
+
     void Start()
     {
         ResizeGun.SetActive(false);
         PickUpText.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (inTrigger && Input.GetKey(KeyCode.E))
+        {
+            ResizeGun.SetActive(true);
+            gameEvent.Notify();
+            PickUpText.SetActive(false);
+            gameObject.SetActive(false);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.TryGetComponent<PlayerController>(out PlayerController player))
         {
+            inTrigger = true;
             PickUpText.SetActive(true);
-
-            if (Input.GetKey(KeyCode.E))
-            {
-                this.gameObject.SetActive(false);
-                ResizeGun.SetActive(true);
-                gameEvent.Notify();
-                PickUpText.SetActive(false);
-            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         PickUpText.SetActive(false);
+        inTrigger = false;
     }
 }

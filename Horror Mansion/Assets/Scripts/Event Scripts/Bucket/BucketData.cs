@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/// <summary>
+/// Holds all data relating to a 'bucket' (its current, max and desired amounts), and changes the fill amount of its referenced image on start.
+/// </summary>
 
 public class BucketData : MonoBehaviour
 {

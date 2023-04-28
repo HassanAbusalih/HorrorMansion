@@ -4,6 +4,7 @@ using UnityEngine;
 /// - Takes input from player
 /// - Does a raycast to check if the player is looking at a SmoothResizable
 /// - If they are, a public method inside SmoothResizable is called to resize the object up or down
+/// - Also plays a sound effect that is pitched up or down based on the size of the object. If the min/max size is reached, a different sound effect is played.
 /// </summary>
 
 public class SmoothResizingGun : MonoBehaviour

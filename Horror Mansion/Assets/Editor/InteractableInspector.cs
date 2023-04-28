@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Rendering;
 
 [CustomEditor(typeof(Interactable))]
 public class InteractableInspector : GameEventVisualizer

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -67,6 +65,10 @@ public class InstantResizable : Resizable
     }
 }
 
+/// <summary>
+/// This was created specifically because ResizedObjectReceiver was being annoying since I had to account for two kinds of resizables. 
+/// InstantResizable is unused so it ended up not mattering. Fun!
+/// </summary>
 public class Resizable : MonoBehaviour
 {
     [HideInInspector] public float currentSize = 1;

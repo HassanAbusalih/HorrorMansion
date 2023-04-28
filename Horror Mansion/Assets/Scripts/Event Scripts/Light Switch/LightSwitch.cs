@@ -1,7 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Takes an array of GameEvents that all subscribe to its SwitchState method. When a GameEvent is notified, it's current state is toggled and its material is changed accordingly.
+/// Also has a public getter to show it's current state.
+/// </summary>
+
+[RequireComponent (typeof(Light))]
 public class LightSwitch : MonoBehaviour
 {
     [SerializeField] GameEvent[] incoming;

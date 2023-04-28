@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// 
+/// Handles dealing with input from the keypad's buttons, playing sound effects, and notifying its GameEvent when the correct code is inputted. Also updates the text to show the user's input.
 /// </summary>
 
 public class Keypad : MonoBehaviour, INotifier
@@ -27,9 +27,10 @@ public class Keypad : MonoBehaviour, INotifier
     }
 
     /// <summary>
-    /// 
+    /// Plays a button click sound effect, then adds the number parameter to the userInput string. A check is then made to see if userInput equals the set password.
+    /// If it is, then a GameEvent is notified and the 'correct' sound effect is played. If not, the 'wrong' sound effect is played and the userInput is reset.
     /// </summary>
-    /// <param name="number"></param>
+    /// <param name="number"> The number on the keypad that the player has clicked. </param>
     public void ButtonClicked(string number)
     {
         audioSource.PlayOneShot(clickSound);

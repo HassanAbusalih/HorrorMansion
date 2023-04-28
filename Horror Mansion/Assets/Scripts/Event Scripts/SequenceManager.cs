@@ -1,5 +1,12 @@
 using UnityEngine;
 
+/// <summary>
+/// Determines if the player has pressed the correct sequence of buttons by checking the number passed in by the GameEvent it is subscribed to every time it is notified.
+/// The expected input is 1, 2, 3, etc. A counter is incremented every time an expected value is received, and once the counter reaches the number of buttons set, the puzzle is marked
+/// as solved and the outgoing GameEvent is notified.
+/// If an incorrect number is passed in, the sequence is reset back to 0.
+/// </summary>
+
 public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 {
     [SerializeField] GameEvent incoming;
@@ -25,8 +32,7 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 
     void DoSequence(object number)
     {
-        int num;
-        if (int.TryParse(number.ToString(), out num) && num == counter + 1)
+        if (int.TryParse(number.ToString(), out int num) && num == counter + 1)
         {
             counter++;
             audioSource.PlayOneShot(buttonPress);

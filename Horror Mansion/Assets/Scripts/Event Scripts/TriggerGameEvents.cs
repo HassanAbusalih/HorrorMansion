@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Notifies a GameEvent when an object enters its trigger. It is possible to set this to only happen once.
+/// </summary>
 
 public class TriggerGameEvents : MonoBehaviour, INotifier
 {

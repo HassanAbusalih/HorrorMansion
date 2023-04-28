@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Serializable class that holds data relating to a pick up interactable, and sets a public getter for it.
+/// </summary>
 
 [System.Serializable]
 public class PickUpInteractable

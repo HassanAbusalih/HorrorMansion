@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Serializable class that holds all data relating to a button interactable, and sets public getters for all of them.
+/// </summary>
 
 [System.Serializable]
 public class ButtonInteractable

@@ -75,5 +75,6 @@ public class Lockdown : MonoBehaviour, ISubscriber
         active = false;
         source.loop = false;
         source.Stop();
+        incoming.Unsubscribe(Unlock);
     }
 }
