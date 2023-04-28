@@ -96,10 +96,11 @@ public class SmoothResizingGun : MonoBehaviour
 
     void CheckForResizable()
     {
-        if (Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out RaycastHit hit, 2.5f, LayerMask.GetMask("Default")))
+        RaycastHit hit;
+        if (Physics.Raycast(rayDirection.ViewportPointToRay(screenCenter), out hit, 2.5f, LayerMask.GetMask("Default"))
+            || Physics.SphereCast(rayDirection.ViewportPointToRay(screenCenter), 0.2f, out hit, 2.5f, LayerMask.GetMask("Default")))
         {
-            resizable = hit.transform.GetComponent<SmoothResizable>();
-            if (resizable != null)
+            if (hit.transform.TryGetComponent<SmoothResizable>(out resizable))
             {
                 return;
             }

@@ -7,10 +7,11 @@ public class Lockdown : MonoBehaviour, ISubscriber
     [SerializeField] GameEvent incoming;
     public GameEvent Subscriber => incoming;
     public string GetName() => nameof(incoming);
-    [SerializeField] GameObject alarmLight;
-    [SerializeField] GameObject normalLight;
+    [SerializeField] GameObject[] alarmLight;
+    [SerializeField] GameObject[] normalLight;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip alarm;
+    bool turnOn;
     bool active;
     float currentTime;
     [SerializeField] float flashInterval;
@@ -27,7 +28,11 @@ public class Lockdown : MonoBehaviour, ISubscriber
             currentTime += Time.deltaTime;
             if (currentTime >= flashInterval)
             {
-                alarmLight.SetActive(!alarmLight.activeSelf);
+                currentTime = 0;
+                for (int i = 0; i < alarmLight.Length; i++)
+                {
+                    alarmLight[i].SetActive(!alarmLight[i].activeSelf);
+                }
             }
         }
     }
@@ -35,10 +40,17 @@ public class Lockdown : MonoBehaviour, ISubscriber
     private void OnTriggerEnter(Collider other)
     {
         if (!enabled) { return; }
-        if (other.gameObject.TryGetComponent<PlayerController>(out var controller))
+        if (other.gameObject.TryGetComponent<PlayerController>(out var controller) && !turnOn)
         {
-            normalLight.SetActive(false);
-            alarmLight.SetActive(true);
+            turnOn = true;
+            for (int i = 0; i < normalLight.Length; i++)
+            {
+                normalLight[i].SetActive(false);
+            }
+            for (int i = 0; i < alarmLight.Length; i++)
+            {
+                alarmLight[i].SetActive(true);
+            }
             active = true;
             source.clip = alarm;
             source.loop = true;
@@ -48,8 +60,14 @@ public class Lockdown : MonoBehaviour, ISubscriber
 
     void Unlock()
     {
-        normalLight.SetActive(true);
-        alarmLight.SetActive(false);
+        for (int i = 0; i < normalLight.Length; i++)
+        {
+            normalLight[i].SetActive(true);
+        }
+        for (int i = 0; i < alarmLight.Length; i++)
+        {
+            alarmLight[i].SetActive(false);
+        }
         active = false;
         source.loop = false;
         source.Stop();

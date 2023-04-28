@@ -43,7 +43,6 @@ public class LightSwitchManager : MonoBehaviour, INotifier
         if(Hassan != null)
         {
             active = true;
-            Debug.Log(true);
         }
     }
 }
