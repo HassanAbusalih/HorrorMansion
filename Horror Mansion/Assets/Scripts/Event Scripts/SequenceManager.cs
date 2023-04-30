@@ -38,7 +38,11 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
     {
         if (int.TryParse(number.ToString(), out int num) && num == counter + 1)
         {
-            renderers[counter].material = correctMaterial;
+            if(renderers.Length > 0)
+            {
+                renderers[counter].material = correctMaterial;
+            }
+            
             counter++;
             audioSource.PlayOneShot(buttonPress);
         }
@@ -64,6 +68,10 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 
     void ChangeMaterials(Material material)
     {
+        if(renderers.Length < 0)
+        {
+            return;
+        }
         for (int i = 0; i < renderers.Length; i++)
         {
             renderers[i].material = material;
