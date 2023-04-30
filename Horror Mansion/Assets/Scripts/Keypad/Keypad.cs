@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+
+/// <summary>
+/// Handles dealing with input from the keypad's buttons, playing sound effects, and notifying its GameEvent when the correct code is inputted. Also updates the text to show the user's input.
+/// </summary>
 
 public class Keypad : MonoBehaviour, INotifier
 {
@@ -11,12 +11,12 @@ public class Keypad : MonoBehaviour, INotifier
     public GameEvent Notifier => outgoing;
     public string GetName() => nameof(outgoing);
     [SerializeField] TextMeshPro codeText;
-    public string password = "1234";
+    [SerializeField] string password = "1234";
     private string userInput;
     private bool check;
-    public AudioClip clickSound;
-    public AudioClip openSound;
-    public AudioClip wrongSound;
+    [SerializeField] AudioClip clickSound;
+    [SerializeField] AudioClip openSound;
+    [SerializeField] AudioClip wrongSound;
     AudioSource audioSource;
     bool solved;
 
@@ -26,7 +26,11 @@ public class Keypad : MonoBehaviour, INotifier
         audioSource = GetComponent<AudioSource>();
     }
 
-
+    /// <summary>
+    /// Plays a button click sound effect, then adds the number parameter to the userInput string. A check is then made to see if userInput equals the set password.
+    /// If it is, then a GameEvent is notified and the 'correct' sound effect is played. If not, the 'wrong' sound effect is played and the userInput is reset.
+    /// </summary>
+    /// <param name="number"> The number on the keypad that the player has clicked. </param>
     public void ButtonClicked(string number)
     {
         audioSource.PlayOneShot(clickSound);
@@ -34,11 +38,8 @@ public class Keypad : MonoBehaviour, INotifier
         if (check)
         {
             check = false;
-            //check password
             if (userInput == password)
             {
-                // TODO Invoke event and play sound
-                //Debug.Log("Entry Allowed");
                 ResetUserInput();
                 if (!solved)
                 {
@@ -49,8 +50,6 @@ public class Keypad : MonoBehaviour, INotifier
             }
             else
             {
-                //TODO play a sound
-                //Debug.Log("Not this time");
                 ResetUserInput();
                 audioSource.PlayOneShot(wrongSound);
             }

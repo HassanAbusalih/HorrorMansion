@@ -1,6 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Receives BucketData using an incoming GameEvent, and once it has received two buckets, attempts to pour from the first bucket received to the second and updates their images with their fill amount. 
+/// It also has an array of BucketData which it finds using FindObjectsOfType. Once all buckets in the array are at their desired amount, the outgoing GameEvent is notified.
+/// </summary>
 
 public class BucketManager : MonoBehaviour, INotifier, ISubscriber
 {
@@ -20,7 +23,7 @@ public class BucketManager : MonoBehaviour, INotifier, ISubscriber
         incoming.SubscribeObj(ChooseBucket);
     }
 
-    public void ChooseBucket(object bucket)
+    void ChooseBucket(object bucket)
     {
         BucketData newBucket = (BucketData)bucket;
         if (addingBucket != null && newBucket != addingBucket)
@@ -57,5 +60,6 @@ public class BucketManager : MonoBehaviour, INotifier, ISubscriber
             }
         }
         outgoing.Notify();
+        incoming.UnsubscribeObj(ChooseBucket);
     }
 }

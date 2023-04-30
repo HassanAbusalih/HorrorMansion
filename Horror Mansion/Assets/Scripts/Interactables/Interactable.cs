@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+
+/// <summary>
+/// Contains all the data an interactable might need (which is set in the inspector), as well as (almost) all methods relating to interactables.
+/// It also handles adding/removing the shader graph to give the interactable an outline based on player proximity.
+/// </summary>
 
 public class Interactable : MonoBehaviour, INotifier
 {
@@ -66,12 +68,15 @@ public class Interactable : MonoBehaviour, INotifier
         shaderMaterials[shaderMaterials.Length - 1] = new Material(Shader.Find("Shader Graphs/Outline"));
     }
 
+    /// <summary>
+    /// Instantiates a prefab of the text gameobject on the object (and adds it's box collider's size.y to make it spawn on top). It also gets the FacePlayer component on the prefab,
+    /// sets the player to be the object to face, gives it the description set in the interactable's inspector, as well the the time to destroy the instantiated prefab.
+    /// </summary>
     public void ShowDescription()
     {
         if (descriptionText == null)
         {
-            BoxCollider collider = GetComponent<BoxCollider>();
-            if (collider != null)
+            if (TryGetComponent<BoxCollider>(out var collider))
             {
                 descriptionText = Instantiate(text.TextPrefab, new Vector3(transform.position.x, transform.position.y + collider.size.y, transform.position.z), transform.rotation);
             }
@@ -86,6 +91,10 @@ public class Interactable : MonoBehaviour, INotifier
         }
     }
 
+    /// <summary>
+    /// Based on the settings set in the inspector, this decides which GameEvent method to notify (and which variable, if any, to pass in). If the button is set to be animated,
+    /// it will play the animation, and if this is set to be a single interaction, it will destroy itself afterwards.
+    /// </summary>
     public void PushButton()
     {
         if (button.VariableNeeded)
@@ -114,9 +123,14 @@ public class Interactable : MonoBehaviour, INotifier
         }
     }
 
-    public void SetEvent(UnityEvent gameEvent, bool correct)
+    /// <summary>
+    /// This method is for establishing a link between the resizable and interactable components on an object, to only allow the player to pick up the object at the correct size.
+    /// </summary>
+    /// <param name="toggleEvent"> The Unity Event in the resizable script that the interactable will add a listener to.</param>
+    /// <param name="correct"> The current state of the interactable, to align the two scripts together. </param>
+    public void SetEvent(UnityEvent toggleEvent, bool correct)
     {
-        gameEvent.AddListener(ToggleState);
+        toggleEvent.AddListener(ToggleState);
         interactType = InteractType.PickUp;
         canInteract = correct;
     }

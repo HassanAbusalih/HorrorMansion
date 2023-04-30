@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Subscribes to two GameEvents. Each time one is notified, it increments a counter. When the counter reaches two, it notifies another GameEvent.
+/// </summary>
 
 public class GunActivator : MonoBehaviour
 {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
@@ -38,11 +37,14 @@ public class GameEventVisualizer : Editor
     {
         foreach (var gameEvent in gameEvents)
         {
-            Transform myObject = Selection.activeGameObject.transform;
-            Transform targetObject = gameEvent.gameObject.transform;
-            Vector3 startTangent = Vector3.Slerp(myObject.position, targetObject.position, 0.25f);
-            Vector3 endTangent = Vector3.Slerp(targetObject.position, myObject.position, 0.75f);
-            Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, startTangent, endTangent, color, null, 4);
+            if (Selection.activeGameObject.transform != null)
+            {
+                Transform myObject = Selection.activeGameObject.transform;
+                Transform targetObject = gameEvent.gameObject.transform;
+                Vector3 startTangent = Vector3.Slerp(myObject.position, targetObject.position, 0.25f);
+                Vector3 endTangent = Vector3.Slerp(targetObject.position, myObject.position, 0.75f);
+                Handles.DrawBezier(myObject.transform.position, targetObject.transform.position, startTangent, endTangent, color, null, 4);
+            }
         }
     }
 }

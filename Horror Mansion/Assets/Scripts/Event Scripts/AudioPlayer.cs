@@ -1,7 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Subscribes to a GameEvent, and plays an audio clip through the referenced audiosource when notified. It is possible to make this play only once.
+/// </summary>
 
 public class AudioPlayer : MonoBehaviour, ISubscriber
 {

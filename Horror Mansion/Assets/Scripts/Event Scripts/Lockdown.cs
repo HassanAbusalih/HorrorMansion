@@ -1,6 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// When the player walks into the trigger, this script disables all normal lights and enables alarm lights, as well as plays the alarm on a loop. It then alternates the active state of the 
+/// alarm lights based on an interval that is set in the inspector.
+/// When the GameEvent it is subscribed to is notified, it stops the alarm sound, disables alarm lights and turn the normal lights back on.
+/// </summary>
 
 public class Lockdown : MonoBehaviour, ISubscriber
 {
@@ -71,5 +75,6 @@ public class Lockdown : MonoBehaviour, ISubscriber
         active = false;
         source.loop = false;
         source.Stop();
+        incoming.Unsubscribe(Unlock);
     }
 }

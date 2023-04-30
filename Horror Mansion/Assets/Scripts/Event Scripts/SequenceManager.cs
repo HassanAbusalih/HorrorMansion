@@ -1,7 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Determines if the player has pressed the correct sequence of buttons by checking the number passed in by the GameEvent it is subscribed to every time it is notified.
+/// The expected input is 1, 2, 3, etc. A counter is incremented every time an expected value is received, and once the counter reaches the number of buttons set, the puzzle is marked
+/// as solved and the outgoing GameEvent is notified.
+/// If an incorrect number is passed in, the sequence is reset back to 0.
+/// This script also handles changing the materials for the wires. Unfortunately, the order in of the renderers in the array matters.
+/// </summary>
 
 public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 {
@@ -18,6 +23,9 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
     [SerializeField] AudioClip correctSequence;
     [SerializeField] AudioClip wrongSequence;
     [SerializeField] AudioClip buttonPress;
+    [SerializeField] Renderer[] renderers;
+    [SerializeField] Material wrongMaterial;
+    [SerializeField] Material correctMaterial;
     int counter;
     bool puzzleSolved;
 
@@ -28,20 +36,21 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
 
     void DoSequence(object number)
     {
-        int num;
-        if (int.TryParse(number.ToString(), out num) && num == counter + 1)
+        if (int.TryParse(number.ToString(), out int num) && num == counter + 1)
         {
-            Debug.Log(num);
+            renderers[counter].material = correctMaterial;
             counter++;
             audioSource.PlayOneShot(buttonPress);
         }
         else
         {
+            ChangeMaterials(wrongMaterial);
             counter = 0;
             audioSource.PlayOneShot(wrongSequence);
         }
         if (counter == numberOfButtons && !puzzleSolved)
         {
+            ChangeMaterials(correctMaterial);
             puzzleSolved = true;
             if (animator != null)
             {
@@ -50,6 +59,14 @@ public class SequenceManager : MonoBehaviour, INotifier, ISubscriber
             outgoing.Notify();
             audioSource.PlayOneShot(correctSequence);
             incoming.UnsubscribeObj(DoSequence);
+        }
+    }
+
+    void ChangeMaterials(Material material)
+    {
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].material = material;
         }
     }
 }

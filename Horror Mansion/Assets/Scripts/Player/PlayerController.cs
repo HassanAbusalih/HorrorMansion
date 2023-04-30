@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,6 +5,7 @@ using UnityEngine;
 /// A float list is used to get the player's speed, sprint modifier and gravity.
 /// Since this uses an unchanging value for the gravity, the player will always fall at the same speed.
 /// </summary>
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {

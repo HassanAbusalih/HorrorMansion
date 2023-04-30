@@ -1,8 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
+
+/// <summary>
+/// Subscribes to a GameEvent, and toggles a component on or off when that GameEvent is notified.
+/// </summary>
 
 public class ToggleComponent : MonoBehaviour, ISubscriber
 {

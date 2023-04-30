@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+/// <summary>
+/// Uses a Unity Event to pass in a specified number as a parameter to the Keypad script's ButtonClicked method. This happens when the player presses the mouse button
+/// and is within a certain range.
+/// </summary>
 
 public class ButtonScript : MonoBehaviour
 {

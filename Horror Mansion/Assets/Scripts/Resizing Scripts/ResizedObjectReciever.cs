@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
+
+/// <summary>
+/// Pulls in the specified resizable to be aligned with the center of its object, and notifies a GameEvent the first time the resizable is received if it is within the specified correct
+/// range.The resizable can still be picked up and placed again, but the GameEvent will not be notified again.
+/// </summary>
 
 public class ResizedObjectReciever : MonoBehaviour, INotifier
 {

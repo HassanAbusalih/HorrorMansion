@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// - Allows an object to be smoothly resized
+/// - Allows an object to be gradually resized
 /// - Min and max size need to be given, as well as min and max for when the object can be picked up
+/// - Sets up an event to align whether it is within the pickup range with the interactable component attached to the same object.
 /// </summary>
 public class SmoothResizable : Resizable
 {
@@ -24,8 +23,7 @@ public class SmoothResizable : Resizable
         defaultScale = transform.localScale;
         if (allowPickUpWhenCorrect)
         {
-            Interactable interactable = GetComponent<Interactable>();
-            if (interactable == null)
+            if (!TryGetComponent<Interactable>(out var interactable))
             {
                 interactable = gameObject.AddComponent<Interactable>();
             }
@@ -36,6 +34,12 @@ public class SmoothResizable : Resizable
             interactable.SetEvent(correctSize, correct);
         }
     }
+
+    /// <summary>
+    /// If the object is larger than its minimum size, this reduces its size. It then checks if the correct size is reached, which is the range within which it can be picked up.
+    /// </summary>
+    /// <param name="resizeSpeed"> The speed used to resize the object. </param>
+    /// <returns> The current size percentage of the object. Min is 0, max is 1. </returns>
 
     public float Shrink(float resizeSpeed)
     {
@@ -48,6 +52,12 @@ public class SmoothResizable : Resizable
         sizePercentage = (currentSize - minSize) / (maxSize - minSize);
         return sizePercentage;
     }
+
+    /// <summary>
+    /// If the object is smaller than its maximum size, this increases its size. It then checks if the correct size is reached, which is the range within which it can be picked up.
+    /// </summary>
+    /// <param name="resizeSpeed"> The speed used to resize the object. </param>
+    /// <returns> The current size percentage of the object. Min is 0, max is 1. </returns>
 
     public float Enlarge(float resizeSpeed)
     {
