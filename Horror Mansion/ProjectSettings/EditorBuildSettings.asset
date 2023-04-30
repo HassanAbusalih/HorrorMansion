@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Ilya Scene.unity
-    guid: 1aa8b7c0e7fed4fdb9af9011d4b8dece
+    path: Assets/Scenes/Main Menu.unity
+    guid: c5acd5b83f0d78f4c961482a8c5a8b89
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: cfa516e83deb00540a387e01499fa6b1
   m_configObjects: {}

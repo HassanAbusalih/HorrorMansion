@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// This script is for the buttons in the main menu screen, and contains methods for starting and exiting the game.
+/// </summary>
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void PlayGame()
     {
         SceneManager.LoadScene("Main");
