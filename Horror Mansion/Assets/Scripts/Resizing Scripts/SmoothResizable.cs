@@ -6,8 +6,6 @@ using UnityEngine.Events;
 /// - Min and max size need to be given, as well as min and max for when the object can be picked up
 /// - Sets up an event to align whether it is within the pickup range with the interactable component attached to the same object.
 /// </summary>
-
-[RequireComponent(typeof(Interactable))]
 public class SmoothResizable : Resizable
 {
     [SerializeField] bool allowPickUpWhenCorrect;
