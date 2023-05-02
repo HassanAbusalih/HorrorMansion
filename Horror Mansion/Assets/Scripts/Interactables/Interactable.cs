@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 /// <summary>
 /// Contains all the data an interactable might need (which is set in the inspector), as well as (almost) all methods relating to interactables.
-/// It also handles adding/removing the shader graph to give the interactable an outline based on player proximity.
+/// It also handles adding/removing a shader graph to give the interactable an outline based on player proximity.
 /// </summary>
 
 public class Interactable : MonoBehaviour, INotifier

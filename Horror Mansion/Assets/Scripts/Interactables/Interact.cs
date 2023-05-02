@@ -67,6 +67,10 @@ public class Interact : MonoBehaviour
             {
                 rb.velocity = Vector3.zero;
             }
+            /*if (direction.magnitude > 1.5f)
+            {
+                heldInteractable.transform.position = pickUpPosition.position;
+            }*/
         }
     }
 

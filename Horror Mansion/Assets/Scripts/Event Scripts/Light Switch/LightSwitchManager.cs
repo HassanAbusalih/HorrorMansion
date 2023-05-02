@@ -12,7 +12,7 @@ public class LightSwitchManager : MonoBehaviour, INotifier
     public GameEvent Notifier => outgoing;
     public string GetName() => nameof(outgoing);
     bool solved;
-    bool active;
+    [SerializeField] bool active;
 
     void Update()
     {
@@ -37,6 +37,7 @@ public class LightSwitchManager : MonoBehaviour, INotifier
         }
         if (solved)
         {
+            Debug.Log("Solved!");
             outgoing.Notify();
             enabled = false;
         }
