@@ -20,6 +20,7 @@ public class Interactable : MonoBehaviour, INotifier
     [SerializeField] public ButtonInteractable button;
     [SerializeField] public PickUpInteractable pickUp;
     GameObject descriptionText;
+    public Vector3 defaultPos;
     public GameEvent Notifier { get => gameEvent; }
 
     private void Start()
@@ -28,6 +29,7 @@ public class Interactable : MonoBehaviour, INotifier
         {
             gameObject.AddComponent<Rigidbody>();
         }
+        defaultPos = transform.position;
         playerPos = FindFirstObjectByType<FirstPersonCam>().transform;
         SetUpMaterialsAndShader();
     }

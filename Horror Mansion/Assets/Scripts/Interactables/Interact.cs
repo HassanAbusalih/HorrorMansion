@@ -52,7 +52,11 @@ public class Interact : MonoBehaviour
         if (heldInteractable != null)
         {
             Vector3 direction = pickUpPosition.position - heldInteractable.transform.position;
-            if (direction.magnitude > 0.1f)
+            if (direction.magnitude > 2)
+            {
+                DropObject();
+            }
+            else if (direction.magnitude > 0.1f)
             {
                 direction = direction.normalized * 5;
                 Vector3 moveDirection = new();
