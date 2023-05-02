@@ -477,7 +477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Placeholder Title
+  m_text: Lost Spaceman
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07e8b20369a7d4749a0258428560dc6e, type: 2}
   m_sharedMaterial: {fileID: 7803757670191255875, guid: 07e8b20369a7d4749a0258428560dc6e, type: 2}
@@ -486,8 +486,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280286976
+  m_fontColor: {r: 0, g: 1, b: 0.11983681, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
