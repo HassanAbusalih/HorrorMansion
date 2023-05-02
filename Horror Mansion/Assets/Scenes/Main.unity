@@ -4456,7 +4456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 804854985}
   clip: {fileID: 8300000, guid: e9d13781e355047b7825be62fee89d2c, type: 3}
-  incoming: {fileID: 11400000, guid: f41868f5fed8546b5b5147ba959a2747, type: 2}
+  incoming: {fileID: 11400000, guid: 849508cb95719a44393ee4a36375a501, type: 2}
   singleInteraction: 0
 --- !u!95 &122578975
 Animator:
@@ -4617,6 +4617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   incoming: {fileID: 11400000, guid: 849508cb95719a44393ee4a36375a501, type: 2}
   sceneIndex: 0
+  time: 5
 --- !u!1001 &123937828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46390,7 +46391,7 @@ MonoBehaviour:
     componentNeeded: 0
     componentToPassIn: {fileID: 0}
     stringToPassIn: 
-    singleInteraction: 0
+    singleInteraction: 1
     animated: 0
     animator: {fileID: 0}
     animationName: 

@@ -8,14 +8,20 @@ public class ChangeScene : MonoBehaviour
 {
     [SerializeField] GameEvent incoming;
     [SerializeField] int sceneIndex;
+    [SerializeField] int time;
 
     void Start()
     {
-        incoming.Subscribe(SceneChange);
+        incoming.Subscribe(InvokeChangeScene);
     }
 
     void SceneChange()
     {
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    void InvokeChangeScene()
+    {
+        Invoke("SceneChange", time);
     }
 }
