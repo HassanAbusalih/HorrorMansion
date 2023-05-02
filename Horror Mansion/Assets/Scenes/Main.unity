@@ -452,7 +452,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 69
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!108 &14307653
 Light:
@@ -1150,7 +1150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 59
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
 --- !u!95 &33130748
 Animator:
@@ -1563,7 +1563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417258, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 417258, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2833,7 +2833,7 @@ PrefabInstance:
       objectReference: {fileID: 1249966873}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.animationName
-      value: redButton
+      value: NavRedButton
       objectReference: {fileID: 0}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.stringToPassIn
@@ -2849,7 +2849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7693
+      value: 4.775
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3577,7 +3577,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 64
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: -22, y: 30, z: 0}
 --- !u!95 &104999960
 Animator:
@@ -5735,7 +5735,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 61
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
 --- !u!65 &165264845
 BoxCollider:
@@ -6371,7 +6371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_LocalScale.y
@@ -8357,7 +8357,7 @@ PrefabInstance:
       objectReference: {fileID: 1169622734}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.animationName
-      value: redButton
+      value: NavRedButton
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_RootOrder
@@ -8369,7 +8369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7693
+      value: 4.775
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9142,7 +9142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430084, guid: 43373d8b4f572cf468859751b9dcbbfd, type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 430084, guid: 43373d8b4f572cf468859751b9dcbbfd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10733,7 +10733,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 65
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &287737532
 MonoBehaviour:
@@ -13361,7 +13361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 56
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &383516603
 CapsuleCollider:
@@ -13645,7 +13645,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 67
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &389393205
 CapsuleCollider:
@@ -17324,7 +17324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_LocalScale.y
@@ -17408,7 +17408,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 60
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
 --- !u!65 &518783612
 BoxCollider:
@@ -19338,7 +19338,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 68
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!108 &594469423
 Light:
@@ -19484,7 +19484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 439240, guid: 548a40efc092c6f408cc4d1691b171cc, type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 439240, guid: 548a40efc092c6f408cc4d1691b171cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20180,8 +20180,8 @@ Transform:
   m_LocalScale: {x: 0.22575, y: 0.17035, z: 0.22575}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 877179677}
-  m_RootOrder: 54
+  m_Father: {fileID: 719774509}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &623459173
 Animator:
@@ -22449,7 +22449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_LocalScale.y
@@ -23463,6 +23463,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 444218, guid: 69b3d20c177508d43a1c6f09b448d3ea, type: 3}
   m_PrefabInstance: {fileID: 308556967}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &719774508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719774509}
+  m_Layer: 0
+  m_Name: PlanetSequenceButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719774509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719774508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 756494546}
+  - {fileID: 2066799037}
+  - {fileID: 767529791}
+  - {fileID: 623459172}
+  m_Father: {fileID: 877179677}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719919475
 GameObject:
   m_ObjectHideFlags: 0
@@ -24342,7 +24377,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 62
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
 --- !u!65 &745532844
 BoxCollider:
@@ -24735,8 +24770,8 @@ Transform:
   m_LocalScale: {x: 0.22575, y: 0.17035, z: 0.22575}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 877179677}
-  m_RootOrder: 7
+  m_Father: {fileID: 719774509}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &756494547
 Animator:
@@ -25207,8 +25242,8 @@ Transform:
   m_LocalScale: {x: 0.22575, y: 0.17035, z: 0.22575}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 877179677}
-  m_RootOrder: 50
+  m_Father: {fileID: 719774509}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &767529792
 Animator:
@@ -25447,7 +25482,7 @@ PrefabInstance:
       objectReference: {fileID: 1295395149}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.animationName
-      value: redButton
+      value: NavRedButton
       objectReference: {fileID: 0}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.stringToPassIn
@@ -25463,7 +25498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7693
+      value: 4.775
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25977,7 +26012,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 70
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!108 &788179740
 Light:
@@ -26931,7 +26966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445452, guid: 14f2f01264616214ba79f88c8f46c15f, type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 445452, guid: 14f2f01264616214ba79f88c8f46c15f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28016,7 +28051,7 @@ Transform:
   - {fileID: 1562967441}
   - {fileID: 879528603}
   - {fileID: 552187887}
-  - {fileID: 756494546}
+  - {fileID: 719774509}
   - {fileID: 988553657}
   - {fileID: 1732119119}
   - {fileID: 192067702}
@@ -28047,7 +28082,6 @@ Transform:
   - {fileID: 1870928777}
   - {fileID: 852188161}
   - {fileID: 475759596}
-  - {fileID: 2066799037}
   - {fileID: 28096262}
   - {fileID: 218841054}
   - {fileID: 1741083297}
@@ -28059,11 +28093,9 @@ Transform:
   - {fileID: 999322261}
   - {fileID: 2064966343}
   - {fileID: 110372498}
-  - {fileID: 767529791}
   - {fileID: 1101089355}
   - {fileID: 2143488505}
   - {fileID: 908861108}
-  - {fileID: 623459172}
   - {fileID: 1750782155}
   - {fileID: 383516602}
   - {fileID: 1378367443}
@@ -29065,7 +29097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 53
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &908861109
 CapsuleCollider:
@@ -31014,7 +31046,7 @@ Transform:
   m_Children:
   - {fileID: 1363647823}
   m_Father: {fileID: 877179677}
-  m_RootOrder: 58
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 50.909, z: 0}
 --- !u!1 &977894802
 GameObject:
@@ -31982,7 +32014,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 63
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
 --- !u!65 &1016361952
 BoxCollider:
@@ -32507,7 +32539,7 @@ PrefabInstance:
       objectReference: {fileID: 1031187041}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.animationName
-      value: redButton
+      value: NavRedButton
       objectReference: {fileID: 0}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.stringToPassIn
@@ -32523,7 +32555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7693
+      value: 4.775
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34443,7 +34475,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 51
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!136 &1101089356
 CapsuleCollider:
@@ -38321,7 +38353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442254, guid: b09ac1c0cceeaae479323b022bfe74b1, type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 442254, guid: b09ac1c0cceeaae479323b022bfe74b1, type: 3}
       propertyPath: m_LocalScale.x
@@ -42247,7 +42279,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 71
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!108 &1322007098
 Light:
@@ -44827,7 +44859,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 57
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1378367444
 AudioSource:
@@ -45759,7 +45791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.animationName
-      value: redButton
+      value: NavRedButton
       objectReference: {fileID: 0}
     - target: {fileID: 4202903606200900634, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: button.stringToPassIn
@@ -45775,7 +45807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7693
+      value: 4.775
       objectReference: {fileID: 0}
     - target: {fileID: 6649274422544178415, guid: e7cdc1adb9a1b2b408d3d748491d171f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51878,7 +51910,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 73
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1620292751
 MonoBehaviour:
@@ -55253,7 +55285,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 55
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &1750782156
 CapsuleCollider:
@@ -56268,7 +56300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 66
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1795113606
 MonoBehaviour:
@@ -57271,7 +57303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430084, guid: 43373d8b4f572cf468859751b9dcbbfd, type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 430084, guid: 43373d8b4f572cf468859751b9dcbbfd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65422,8 +65454,8 @@ Transform:
   m_LocalScale: {x: 0.22575, y: 0.17035, z: 0.22575}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 877179677}
-  m_RootOrder: 38
+  m_Father: {fileID: 719774509}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &2066799038
 Animator:
@@ -66328,7 +66360,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 72
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2104316869
 MonoBehaviour:
@@ -67022,7 +67054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 464102, guid: 10b4213a276bd0f4d93c345fd1420858, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67550,7 +67582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 4000010604941900, guid: 689bce6208bc9f441bfad84d4492dd5d, type: 3}
       propertyPath: m_LocalScale.y
@@ -67842,7 +67874,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
-  m_RootOrder: 52
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &2143488506
 CapsuleCollider:
