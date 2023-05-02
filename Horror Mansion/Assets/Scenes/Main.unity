@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00004327564, g: 0.000095573596, b: 0.00004327564, a: 1}
+  m_IndirectSpecularColor: {r: 0.000043681564, g: 0.000095573596, b: 0.000043681564, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2868,6 +2868,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &88432238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,6 +3042,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 15
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &95584447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3266,6 +3268,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 3
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!54 &99342820
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4468,6 +4471,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &122578977
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4575,7 +4579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   incoming: {fileID: 11400000, guid: 849508cb95719a44393ee4a36375a501, type: 2}
-  sceneIndex: 0
+  sceneIndex: 2
   time: 5
 --- !u!114 &122578983
 MonoBehaviour:
@@ -4884,6 +4888,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &127821555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7304,6 +7309,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &188561696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8874,6 +8880,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!65 &234561175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9072,7 +9079,7 @@ Transform:
   m_Children:
   - {fileID: 412412363}
   m_Father: {fileID: 0}
-  m_RootOrder: 338
+  m_RootOrder: 339
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &236386200
 PrefabInstance:
@@ -9257,7 +9264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 340
+  m_RootOrder: 341
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &237432035
 PrefabInstance:
@@ -9868,6 +9875,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &253618342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10002,6 +10010,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 15
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &258749173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10633,6 +10642,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!23 &284114453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12968,6 +12978,7 @@ MonoBehaviour:
     animationName: PlanetButton
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &372259279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13073,6 +13084,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 15
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &375640853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13599,6 +13611,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &387112308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13742,7 +13755,7 @@ Transform:
   m_Children:
   - {fileID: 296698118}
   m_Father: {fileID: 0}
-  m_RootOrder: 334
+  m_RootOrder: 335
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &389393203
 GameObject:
@@ -14683,6 +14696,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &406359811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16131,6 +16145,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &458820006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16553,6 +16568,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 3
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1 &471333130
 GameObject:
   m_ObjectHideFlags: 0
@@ -21980,6 +21996,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 3
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1 &670114032
 GameObject:
   m_ObjectHideFlags: 0
@@ -22540,6 +22557,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &696378599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22586,7 +22604,7 @@ RectTransform:
   m_GameObject: {fileID: 696665594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1085770072}
@@ -23419,6 +23437,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &713813010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24356,6 +24375,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &741825035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25567,6 +25587,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &776634845
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26486,6 +26507,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &812829645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26537,7 +26559,7 @@ Transform:
   - {fileID: 1789102061}
   - {fileID: 370676303}
   m_Father: {fileID: 0}
-  m_RootOrder: 339
+  m_RootOrder: 340
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819073136
 GameObject:
@@ -28401,6 +28423,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &883765817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29190,6 +29213,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &919515188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29315,6 +29339,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &921738230
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30866,6 +30891,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!54 &974787850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31076,6 +31102,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977894802}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &981250419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981250422}
+  - component: {fileID: 981250421}
+  - component: {fileID: 981250420}
+  m_Layer: 0
+  m_Name: Reset box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &981250420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981250419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6f6f759b14e9842bc7351a00c57471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &981250421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981250419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &981250422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981250419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.9, y: -3, z: -1.7}
+  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 342
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &987502333
 GameObject:
   m_ObjectHideFlags: 0
@@ -32818,7 +32902,7 @@ RectTransform:
   - {fileID: 530063827}
   - {fileID: 604311825}
   m_Father: {fileID: 0}
-  m_RootOrder: 333
+  m_RootOrder: 334
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -110}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34560,6 +34644,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 15
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1107770363
 GameObject:
   m_ObjectHideFlags: 0
@@ -35555,7 +35640,7 @@ Transform:
   m_Children:
   - {fileID: 95760586}
   m_Father: {fileID: 0}
-  m_RootOrder: 335
+  m_RootOrder: 336
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1124456472
 PrefabInstance:
@@ -36592,6 +36677,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &1154387153
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -36692,6 +36778,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 15
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1154396170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37338,6 +37425,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1171392465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38658,6 +38746,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1205060417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39469,6 +39558,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1229188181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42349,6 +42439,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1320943255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43838,6 +43929,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 3
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1358713520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45547,6 +45639,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &1399545531
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -45804,7 +45897,7 @@ Transform:
   m_Children:
   - {fileID: 1009743088}
   m_Father: {fileID: 0}
-  m_RootOrder: 337
+  m_RootOrder: 338
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1403801617
 GameObject:
@@ -46573,6 +46666,7 @@ MonoBehaviour:
     animationName: BIGRedButton
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1430931997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47881,6 +47975,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1476064525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49317,6 +49412,167 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519397125}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1519924265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519924270}
+  - component: {fileID: 1519924269}
+  - component: {fileID: 1519924268}
+  - component: {fileID: 1519924267}
+  - component: {fileID: 1519924266}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!108 &1519924266
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519924265}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 3
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!64 &1519924267
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519924265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1519924268
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519924265}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1bf5757308cd647b0ab5d508ee0d34f7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1519924269
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519924265}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1519924270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519924265}
+  m_LocalRotation: {x: 0.39230758, y: 0.5882982, z: -0.39230758, w: 0.5882982}
+  m_LocalPosition: {x: -56.481, y: 1.844, z: 21.036}
+  m_LocalScale: {x: 0.11754798, y: 0.11612, z: 0.06837959}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 343
+  m_LocalEulerAnglesHint: {x: 67.395, y: 90, z: 0}
 --- !u!1 &1519997958
 GameObject:
   m_ObjectHideFlags: 0
@@ -50301,6 +50557,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1540553534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53201,6 +53458,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 8
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1661251776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53326,6 +53584,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &1662229950
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -53792,6 +54051,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!65 &1679809551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54000,6 +54260,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 3
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!65 &1690796562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54071,7 +54332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690796559}
   m_LocalRotation: {x: -0, y: 0.42979378, z: -0, w: 0.90292716}
-  m_LocalPosition: {x: -11.918, y: 1.504, z: -37.992}
+  m_LocalPosition: {x: -10.31, y: 1.504, z: -37.73}
   m_LocalScale: {x: 0.41, y: 0.05, z: 0.22}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56413,6 +56674,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1787396449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56532,6 +56794,7 @@ MonoBehaviour:
     animationName: PlanetButton
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1791108539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57183,6 +57446,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &1805139601
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -57685,6 +57949,7 @@ MonoBehaviour:
     animationName: PlanetButton
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1825666646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59032,7 +59297,7 @@ Transform:
   m_Children:
   - {fileID: 1332297141}
   m_Father: {fileID: 0}
-  m_RootOrder: 336
+  m_RootOrder: 337
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1881034322
 PrefabInstance:
@@ -61473,6 +61738,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1946592300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62070,6 +62336,7 @@ MonoBehaviour:
     animationName: PlanetButton
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1967427518
 GameObject:
   m_ObjectHideFlags: 0
@@ -63005,6 +63272,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1987037806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64453,6 +64721,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &2041196558
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65495,6 +65764,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2059438988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65707,6 +65977,7 @@ MonoBehaviour:
     animationName: 
   pickUp:
     throwForce: 20
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2061374149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65832,6 +66103,7 @@ MonoBehaviour:
     animationName: Button up
   pickUp:
     throwForce: 0
+  defaultPos: {x: 0, y: 0, z: 0}
 --- !u!136 &2063618702
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -66623,6 +66895,201 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28ebbcd7f4773384e867c255af2c669b, type: 3}
+--- !u!1 &2100942155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2100942160}
+  - component: {fileID: 2100942159}
+  - component: {fileID: 2100942158}
+  - component: {fileID: 2100942157}
+  - component: {fileID: 2100942156}
+  - component: {fileID: 2100942161}
+  m_Layer: 0
+  m_Name: Puzzle complete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2100942156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100942155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 2100942157}
+  clip: {fileID: 8300000, guid: 253b59d73e0214bfeaced18975946ce5, type: 3}
+  incoming: {fileID: 11400000, guid: f161c8e1977d7a743b6d016bae0f8926, type: 2}
+  singleInteraction: 1
+--- !u!82 &2100942157
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100942155}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2100942158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100942155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 2100942157}
+  clip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  incoming: {fileID: 11400000, guid: d2cdff2ca25fd96408923c5b5c3fcc9f, type: 2}
+  singleInteraction: 1
+--- !u!114 &2100942159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100942155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9081cce31153ac4f9285ec0b571a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 2100942157}
+  clip: {fileID: 8300000, guid: 510d11acfecc549259db5ad4622eec62, type: 3}
+  incoming: {fileID: 11400000, guid: fe5464cf5c42dd5499a95694917cb7f5, type: 2}
+  singleInteraction: 1
+--- !u!4 &2100942160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100942155}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -53.372, y: 2.318, z: 22.727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 332
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2100942161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100942155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10d5ac43a0f6b640b60d8002d23d8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incoming: {fileID: 11400000, guid: f161c8e1977d7a743b6d016bae0f8926, type: 2}
+  objectToToggle: {fileID: 1519924265}
+  singleInteraction: 1
 --- !u!1001 &2101223717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67001,7 +67468,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 332
+  m_RootOrder: 333
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2108560518
 PrefabInstance:
