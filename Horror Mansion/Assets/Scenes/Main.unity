@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000043681564, g: 0.000095573596, b: 0.000043681564, a: 1}
+  m_IndirectSpecularColor: {r: 0.00004327564, g: 0.000095573596, b: 0.00004327564, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3709,8 +3709,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104999958}
   m_LocalRotation: {x: -0.18430726, y: 0.25406387, z: 0.049384993, w: 0.94817907}
-  m_LocalPosition: {x: -0.77750397, y: -3.856031, z: -18.389969}
-  m_LocalScale: {x: 1.0214701, y: 0.6064085, z: 0.036805697}
+  m_LocalPosition: {x: -0.776, y: -3.856031, z: -18.395}
+  m_LocalScale: {x: 1.0584099, y: 0.6410344, z: 0.036805697}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 877179677}
@@ -3786,7 +3786,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a3f4096e50c7b374987668648079d134, type: 2}
+  - {fileID: 2100000, guid: e2322641252c37843a2aba419b49f167, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11622,6 +11622,10 @@ PrefabInstance:
     - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
       propertyPath: m_Intensity
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
@@ -52759,6 +52763,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
 --- !u!95 &1649614732 stripped
@@ -53469,7 +53477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 9889572}
-  clip: {fileID: 8300000, guid: 576d530cb4fd049eeaaf1109652849cc, type: 3}
+  clip: {fileID: 8300000, guid: 542151e545b5d194aab22b1b143e2f5e, type: 3}
   incoming: {fileID: 11400000, guid: 6263366ab618d4c1db91952818be9947, type: 2}
   singleInteraction: 0
 --- !u!1001 &1666008633
@@ -57605,6 +57613,10 @@ PrefabInstance:
     - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
       propertyPath: m_Intensity
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
@@ -63525,6 +63537,10 @@ PrefabInstance:
     - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
       propertyPath: m_Intensity
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 10892978, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0a6df65fcfba243abb2cf9260b869f, type: 3}
