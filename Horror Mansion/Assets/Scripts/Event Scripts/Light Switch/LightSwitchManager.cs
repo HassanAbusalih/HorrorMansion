@@ -37,7 +37,6 @@ public class LightSwitchManager : MonoBehaviour, INotifier
         }
         if (solved)
         {
-            Debug.Log("Solved!");
             outgoing.Notify();
             enabled = false;
         }
