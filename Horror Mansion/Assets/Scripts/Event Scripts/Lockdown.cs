@@ -1,9 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// When the player walks into the trigger, this script disables all normal lights and enables alarm lights, as well as plays the alarm on a loop. It then alternates the active state of the 
-/// alarm lights based on an interval that is set in the inspector.
-/// When the GameEvent it is subscribed to is notified, it stops the alarm sound, disables alarm lights and turn the normal lights back on.
+/// When the player walks into the trigger of the object this script is attached to, this script disables all normal lights and enables alarm lights, 
+/// as well as plays the alarm on a loop. It then alternates the active state of the alarm lights based on an interval that is set in the inspector.
+/// When the GameEvent it is subscribed to is notified, it stops the alarm sound, disables alarm lights and turns the normal lights back on.
 /// </summary>
 
 public class Lockdown : MonoBehaviour, ISubscriber

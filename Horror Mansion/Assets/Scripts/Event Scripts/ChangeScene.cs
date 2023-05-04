@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Subscribes to a game event, and changes the scene using the specificed index when it is notified.
+/// Subscribes to a game event, and changes the scene using the specified index when it is notified. The scene change can be delayed by a set time.
 /// </summary>
 public class ChangeScene : MonoBehaviour
 {
@@ -22,6 +22,6 @@ public class ChangeScene : MonoBehaviour
 
     void InvokeChangeScene()
     {
-        Invoke("SceneChange", time);
+        Invoke(nameof(SceneChange), time);
     }
 }

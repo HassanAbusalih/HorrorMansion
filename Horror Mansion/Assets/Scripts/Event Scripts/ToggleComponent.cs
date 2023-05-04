@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Subscribes to a GameEvent, and toggles a component on or off when that GameEvent is notified.
+/// Subscribes to a GameEvent, and toggles a MonoBehaviour on or off when that GameEvent is notified.
 /// </summary>
 
 public class ToggleComponent : MonoBehaviour, ISubscriber

@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEditor;
 
+/// <summary>
+/// This script changes the inspector for interactables to only display the properties/variables relevant to each type of interactable. It also inherits from GameEventVisualizer
+/// to allow the tool to work on interactables (buttons, specifically).
+/// </summary>
+
 [CustomEditor(typeof(Interactable))]
 public class InteractableInspector : GameEventVisualizer
 {

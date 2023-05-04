@@ -1,8 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+
+/// <summary>
+/// This script is placed in the credits scene, and has two variables that represent time. waitTime is the time until the player can skip the credits, while creditsTime is the 
+/// total time of the credits. When the time is greater than the waitTime and the player presses space, or when the time is greater than the creditsTime, the main menu scene is loaded.
+/// </summary>
 
 public class CreditsSkip : MonoBehaviour
 {

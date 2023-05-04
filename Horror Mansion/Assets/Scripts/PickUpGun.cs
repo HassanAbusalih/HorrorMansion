@@ -1,8 +1,8 @@
 using UnityEngine;
 
 /// <summary>
-/// When the player enters this object's trigger, it activates the PickUpText gameobject. If the player then presses E, it notifies a GameEvent and disables the ResizeGun,
-/// PickUpText and its gameobject. If the player leaves the trigger without pressing E, the PickUpText is deactivated.
+/// When the player enters this object's trigger, it activates the PickUpText gameobject. If the player then presses E, it notifies a GameEvent and enables the ResizeGun, while also
+/// disabling PickUpText and its gameobject. If the player leaves the trigger without pressing E, only the PickUpText is deactivated.
 /// </summary>
 
 public class PickUpGun : MonoBehaviour

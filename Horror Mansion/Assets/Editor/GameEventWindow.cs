@@ -3,6 +3,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Searches for and stores subscribers and notifiers for the currently selected object, and displays them in a window. 
+/// </summary>
+
 public class GameEventWindow : EditorWindow
 {
     List<GameEventInfo> mySubscribers = new();
@@ -122,7 +126,7 @@ public class GameEventWindow : EditorWindow
         SceneView.RepaintAll();
     }
 
-    public void TryDrawingLines()
+    void TryDrawingLines()
     {
         if (!searchComplete && activate)
         {
@@ -137,7 +141,7 @@ public class GameEventWindow : EditorWindow
         }
     }
 
-    public void GetMyGameEvents()
+    void GetMyGameEvents()
     {
         if (Selection.activeGameObject == null)
         {
@@ -165,7 +169,7 @@ public class GameEventWindow : EditorWindow
         }
     }
 
-    public void SearchForGameEvents()
+    void SearchForGameEvents()
     {
         if (Selection.activeGameObject == null)
         {
@@ -191,7 +195,7 @@ public class GameEventWindow : EditorWindow
         AddToListByType(events);
     }
 
-    public void AddToListByType(List<MonoBehaviour> events)
+    void AddToListByType(List<MonoBehaviour> events)
     {
         foreach (var monoBehaviour in events)
         {

@@ -1,7 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+
+/// <summary>
+/// This script changes the inspector for FloatLists by replacing the foldout that Unity creates for lists with regular fields for each FloatVar in the FloatList.
+/// A button is placed at the bottom to create new entries in the list.
+/// </summary>
 
 [CustomEditor(typeof(FloatList))]
 public class FloatListInspector : Editor

@@ -5,7 +5,7 @@ using UnityEngine;
 /// The expected input is 1, 2, 3, etc. A counter is incremented every time an expected value is received, and once the counter reaches the number of buttons set, the puzzle is marked
 /// as solved and the outgoing GameEvent is notified.
 /// If an incorrect number is passed in, the sequence is reset back to 0.
-/// This script also handles changing the materials for the wires. Unfortunately, the order in of the renderers in the array matters.
+/// This script also handles changing the materials for the wires. Unfortunately, the order of the renderers in the array matters.
 /// </summary>
 
 public class SequenceManager : MonoBehaviour, INotifier, ISubscriber

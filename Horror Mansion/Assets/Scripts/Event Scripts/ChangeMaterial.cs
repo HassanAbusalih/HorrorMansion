@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// This script changes the material of the object it is attached to when the GameEvent it is subscribed to is notified.
+/// </summary>
 
 public class ChangeMaterial : MonoBehaviour
 {
